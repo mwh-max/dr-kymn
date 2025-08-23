@@ -356,6 +356,19 @@ body {
 }
 
 @media (max-width: 600px) {
+  nav {
+    position: relative;
+    z-index: 10;
+  }
+
+  img[src*="mascot"],
+  .mascot {
+    position: relative;
+    z-index: 1;
+    display: block;
+    margin-top: 1rem;
+  }
+
   nav ul {
     flex-direction: column;
     align-items: flex-start;
