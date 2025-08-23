@@ -24,7 +24,18 @@
           <img src="dr-kymn.png" alt="" class="mini-kymn" />
         </a>
         <nav class="site-nav" aria-label="Primary">
-          <ul class="nav">
+          <button
+            class="nav-toggle"
+            aria-controls="primary-menu"
+            aria-expanded="false"
+          >
+            <span class="sr-only">Menu</span>
+            <span class="bar" aria-hidden="true"></span>
+            <span class="bar" aria-hidden="true"></span>
+            <span class="bar" aria-hidden="true"></span>
+          </button>
+
+          <ul id="primary-menu" class="menu">
             <li><a href="index.html">Home</a></li>
             <li><a href="who-qualifies.html">Who Qualifies?</a></li>
             <li><a href="who-accepts.html">Who Accepts?</a></li>
@@ -95,5 +106,6 @@
         >.
       </p>
     </footer>
+    <script src="js/nav.js" defer></script>
   </body>
 </html>

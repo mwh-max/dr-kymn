@@ -394,3 +394,129 @@ body {
     z-index: 0;
   }
 }
+
+/* --- Base nav --- */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  background: #fff;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.site-nav .brand {
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  color: #111;
+}
+
+/* Menu list (desktop default) */
+.site-nav .menu {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.site-nav .menu a {
+  text-decoration: none;
+  color: #222;
+  padding: 0.5rem 0.25rem;
+}
+
+.site-nav .menu a[aria-current="page"] {
+  font-weight: 700;
+  text-underline-offset: 0.25rem;
+  text-decoration: underline;
+}
+
+/* Ensure hamburger bars stack vertically */
+.nav-toggle {
+  display: inline-flex;
+  flex-direction: column; /* <-- key line */
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Hamburger icon bars */
+.nav-toggle .bar {
+  display: block;
+  width: 24px;
+  height: 2px;
+  margin: 5px 0;
+  background: #111;
+  transition: transform 200ms ease, opacity 200ms ease;
+}
+
+/* --- Mobile layout --- */
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Stack: brand + toggle visible; menu becomes off-canvas panel */
+  .site-nav .menu {
+    position: fixed;
+    inset: 56px 0 0 0; /* below the header */
+    background: #fff;
+    border-top: 1px solid #eee;
+    display: none; /* hidden by default on mobile */
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0.75rem 1rem 2rem;
+    overflow-y: auto;
+  }
+
+  .site-nav .menu.open {
+    display: flex;
+  }
+
+  .site-nav .menu li a {
+    padding: 0.75rem 0.25rem;
+    font-size: 1.05rem;
+  }
+
+  /* Prevent page content from scrolling when menu is open */
+  body.nav-open {
+    overflow: hidden;
+    touch-action: none;
+  }
+
+  /* Fancy X animation (optional) */
+  .nav-toggle[aria-expanded="true"] .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-toggle[aria-expanded="true"] .bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .nav-toggle[aria-expanded="true"] .bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+}
+
+/* Screen-reader only helper */
+.sr-only {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
