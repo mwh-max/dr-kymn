@@ -119,6 +119,23 @@ body {
   background: #f2f2f2;
 }
 
+/* nav reset hardening */
+.site-nav .nav,
+.site-nav .nav ul,
+.site-nav .nav li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Highlight the current page in the nav */
+.site-nav a[aria-current="page"] {
+  font-weight: 700; /* make it bolder */
+  text-decoration: underline; /* underline or swap in your highlight style */
+  background-color: #e0f2fe; /* soft blue background (optional) */
+  border-radius: 0.5rem; /* match your nav pill style */
+}
+
 /* Page titles and FAQ */
 .page-title {
   font-weight: 900;

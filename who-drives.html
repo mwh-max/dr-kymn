@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Who Drives? | The Kentucky Medicaid Notebook</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="assets/favicon.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <!-- page-only styles (safe, scoped) -->
+    <link rel="stylesheet" href="css/who-drives.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="wrap">
+        <a class="brandlink" href="index.html">
+          <img src="dr-kymn.png" alt="" class="mini-kymn" />
+        </a>
+        <nav class="site-nav" aria-label="Primary">
+          <ul class="nav">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="who-qualifies.html">Who Qualifies?</a></li>
+            <li><a href="who-accepts.html">Who Accepts?</a></li>
+            <li>
+              <a href="who-drives.html" aria-current="page">Who Drives?</a>
+            </li>
+            <li><a href="apply.html">Apply</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="kymn-who-drives" class="container">
+      <header class="page-header">
+        <h1>Who Drives?</h1>
+        <p class="tagline">
+          Free rides to covered medical appointments for Kentucky Medicaid
+          members.
+        </p>
+        <p class="meta">Last verified against KYTC: Aug. 22, 2025</p>
+      </header>
+
+      <section aria-labelledby="how">
+        <h2 id="how">How It Works</h2>
+        <ol>
+          <li>Select your <strong>county</strong> below.</li>
+          <li>
+            Call the <strong>toll‑free broker number</strong> to schedule.
+          </li>
+          <li>
+            Have your Medicaid ID, pickup/clinic addresses, date/time and return
+            time.
+          </li>
+        </ol>
+        <p class="note">
+          Scheduling window (per KYTC): Mon–Fri 8:00–4:30, Sat 8:00–1:00.
+          Service typically runs Mon–Fri 6:00–8:00, Sat 8:00–1:00. Policies can
+          change—confirm when you call.
+        </p>
+      </section>
+
+      <section aria-labelledby="finder">
+        <h2 id="finder">Find your transportation broker</h2>
+
+        <!-- County search (type-ahead) -->
+        <label class="sr-only" for="kymn-county-search"
+          >Search your county</label
+        >
+        <input
+          id="kymn-county-search"
+          type="search"
+          placeholder="Start typing your county…"
+          list="kymn-county-list"
+          aria-describedby="countyHelp"
+        />
+        <datalist id="kymn-county-list"></datalist>
+
+        <!-- Or choose from full list -->
+        <div style="height: 0.5rem"></div>
+        <label class="sr-only" for="kymn-county">Choose your county</label>
+        <select id="kymn-county" name="county">
+          <option value="">— Or select your Kentucky county —</option>
+        </select>
+
+        <p id="countyHelp" class="hint">
+          Pick from the dropdown or type your county name, then press Enter or
+          choose a match.
+        </p>
+
+        <div id="kymn-result" aria-live="polite"></div>
+
+        <noscript>
+          <p>
+            <strong>JavaScript is off.</strong> See the KYTC broker list or call
+            the HSTD hotline: <a href="tel:18889417433">1‑888‑941‑7433</a>.
+          </p>
+        </noscript>
+      </section>
+
+      <section aria-labelledby="script">
+        <h2 id="script">What To Say</h2>
+        <p>
+          “Hi, I have Kentucky Medicaid and need a ride to a doctor’s
+          appointment on <em>[date/time]</em> from <em>[pickup]</em> to
+          <em>[clinic]</em>. My county is <em>[county]</em>. I also need a
+          return ride.”
+        </p>
+        <ul>
+          <li>Mention wheelchair or escort needs when you book.</li>
+          <li>Call back ASAP if details change.</li>
+        </ul>
+      </section>
+
+      <section aria-labelledby="help">
+        <h2 id="help">If You Have Problems</h2>
+        <p>
+          HSTD Customer Service Hotline:
+          <a href="tel:18889417433">1‑888‑941‑7433</a> (Kentucky Transportation
+          Cabinet).
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        <strong>Dr. KYMN</strong> is a friendly guide, not a medical doctor. Not
+        affiliated with any agency. Made in Lexington, KY, by
+        <a href="https://sleepingbear.us" target="_blank" rel="noopener"
+          >Sleeping Bear Labs</a
+        >.
+      </p>
+    </footer>
+    <script src="js/who-drives.js" defer></script>
+  </body>
+</html>

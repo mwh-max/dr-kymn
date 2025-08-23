@@ -1,0 +1,90 @@
+/* All styles are scoped so they won't leak */
+#kymn-who-drives {
+  --card-radius: 14px;
+  --gap: 14px;
+  --pad: 14px;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+  --bg: #ffffff;
+  --bg-soft: #f8fafc;
+  --focus: #0ea5e9;
+  color: inherit;
+}
+
+/* Page header */
+#kymn-who-drives .page-header {
+  margin-bottom: 1.25rem;
+}
+#kymn-who-drives .tagline {
+  color: var(--muted);
+}
+#kymn-who-drives .meta {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Inputs: softer type + rounded corners */
+#kymn-who-drives select,
+#kymn-who-drives input[type="search"] {
+  width: 100%;
+  max-width: 520px;
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--border);
+  border-radius: var(--card-radius);
+  background: var(--bg);
+  font-size: 1rem;
+  line-height: 1.2;
+}
+#kymn-who-drives select:focus,
+#kymn-who-drives input[type="search"]:focus {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* Hint + note blocks */
+#kymn-who-drives .hint {
+  color: var(--muted);
+  margin: 0.5rem 0 1rem;
+}
+#kymn-who-drives .note {
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--card-radius);
+  padding: var(--pad);
+}
+
+/* Result card */
+#kymn-who-drives .broker-card {
+  margin-top: 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--card-radius);
+  padding: var(--pad);
+  background: var(--bg);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+}
+#kymn-who-drives .broker-card h3 {
+  margin: 0 0 0.25rem;
+}
+#kymn-who-drives .broker-card .county-line {
+  color: var(--muted);
+}
+
+/* Buttons */
+#kymn-who-drives .call-button {
+  display: inline-block;
+  margin-top: 0.5rem;
+  padding: 0.6rem 0.9rem;
+  border-radius: var(--card-radius);
+  border: 1px solid var(--border);
+  text-decoration: none;
+  background: var(--bg-soft);
+}
+#kymn-who-drives .call-button:focus {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* Section spacing */
+#kymn-who-drives section {
+  margin: 1.25rem 0;
+}
