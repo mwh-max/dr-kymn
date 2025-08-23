@@ -354,3 +354,30 @@ body {
   color: #1a1a1a;
   text-align: center;
 }
+
+/* --- Mobile nav + mascot overlap patch --- */
+@media (max-width: 700px) {
+  /* 1) Stack the nav buttons vertically */
+  .nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .nav a {
+    display: block;
+    width: 100%;
+  }
+
+  /* 2) Keep the top bar above everything on mobile */
+  .topbar {
+    position: relative;
+    z-index: 1000;
+    background: #fff; /* ensures it isn't see-through */
+  }
+
+  /* 3) Soften the mascot on mobile to avoid overlap */
+  .kymn-hero {
+    transform: none; /* remove the translateY bump */
+    margin-top: 0.75rem; /* give it a little breathing room under nav */
+  }
+}
