@@ -2,154 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <title>The Kentucky Medicaid Notebook</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Welcome | The Kentucky Medicaid Notebook</title>
     <meta
       name="description"
-      content="Plain‑language Kentucky Medicaid basics: what to bring, where to start and how to apply."
+      content="Plain-language guide to Kentucky Medicaid and KCHIP: eligibility, providers, transportation, applying, what happens next, and renewal."
     />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;900&display=swap"
       rel="stylesheet"
     />
     <link rel="icon" href="assets/favicon.png" />
-    <link rel="stylesheet" href="styles.css?v=6" />
-    <!-- SVG Icon Sprite -->
-    <svg
-      aria-hidden="true"
-      style="position: absolute; width: 0; height: 0; overflow: hidden"
-    >
-      <symbol id="icon-idcard" viewBox="0 0 24 24">
-        <rect
-          x="2"
-          y="5"
-          width="20"
-          height="14"
-          rx="2"
-          ry="2"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-        />
-        <line
-          x1="7"
-          y1="10"
-          x2="13"
-          y2="10"
-          stroke="currentColor"
-          stroke-width="2"
-        />
-        <line
-          x1="7"
-          y1="14"
-          x2="11"
-          y2="14"
-          stroke="currentColor"
-          stroke-width="2"
-        />
-        <circle cx="17" cy="12" r="2" fill="currentColor" />
-      </symbol>
-      <symbol id="icon-ssn" viewBox="0 0 24 24">
-        <rect
-          x="3"
-          y="6"
-          width="18"
-          height="12"
-          rx="2"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-        />
-        <path d="M6 10h12M6 14h7" stroke="currentColor" stroke-width="2" />
-      </symbol>
-      <symbol id="icon-home" viewBox="0 0 24 24">
-        <path
-          d="M3 11.5 12 4l9 7.5"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-        />
-        <path
-          d="M5 11v8h14v-8"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-        />
-        <rect
-          x="10"
-          y="14"
-          width="4"
-          height="5"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-        />
-      </symbol>
-      <symbol id="icon-income" viewBox="0 0 24 24">
-        <circle
-          cx="12"
-          cy="12"
-          r="9"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-        />
-        <path
-          d="M12 5v14"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-        />
-        <path
-          d="M16.5 8.5c-.9-1.1-2.3-1.8-3.9-1.8-2.1 0-3.6 1-3.6 2.5 0 3.1 7.6 1.9 7.6 5.2
-           0 1.5-1.8 2.7-4.1 2.7-1.7 0-3.3-.6-4.2-1.6"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-        />
-      </symbol>
-      <symbol id="icon-bill" viewBox="0 0 24 24">
-        <rect
-          x="5"
-          y="3"
-          width="14"
-          height="18"
-          rx="1.5"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-        />
-        <line
-          x1="8"
-          y1="8"
-          x2="16"
-          y2="8"
-          stroke="currentColor"
-          stroke-width="2"
-        />
-        <line
-          x1="8"
-          y1="12"
-          x2="16"
-          y2="12"
-          stroke="currentColor"
-          stroke-width="2"
-        />
-        <line
-          x1="8"
-          y1="16"
-          x2="13"
-          y2="16"
-          stroke="currentColor"
-          stroke-width="2"
-        />
-      </symbol>
-    </svg>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
+    <!-- Top bar nav (same everywhere; aria-current set for Home here) -->
     <header class="topbar">
       <div class="wrap">
         <a class="brandlink" href="index.html">
@@ -181,67 +51,61 @@
       </div>
     </header>
 
+    <!-- Homepage hero (Dr. KYMN appears ONLY here) -->
     <header class="site-header">
       <img
+        class="kymn-hero"
         src="dr-kymn.png"
         alt="Illustration of Dr. KYMN, a friendly squirrel waving"
-        class="kymn-hero"
       />
-      <h1 class="brand">Hello, I'm Dr. KYMN</h1>
+      <h1 class="brand page-title">The Kentucky Medicaid Notebook</h1>
       <p class="lead">
-        ... the <strong>Kentucky Medicaid Notebook*</strong>. Medicaid is
-        complicated. Lots of weird terms and rules. Here are some basics to get
-        started.
+        A simple, plain‑language guide to eligibility, providers, rides,
+        applying, what happens next, and renewal.
       </p>
     </header>
 
-    <main id="main" class="container">
-      <section aria-labelledby="musthaves-title">
-        <h2 id="musthaves-title" class="section-title">Must‑Haves</h2>
-        <p class="tag">These are required in most cases.</p>
+    <!-- Nav-as-content hub -->
+    <main id="main" class="container" aria-labelledby="sections">
+      <h2 id="sections" class="section-title">Pick a section</h2>
+      <p class="tag">Short, step‑by‑step pages. No jargon.</p>
 
-        <ul class="card-grid" role="list">
-          <li class="info-card">
-            <div class="icon-wrap">
-              <svg><use href="#icon-idcard" /></svg>
-            </div>
-            <h3>Medicaid ID Card</h3>
-            <p>If you have one, bring it with you.</p>
-          </li>
+      <ul class="card-grid" role="list">
+        <li class="info-card">
+          <h3><a href="who-qualifies.html">Who Qualifies?</a></h3>
+          <p>Eligibility, FPL basics, MAGI vs. ABD.</p>
+        </li>
 
-          <li class="info-card">
-            <div class="icon-wrap">
-              <svg><use href="#icon-ssn" /></svg>
-            </div>
-            <h3>Social Security Number</h3>
-            <p>For you and anyone in your household applying.</p>
-          </li>
+        <li class="info-card">
+          <h3><a href="who-accepts.html">Who Accepts?</a></h3>
+          <p>Finding providers that take Kentucky Medicaid.</p>
+        </li>
 
-          <li class="info-card">
-            <div class="icon-wrap">
-              <svg><use href="#icon-home" /></svg>
-            </div>
-            <h3>Proof of Kentucky Residency</h3>
-            <p>Recent mail, lease or utility bill with your KY address.</p>
-          </li>
+        <li class="info-card">
+          <h3><a href="who-drives.html">Who Drives?</a></h3>
+          <p>Transportation options by county.</p>
+        </li>
 
-          <li class="info-card">
-            <div class="icon-wrap">
-              <svg><use href="#icon-income" /></svg>
-            </div>
-            <h3>Proof of Income</h3>
-            <p>Recent pay stubs or benefits letters for your household.</p>
-          </li>
+        <li class="info-card">
+          <h3><a href="apply.html">Apply</a></h3>
+          <p>How to apply—what you’ll need and where to go.</p>
+        </li>
 
-          <li class="info-card">
-            <div class="icon-wrap">
-              <svg><use href="#icon-bill" /></svg>
-            </div>
-            <h3>Recent Medical Bills</h3>
-            <p>Optional but helpful for determining coverage needs.</p>
-          </li>
-        </ul>
-      </section>
+        <li class="info-card">
+          <h3><a href="after-you-apply.html">After You Apply</a></h3>
+          <p>What to expect, how to respond, and next steps.</p>
+        </li>
+
+        <li class="info-card">
+          <h3><a href="renewal.html">Renewal</a></h3>
+          <p>Annual review checklist and how to keep coverage.</p>
+        </li>
+
+        <li class="info-card">
+          <h3><a href="faq.html">FAQ</a></h3>
+          <p>Plain answers to common questions.</p>
+        </li>
+      </ul>
     </main>
 
     <footer class="site-footer">
@@ -253,6 +117,7 @@
         >.
       </p>
     </footer>
+
     <script src="js/nav.js" defer></script>
   </body>
 </html>
