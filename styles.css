@@ -460,6 +460,10 @@ body {
   transition: transform 200ms ease, opacity 200ms ease;
 }
 
+.menu li a {
+  white-space: nowrap;
+}
+
 /* --- Mobile layout --- */
 @media (max-width: 768px) {
   .nav-toggle {
