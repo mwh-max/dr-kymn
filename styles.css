@@ -1249,3 +1249,11 @@ main {
     padding-right: 1rem !important;
   }
 }
+
+/* Align "Pick a section" with cards */
+@media (max-width: 899px) {
+  .section-intro {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
