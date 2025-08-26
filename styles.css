@@ -1038,32 +1038,6 @@ main {
   }
 }
 
-/* 4) Mobile/Tablet: remove the “fixed overlay” menu behavior */
-@media (max-width: 899.98px) {
-  /* Keep the menu inline, not a full-screen panel */
-  .site-nav .menu {
-    position: static !important;
-    inset: auto !important;
-    height: auto !important;
-    display: flex !important;
-    flex-direction: row !important;
-    gap: 0.6rem;
-    overflow: auto hidden;
-    border-top: 0;
-    padding: 0;
-    background: transparent;
-  }
-  /* Hide the hamburger if it exists */
-  .nav-toggle {
-    display: none !important;
-  }
-  /* Restore page scrolling just in case */
-  body.nav-open {
-    overflow: auto !important;
-    touch-action: auto !important;
-  }
-}
-
 /* 5) Hero card: keep it snug to the sidebar and aligned to the grid */
 @media (min-width: 900px) {
   .home-hero .hero-card {
@@ -1220,7 +1194,7 @@ main {
     padding: 0.5rem;
   }
 
-  .site-nav menu {
+  .site-nav .menu {
     display: none;
     flex-direction: column;
     gap: 0.25rem;
@@ -1248,4 +1222,22 @@ main {
   .site-nav.open .menu {
     display: flex;
   }
+}
+
+/* MOBILE NAV — single source of truth */
+@media (max-width: 899px) {
+  .nav-toggle {
+    display: inline-block;
+    background: none;
+    border: 0;
+    padding: 0.5rem;
+  }
+  .site-nav .menu {
+    display: none;
+    flex-direction: column;
+    gap: 0.25rem;
+  } /* correct .site-nav .menu */
+  .site-nav.open .menu {
+    display: flex;
+  } /* shown when JS toggles .open */
 }
