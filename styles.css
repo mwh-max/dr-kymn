@@ -1274,3 +1274,10 @@ main {
     padding: 0 1rem; /* tiny breathing room if viewport is wide */
   }
 }
+
+/* Place section intro across full grid row, centered relative to cards */
+.card-grid .section-intro {
+  grid-column: 1 / -1; /* span all card columns */
+  text-align: center; /* center the text itself */
+  margin-bottom: 1rem; /* space before first row of cards */
+}
