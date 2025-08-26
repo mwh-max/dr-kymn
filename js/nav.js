@@ -1,42 +1,23 @@
-// js/nav.js
-(function () {
+// js/nav.js — single, robust listener
+document.addEventListener("DOMContentLoaded", () => {
   const btn = document.querySelector(".nav-toggle");
-  const menu = document.getElementById("primary-menu");
-  if (!btn || !menu) return;
+  if (!btn) return;
 
-  const OPEN_CLASS = "open";
-  const BODY_OPEN = "nav-open";
-  const BREAKPOINT = 768;
-
-  function openMenu() {
-    btn.setAttribute("aria-expanded", "true");
-    menu.classList.add(OPEN_CLASS);
-    document.body.classList.add(BODY_OPEN);
-  }
-
-  function closeMenu() {
-    btn.setAttribute("aria-expanded", "false");
-    menu.classList.remove(OPEN_CLASS);
-    document.body.classList.remove(BODY_OPEN);
-  }
+  // scope to the nav that *contains* this button (not the first nav on page)
+  const nav = btn.closest(".site-nav");
+  if (!nav) return;
 
   btn.addEventListener("click", () => {
-    const expanded = btn.getAttribute("aria-expanded") === "true";
-    expanded ? closeMenu() : openMenu();
+    const open = btn.getAttribute("aria-expanded") === "true";
+    btn.setAttribute("aria-expanded", String(!open));
+    nav.classList.toggle("open", !open);
   });
 
-  // Close when a link inside the menu is clicked
-  menu.addEventListener("click", (e) => {
-    if (e.target.closest("a")) closeMenu();
+  // close on link click (mobile)
+  nav.addEventListener("click", (e) => {
+    const a = e.target.closest("a");
+    if (!a) return;
+    btn.setAttribute("aria-expanded", "false");
+    nav.classList.remove("open");
   });
-
-  // Close on Escape
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closeMenu();
-  });
-
-  // If resized to desktop, reset mobile state
-  window.addEventListener("resize", () => {
-    if (window.innerWidth > BREAKPOINT) closeMenu();
-  });
-})();
+});
