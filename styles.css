@@ -1241,3 +1241,11 @@ main {
     display: flex;
   } /* shown when JS toggles .open */
 }
+
+/* MOBILE CARD PADDING */
+@media (max-width: 899px) {
+  .card-grid {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
