@@ -1281,3 +1281,11 @@ main {
   text-align: center; /* center the text itself */
   margin-bottom: 1rem; /* space before first row of cards */
 }
+
+/* Hide mini KYMN logo on the home page (mobile only) */
+@media (max-width: 899px) {
+  .home .site-nav .brand,
+  .home .site-nav .brand img {
+    display: none;
+  }
+}
