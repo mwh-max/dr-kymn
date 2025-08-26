@@ -196,10 +196,20 @@ body {
 /* -----------------------------
    Main container
 ------------------------------ */
+main {
+  margin-left: 240px; /* to make room for sidebar */
+}
+
 .container {
   max-width: 1000px;
   margin: 0 auto;
   padding: 0 1rem 2.5rem;
+}
+
+main.container {
+  max-width: 100%; /* let it span same width as hero */
+  padding-left: 0; /* optional: align left with hero */
+  padding-right: 0; /* optional: align right with hero */
 }
 
 /* Section heading */
@@ -207,6 +217,7 @@ body {
   font-size: var(--t-xl);
   font-weight: 900;
   letter-spacing: 0.01em;
+  margin-top: 0.5rem;
   margin: 0 0 0.25rem 0.25rem;
 }
 
@@ -464,6 +475,31 @@ body {
   white-space: nowrap;
 }
 
+/* Special nav + card colors */
+.link-denied {
+  color: #b00020; /* strong red */
+  font-weight: 800;
+}
+
+.link-approved {
+  color: #006400; /* dark green */
+  font-weight: 800;
+}
+
+/* Optional: make cards use the same color for headings */
+.info-card h3 a.link-denied {
+  color: #b00020;
+}
+.info-card h3 a.link-approved {
+  color: #006400;
+}
+.info-card h3 a.link-denied {
+  color: #b00020;
+}
+.info-card h3 a.link-approved {
+  color: #006400;
+}
+
 /* --- Mobile layout --- */
 @media (max-width: 768px) {
   .nav-toggle {
@@ -484,6 +520,22 @@ body {
     align-items: stretch;
     padding: 0.75rem 1rem 2rem;
     overflow-y: auto;
+  }
+
+  .site-nav {
+    width: 220px;
+    float: left;
+  }
+
+  .site-nav .menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .site-nav .menu li a {
+    font-size: 1rem; /* comfortable size */
+    padding: 0.5rem;
   }
 
   .site-nav .menu.open {
@@ -523,4 +575,639 @@ body {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
+}
+
+/* ===== SIDEBAR MODE (desktop ≥900px), topbar on smaller ===== */
+
+/* Neutralize legacy .nav if it ever sneaks into DOM */
+.nav,
+.nav ul,
+.nav li {
+  all: unset;
+}
+.nav {
+  display: none !important;
+}
+
+/* Default: assume topbar (mobile/tablet); remove any forced left margin */
+.site-header,
+main,
+.site-footer {
+  margin-left: 0;
+}
+
+/* Desktop: fixed left sidebar */
+@media (min-width: 900px) {
+  .topbar {
+    height: auto;
+    border-bottom: 0; /* sidebar will provide the border line */
+  }
+  .topbar .wrap {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .site-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 232px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    background: #fff;
+    border-right: 2px solid var(--line);
+    border-bottom: 0;
+    z-index: 9999;
+    padding: 0; /* let children handle their own padding */
+  }
+
+  /* Brand area at top of sidebar */
+  .brandlink {
+    padding: 0.75rem 1rem;
+    border-bottom: 2px solid var(--line);
+  }
+  .mini-kymn {
+    width: 36px;
+    border-radius: 8px;
+  }
+
+  /* Vertical menu */
+  .site-nav .menu {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    list-style: none;
+    margin: 0;
+    padding: 0.75rem 0.75rem 1rem;
+    overflow-y: auto;
+  }
+  .site-nav .menu li {
+    margin: 0;
+  }
+  .site-nav .menu a {
+    display: block;
+    text-decoration: none;
+    color: #222;
+    padding: 0.5rem 0.4rem;
+    border-radius: 10px;
+    white-space: nowrap;
+    font-size: 1rem;
+  }
+
+  /* Current page style (keep it subtle) */
+  .site-nav .menu a[aria-current="page"] {
+    font-weight: 800;
+    text-decoration: none;
+    background: #f2f2f2;
+  }
+
+  /* Make space for the sidebar */
+  .site-header,
+  main,
+  .site-footer {
+    margin-left: 232px;
+  }
+
+  /* Wide layout niceties */
+  .container {
+    max-width: 1000px;
+  }
+  .card-grid {
+    gap: 1.2rem;
+  }
+  .info-card {
+    padding: 1.1rem 1.1rem 1.2rem;
+  }
+}
+
+/* Mobile/Tablet: keep horizontal topbar */
+@media (max-width: 899.98px) {
+  .site-nav {
+    position: sticky;
+    top: 0;
+    width: auto;
+    height: auto;
+    border-right: 0;
+    border-bottom: 1px solid #e8e8e8;
+    background: #fff;
+    padding: 0.5rem 1rem;
+  }
+  .site-nav .menu {
+    display: flex;
+    flex-direction: row;
+    gap: 0.6rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: auto hidden;
+  }
+  .site-nav .menu a {
+    padding: 0.4rem 0.25rem;
+    font-size: 0.95rem;
+    white-space: nowrap;
+  }
+}
+
+/* Color system for Denied/Approved (no underline for Denied anywhere) */
+.link-denied {
+  color: #a30018;
+  font-weight: 800;
+  text-decoration: none;
+}
+.page-title.link-denied {
+  color: #a30018;
+  font-weight: 900;
+  letter-spacing: 0.005em;
+}
+.info-card h3 a.link-denied {
+  color: #a30018;
+}
+
+.link-approved {
+  color: #0b6b0b;
+  font-weight: 800;
+  text-decoration: none;
+}
+.page-title.link-approved {
+  color: #0b6b0b;
+  font-weight: 900;
+}
+.info-card h3 a.link-approved {
+  color: #0b6b0b;
+}
+
+/* Ensure Denied never underlines even if current */
+.site-nav .menu a.link-denied[aria-current="page"] {
+  text-decoration: none;
+  background: #f9e6ea;
+}
+
+/* Optional: keep long labels on one line everywhere */
+.menu li a {
+  white-space: nowrap;
+}
+
+/* Homepage hero: mascot left, stacked title on the right */
+.home-hero {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.25rem;
+  text-align: left; /* text left of the block */
+  padding-top: 1.25rem; /* slight breathing room */
+}
+
+/* Bigger mascot on desktop; responsive clamp */
+.kymn-left {
+  width: clamp(220px, 26vw, 360px);
+  height: auto;
+  margin: 0;
+  transform: none; /* cancel any previous nudge */
+}
+
+/* Stack each word of the title on its own line */
+.logo-stack {
+  line-height: 0.95;
+  margin: 0; /* tighten header margin */
+}
+.logo-stack span {
+  display: block;
+}
+
+/* Keep the text column constrained so it aligns with cards */
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.home-hero {
+  margin-bottom: 0.75rem;
+}
+
+/* Mobile/tablet: stack image above text */
+@media (max-width: 899.98px) {
+  .home-hero {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.75rem;
+  }
+  .kymn-left {
+    width: clamp(180px, 45vw, 260px);
+  }
+  .hero-text {
+    align-items: center;
+  }
+}
+
+/* --- Homepage hero: mascot left, stacked title to the right --- */
+.site-header.home-hero {
+  display: flex; /* ensure flex on this block */
+  flex-direction: row; /* <-- sit side‑by‑side */
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1.25rem;
+  text-align: left;
+}
+
+/* Make sure base column rule can't override this */
+.site-header.home-hero .kymn-left {
+  flex: 0 0 auto;
+  width: clamp(220px, 26vw, 360px);
+}
+.site-header.home-hero .hero-text {
+  flex: 1 1 auto;
+  max-width: 720px;
+}
+.site-header.home-hero .logo-stack {
+  line-height: 0.95;
+  margin: 0;
+}
+.site-header.home-hero .logo-stack span {
+  display: block;
+}
+.site-header.home-hero .lead {
+  margin-top: 0.35rem;
+}
+
+/* Responsive: stack on small screens */
+@media (max-width: 899.98px) {
+  .site-header.home-hero {
+    flex-direction: column; /* stack vertically on mobile/tablet */
+    align-items: center;
+    text-align: center;
+    gap: 0.75rem;
+  }
+  .site-header.home-hero .kymn-left {
+    width: clamp(180px, 45vw, 260px);
+  }
+  .site-header.home-hero .hero-text {
+    max-width: 38rem;
+  }
+}
+
+.home-hero {
+  display: flex;
+  align-items: center; /* mascot + text align neatly */
+  gap: 1.5rem; /* spacing between mascot and text */
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* flush left alignment */
+}
+
+.hero-text h1 {
+  margin: 0;
+  line-height: 1.1;
+}
+
+.hero-text .lead {
+  margin-top: 0.5rem;
+  margin-left: 0; /* force it flush under headline */
+  font-size: 1rem;
+  color: #333;
+}
+
+/* 1) Remove the white bar above */
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+.site-header {
+  margin-top: 0;
+  padding-top: 0;
+  border: 0;
+  background: transparent;
+}
+/* Some resets that can create top gaps */
+.site-header h1 {
+  margin-block-start: 0;
+}
+
+/* 2) Group the hero into a single rounded container */
+:root {
+  --hero-bg: #1f4fbf; /* pick your blue */
+  --hero-radius: 16px; /* match your button corners */
+}
+
+/* Hero card container — anchored left, rounded right */
+.home-hero .hero-card {
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 3vw, 40px);
+  background: royalblue;
+  border: 1px solid var(--line);
+  border-top-right-radius: 18px;
+  border-bottom-right-radius: 18px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-left: 0;
+
+  /* remove the “auto” padding that pushes contents inward */
+  padding: clamp(16px, 3vw, 48px);
+
+  /* add this: */
+  padding-left: 0; /* dock contents to sidebar border */
+  box-sizing: border-box;
+  width: 100%;
+  max-width: none;
+  margin-left: -2px;
+  margin-right: 0;
+  margin-bottom: 1rem;
+}
+
+/* Bigger main header inside hero */
+.hero-card .hero-text h1 {
+  font-size: clamp(2.5rem, 5vw + 1rem, 3.5rem); /* larger scale */
+  line-height: 1.05;
+  margin: 0;
+}
+
+/* Subhed: larger + each sentence stacked */
+.hero-card .hero-text .lead {
+  font-size: 1.25rem;
+  line-height: 1.3; /* tighter than 1.6 */
+  margin-top: 0.75rem;
+  white-space: pre-line; /* respect <br> tags */
+  text-align: left; /* left-justify lines */
+}
+
+/* 3) Mascot sizing & behavior */
+.kymn-hero {
+  width: min(34vw, 380px);
+  height: auto;
+  flex-shrink: 0;
+}
+
+/* 4) Stack + align the headline/subhed; reverse to white with shadow */
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* subhed flush with headline */
+}
+
+.logo-stack span {
+  display: block;
+} /* guarantees the stacked look */
+
+.hero-text h1,
+.hero-text .lead {
+  color: #fff;
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.35), 0 0 8px rgba(0, 0, 0, 0.25);
+}
+
+.hero-text h1 {
+  margin: 0;
+  line-height: 1.05;
+}
+
+.hero-text .lead {
+  margin-top: 0.6rem;
+  font-size: clamp(1rem, 1.2vw + 0.8rem, 1.25rem);
+  opacity: 0.95; /* tiny soften so headline stays dominant */
+}
+
+/* 5) Responsive: tighten spacing on small screens */
+@media (max-width: 720px) {
+  .home-hero .hero-card {
+    flex-direction: column;
+    text-align: left; /* keeps alignment with side-nav feel */
+    gap: 16px;
+  }
+  .kymn-hero {
+    width: min(60vw, 360px);
+  }
+}
+
+@media (min-width: 900px) {
+  .site-header.home-hero {
+    padding-left: 0; /* remove the gutter causing the light strip */
+  }
+}
+
+/* Use the same “container” width + right gutter the grid uses */
+:root {
+  --container-max: 1000px; /* matches .container */
+  --container-pad: 1rem; /* matches .container padding */
+}
+
+@media (min-width: 900px) {
+  /* Give the hero header the same right gutter as .container */
+  .site-header.home-hero {
+    padding-right: var(--container-pad);
+  }
+
+  /* Make the blue card fill that container width */
+  .home-hero .hero-card {
+    width: 100%;
+    max-width: var(--container-max);
+    margin-right: auto; /* align to right edge of container */
+    margin-left: -2px; /* stay docked to sidebar border */
+    box-sizing: border-box; /* padding won't push it wider */
+  }
+}
+
+/* ==== HOTFIX — 2025-08-25 ============================== */
+/* 1) One source of truth for sidebar width */
+:root {
+  --sidebar: 232px;
+}
+
+/* 2) Nuke the old hard left-margin on <main> everywhere */
+main {
+  margin-left: 0 !important;
+}
+
+/* 3) Desktop ≥900px: set sidebar + content offsets consistently */
+@media (min-width: 900px) {
+  .site-nav {
+    width: var(--sidebar);
+  }
+  .site-header,
+  main,
+  .site-footer {
+    margin-left: var(--sidebar) !important;
+  }
+}
+
+/* 4) Mobile/Tablet: remove the “fixed overlay” menu behavior */
+@media (max-width: 899.98px) {
+  /* Keep the menu inline, not a full-screen panel */
+  .site-nav .menu {
+    position: static !important;
+    inset: auto !important;
+    height: auto !important;
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 0.6rem;
+    overflow: auto hidden;
+    border-top: 0;
+    padding: 0;
+    background: transparent;
+  }
+  /* Hide the hamburger if it exists */
+  .nav-toggle {
+    display: none !important;
+  }
+  /* Restore page scrolling just in case */
+  body.nav-open {
+    overflow: auto !important;
+    touch-action: auto !important;
+  }
+}
+
+/* 5) Hero card: keep it snug to the sidebar and aligned to the grid */
+@media (min-width: 900px) {
+  .home-hero .hero-card {
+    margin-left: calc(-1 * 2px); /* stay docked to the sidebar border line */
+    margin-right: auto; /* align with container’s right edge */
+    max-width: var(--container-max);
+    box-sizing: border-box;
+  }
+}
+/* ======================================================= */
+
+/* === Cards layout: 3 / 3 / 2 and clear of left nav === */
+@media (min-width: 900px) {
+  .card-grid {
+    display: grid !important;
+    grid-template-columns: repeat(
+      3,
+      minmax(240px, 1fr)
+    ) !important; /* 3 per row */
+    column-gap: 24px !important;
+    row-gap: 24px !important;
+
+    /* keep the first column from kissing the left nav without moving anything else */
+    padding-left: 16px !important;
+  }
+  .card-grid > li,
+  .card-grid .info-card {
+    width: 100%;
+  }
+}
+
+/* === Align card grid with hero container === */
+@media (min-width: 900px) {
+  .card-grid {
+    max-width: 1000px; /* match hero/container max width */
+    margin-left: auto; /* push grid right */
+    margin-right: auto; /* center inside container */
+    padding-left: 16px !important; /* keeps clearance from nav */
+    padding-right: 0 !important; /* no extra space on the right */
+    box-sizing: border-box;
+  }
+}
+
+/* === Unified left alignment for section heading + cards === */
+@media (min-width: 900px) {
+  /* One wrapper rule to lock heading + paragraph + card grid together */
+  .home-hero h2,
+  .home-hero p,
+  .card-grid {
+    margin-left: 16px !important; /* clearance from nav */
+    margin-right: auto;
+    max-width: 1000px; /* keep right edge aligned with hero */
+    box-sizing: border-box;
+  }
+
+  /* Reset any extra padding from earlier card-grid tweaks */
+  .card-grid {
+    padding-left: 0 !important;
+  }
+}
+
+/* === Force heading + subhead to line up exactly with card edges === */
+@media (min-width: 900px) {
+  .home-hero h2,
+  .home-hero p {
+    margin-left: 0 !important; /* strip browser default */
+    padding-left: 16px !important; /* match card grid offset */
+    box-sizing: border-box;
+  }
+}
+
+/* === Exact left-edge alignment for heading, subhead, and cards === */
+@media (min-width: 900px) {
+  :root {
+    --align-left: 22px;
+  } /* tweak if you want a hair left/right */
+
+  .home-hero h2,
+  .home-hero p,
+  .card-grid {
+    margin-left: var(--align-left) !important;
+    padding-left: 0 !important;
+    max-width: 1000px; /* keeps right edge aligned with blue container */
+    box-sizing: border-box;
+  }
+}
+
+/* ===== Minimal reset: restore nav gutter everywhere, home gets a special case ===== */
+@media (min-width: 900px) {
+  :root {
+    --nav-gutter: 24px;
+  } /* change this once to nudge the global gap */
+
+  /* Global: content keeps a right-padding on the nav and a left gutter next to it */
+  .site-nav {
+    padding-right: var(--nav-gutter);
+    border-right: 2px solid var(--line);
+  }
+  .site-header,
+  main,
+  .site-footer {
+    padding-left: var(--nav-gutter);
+    box-sizing: border-box;
+  }
+
+  /* Home-only: hero/cards align as you want without stealing padding from other pages */
+  body.home .site-header,
+  body.home main,
+  body.home .site-footer {
+    padding-left: 0;
+  } /* let hero sit flush with nav border */
+
+  body.home .home-hero h2,
+  body.home .home-hero p,
+  body.home .card-grid {
+    margin-left: var(--nav-gutter);
+  } /* headline + cards move together */
+}
+
+/* === Restore nav gutter on all pages; keep Home flush === */
+@media (min-width: 900px) {
+  :root {
+    --nav-gutter: 24px;
+  } /* adjust once to taste */
+
+  /* Default for every page */
+  .site-nav {
+    padding-right: var(--nav-gutter) !important;
+    border-right: 2px solid var(--line);
+  }
+  .site-header,
+  main,
+  .site-footer {
+    padding-left: var(--nav-gutter) !important;
+    box-sizing: border-box;
+  }
+
+  /* Home only (page with the hero block): keep hero flush with the nav border */
+  body:has(.home-hero) .site-nav {
+    padding-right: 0 !important;
+  }
+  body:has(.home-hero) .site-header,
+  body:has(.home-hero) main,
+  body:has(.home-hero) .site-footer {
+    padding-left: 0 !important;
+  }
 }

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Plain-language guide to Kentucky Medicaid and KCHIP: eligibility, providers, transportation, applying, what happens next, and renewal."
+      content="Plain-language guide to Kentucky Medicaid and KCHIP."
     />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,7 +19,7 @@
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
 
-    <!-- Top bar nav (same everywhere; aria-current set for Home here) -->
+    <!-- Sidebar/topbar nav (shared across site) -->
     <header class="topbar">
       <div class="wrap">
         <a class="brandlink" href="index.html">
@@ -46,64 +46,90 @@
             <li><a href="after-you-apply.html">After You Apply</a></li>
             <li><a href="renewal.html">Renewal</a></li>
             <li><a href="faq.html">FAQ</a></li>
+            <li>
+              <a href="what-if-denied.html" class="link-denied"
+                >What If I'm Denied?</a
+              >
+            </li>
+            <li>
+              <a href="what-if-approved.html" class="link-approved"
+                >What If I'm Approved?</a
+              >
+            </li>
           </ul>
         </nav>
       </div>
     </header>
 
-    <!-- Homepage hero (Dr. KYMN appears ONLY here) -->
-    <header class="site-header">
-      <img
-        class="kymn-hero"
-        src="dr-kymn.png"
-        alt="Illustration of Dr. KYMN, a friendly squirrel waving"
-      />
-      <h1 class="brand page-title">The Kentucky Medicaid Notebook</h1>
-      <p class="lead">
-        A simple, plain‑language guide to eligibility, providers, rides,
-        applying, what happens next, and renewal.
-      </p>
+    <!-- Home header (keep hero ONLY on homepage) -->
+    <header class="site-header home-hero">
+      <div class="hero-card">
+        <img
+          class="kymn-hero kymn-left"
+          src="dr-kymn.png"
+          alt="Illustration of Dr. KYMN, a friendly squirrel waving"
+        />
+        <div class="hero-text">
+          <h1 class="brand page-title logo-stack">
+            <span>The</span>
+            <span>Kentucky</span>
+            <span>Medicaid</span>
+            <span>Notebook</span>
+          </h1>
+          <p class="lead">
+            Plain-language answers.<br />
+            Short pages.<br />
+            No jargon.
+          </p>
+        </div>
+      </div>
     </header>
 
-    <!-- Nav-as-content hub -->
+    <!-- Card hub -->
     <main id="main" class="container" aria-labelledby="sections">
       <h2 id="sections" class="section-title">Pick a section</h2>
-      <p class="tag">Short, step‑by‑step pages. No jargon.</p>
+      <p class="tag">Everything you need, one click away.</p>
 
       <ul class="card-grid" role="list">
         <li class="info-card">
           <h3><a href="who-qualifies.html">Who Qualifies?</a></h3>
           <p>Eligibility, FPL basics, MAGI vs. ABD.</p>
         </li>
-
         <li class="info-card">
           <h3><a href="who-accepts.html">Who Accepts?</a></h3>
           <p>Finding providers that take Kentucky Medicaid.</p>
         </li>
-
         <li class="info-card">
           <h3><a href="who-drives.html">Who Drives?</a></h3>
           <p>Transportation options by county.</p>
         </li>
-
         <li class="info-card">
           <h3><a href="apply.html">Apply</a></h3>
           <p>How to apply—what you’ll need and where to go.</p>
         </li>
-
         <li class="info-card">
           <h3><a href="after-you-apply.html">After You Apply</a></h3>
-          <p>What to expect, how to respond, and next steps.</p>
+          <p>What to expect and how to respond.</p>
         </li>
-
         <li class="info-card">
           <h3><a href="renewal.html">Renewal</a></h3>
           <p>Annual review checklist and how to keep coverage.</p>
         </li>
-
         <li class="info-card">
-          <h3><a href="faq.html">FAQ</a></h3>
-          <p>Plain answers to common questions.</p>
+          <h3>
+            <a href="what-if-denied.html" class="link-denied"
+              >What If I'm Denied?</a
+            >
+          </h3>
+          <p>Why denials happen and what to do next.</p>
+        </li>
+        <li class="info-card">
+          <h3>
+            <a href="what-if-approved.html" class="link-approved"
+              >What If I'm Approved?</a
+            >
+          </h3>
+          <p>What happens next and how to use your coverage.</p>
         </li>
       </ul>
     </main>
