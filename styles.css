@@ -1226,7 +1226,7 @@ main {
     gap: 0.25rem;
   }
 
-  .nav-toggle[aria-expanded="true"] + .menu {
+  .nav-toggle[aria-expanded="true"] ~ .menu {
     display: flex;
   }
 }
