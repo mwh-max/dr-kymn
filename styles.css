@@ -493,12 +493,6 @@ main.container {
 .info-card h3 a.link-approved {
   color: #006400;
 }
-.info-card h3 a.link-denied {
-  color: #b00020;
-}
-.info-card h3 a.link-approved {
-  color: #006400;
-}
 
 /* --- Mobile layout --- */
 @media (max-width: 768px) {
