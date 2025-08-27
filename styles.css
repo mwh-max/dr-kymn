@@ -196,9 +196,6 @@ body {
 /* -----------------------------
    Main container
 ------------------------------ */
-main {
-  margin-left: 240px; /* to make room for sidebar */
-}
 
 .container {
   max-width: 1000px;
