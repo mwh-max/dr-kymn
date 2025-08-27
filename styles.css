@@ -130,10 +130,10 @@ body {
 
 /* Highlight the current page in the nav */
 .site-nav a[aria-current="page"] {
-  font-weight: 700; /* make it bolder */
-  text-decoration: underline; /* underline or swap in your highlight style */
-  background-color: #e0f2fe; /* soft blue background (optional) */
-  border-radius: 0.5rem; /* match your nav pill style */
+  font-weight: 800;
+  text-decoration: none !important;
+  background-color: #f2f2f2;
+  border-radius: 0.5rem;
 }
 
 /* Page titles and FAQ */
