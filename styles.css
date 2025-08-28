@@ -692,34 +692,6 @@ main,
   }
 }
 
-/* Color system for Denied/Approved (no underline for Denied anywhere) */
-.link-denied {
-  color: #a30018;
-  font-weight: 800;
-  text-decoration: none;
-}
-.page-title.link-denied {
-  color: #a30018;
-  font-weight: 900;
-  letter-spacing: 0.005em;
-}
-.info-card h3 a.link-denied {
-  color: #a30018;
-}
-
-.link-approved {
-  color: #0b6b0b;
-  font-weight: 800;
-  text-decoration: none;
-}
-.page-title.link-approved {
-  color: #0b6b0b;
-  font-weight: 900;
-}
-.info-card h3 a.link-approved {
-  color: #0b6b0b;
-}
-
 /* Ensure Denied never underlines even if current */
 .site-nav .menu a.link-denied[aria-current="page"] {
   text-decoration: none;
@@ -899,7 +871,6 @@ body {
   box-sizing: border-box;
   width: 100%;
   max-width: none;
-  margin-left: -2px;
   margin-right: 0;
   margin-bottom: 1rem;
 }
@@ -990,7 +961,6 @@ body {
     width: 100%;
     max-width: var(--container-max);
     margin-right: auto; /* align to right edge of container */
-    margin-left: -2px; /* stay docked to sidebar border */
     box-sizing: border-box; /* padding won't push it wider */
   }
 }
@@ -1001,20 +971,10 @@ body {
   --sidebar: 232px;
 }
 
-/* 2) Nuke the old hard left-margin on <main> everywhere */
-main {
-  margin-left: 0 !important;
-}
-
 /* 3) Desktop ≥900px: set sidebar + content offsets consistently */
 @media (min-width: 900px) {
   .site-nav {
     width: var(--sidebar);
-  }
-  .site-header,
-  main,
-  .site-footer {
-    margin-left: var(--sidebar) !important;
   }
 }
 
@@ -1039,9 +999,6 @@ main {
     ) !important; /* 3 per row */
     column-gap: 24px !important;
     row-gap: 24px !important;
-
-    /* keep the first column from kissing the left nav without moving anything else */
-    padding-left: 16px !important;
   }
   .card-grid > li,
   .card-grid .info-card {
@@ -1055,7 +1012,6 @@ main {
     max-width: 1000px; /* match hero/container max width */
     margin-left: auto; /* push grid right */
     margin-right: auto; /* center inside container */
-    padding-left: 16px !important; /* keeps clearance from nav */
     padding-right: 0 !important; /* no extra space on the right */
     box-sizing: border-box;
   }
@@ -1072,19 +1028,12 @@ main {
     max-width: 1000px; /* keep right edge aligned with hero */
     box-sizing: border-box;
   }
-
-  /* Reset any extra padding from earlier card-grid tweaks */
-  .card-grid {
-    padding-left: 0 !important;
-  }
 }
 
 /* === Force heading + subhead to line up exactly with card edges === */
 @media (min-width: 900px) {
   .home-hero h2,
   .home-hero p {
-    margin-left: 0 !important; /* strip browser default */
-    padding-left: 16px !important; /* match card grid offset */
     box-sizing: border-box;
   }
 }
@@ -1099,7 +1048,6 @@ main {
   .home-hero p,
   .card-grid {
     margin-left: var(--align-left) !important;
-    padding-left: 0 !important;
     max-width: 1000px; /* keeps right edge aligned with blue container */
     box-sizing: border-box;
   }
@@ -1151,19 +1099,12 @@ main {
   .site-header,
   main,
   .site-footer {
-    padding-left: var(--nav-gutter) !important;
     box-sizing: border-box;
   }
 
   /* Home only (page with the hero block): keep hero flush with the nav border */
   body:has(.home-hero) .site-nav {
     padding-right: 0 !important;
-  }
-  body:has(.home-hero) .site-header,
-  body:has(.home-hero) main,
-  body:has(.home-hero) .site-footer {
-    padding-left: 0 !important;
-  }
 }
 
 /* MOBILE NAV — single source of truth */
@@ -1187,7 +1128,6 @@ main {
 /* MOBILE CARD PADDING */
 @media (max-width: 899px) {
   ul.card-grid {
-    padding-left: 1rem !important;
     padding-right: 1rem !important;
   }
 }
