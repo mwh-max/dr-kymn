@@ -352,17 +352,6 @@ main.container {
   }
 }
 
-/* Lead intro paragraph */
-.lead {
-  max-width: 70ch;
-  margin: 0.75rem auto 1.5rem;
-  font-size: 1.15rem;
-  font-weight: 500;
-  line-height: 1.6;
-  color: #1a1a1a;
-  text-align: center;
-}
-
 /* --- Mobile (<=700px): nav stack + header border + hero spacing --- */
 @media (max-width: 700px) {
   /* Let the header grow so the bottom border sits below the stacked menu */
