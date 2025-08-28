@@ -128,11 +128,6 @@ body {
   background: #f2f2f2;
 }
 
-/* nav reset hardening */
-:where(.nav, .nav ul, .nav li) {
-  all: unset;
-}
-
 .site-nav .nav,
 .site-nav .nav ul,
 .site-nav .nav li {
