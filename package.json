@@ -1,0 +1,25 @@
+{
+  "name": "ky-medicaid-notebook",
+  "version": "1.0.0",
+  "description": "Dr. KYMN",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "stylelint": "stylelint \"**/*.css\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mwh-max/dr-kymn.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mwh-max/dr-kymn/issues"
+  },
+  "homepage": "https://github.com/mwh-max/dr-kymn#readme",
+  "devDependencies": {
+    "stylelint": "^16.23.1",
+    "stylelint-config-standard": "^39.0.0"
+  }
+}

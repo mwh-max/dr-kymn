@@ -5,7 +5,7 @@
   --ink: #121212;
   --muted: #4a4a4a;
   --bg: #f7f7f5;
-  --card: #ffffff;
+  --card: #fff;
   --line: #111;
   --radius-lg: 18px;
   --radius-md: 14px;
@@ -17,18 +17,23 @@
   --t-md: 1rem; /* body */
   --t-sm: 0.95rem; /* small */
   --lh: 1.5;
+  --container-max: 1000px; /* moved up */
+  --container-pad: 1rem; /* moved up */
+  --nav-gutter: 0;
 }
 
 * {
   box-sizing: border-box;
 }
+
 html,
 body {
   height: 100%;
 }
+
 body {
   margin: 0;
-  font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial,
+  font-family: Montserrat, system-ui, -apple-system, "Segoe UI", Roboto, Arial,
     sans-serif;
   background: var(--bg);
   color: var(--ink);
@@ -45,6 +50,7 @@ body {
   height: 1px;
   overflow: hidden;
 }
+
 .skip-link:focus {
   position: fixed;
   left: 1rem;
@@ -84,11 +90,13 @@ body {
   text-decoration: none;
   color: inherit;
 }
+
 .mini-kymn {
   width: 36px;
   height: auto;
   border-radius: 8px;
 }
+
 .brandtext {
   font-weight: 900;
   letter-spacing: 0.02em;
@@ -115,11 +123,16 @@ body {
   color: inherit;
   font-weight: 700;
 }
+
 .nav a[aria-current="page"] {
   background: #f2f2f2;
 }
 
 /* nav reset hardening */
+:where(.nav, .nav ul, .nav li) {
+  all: unset;
+}
+
 .site-nav .nav,
 .site-nav .nav ul,
 .site-nav .nav li {
@@ -131,7 +144,7 @@ body {
 /* Highlight the current page in the nav */
 .site-nav a[aria-current="page"] {
   font-weight: 800;
-  text-decoration: none !important;
+  text-decoration: none;
   background-color: #f2f2f2;
   border-radius: 0.5rem;
 }
@@ -142,6 +155,7 @@ body {
   font-size: clamp(1.6rem, 1.6vw + 1rem, 2rem);
   margin: 1rem 0;
 }
+
 .faq {
   border: 2px solid var(--line);
   border-radius: 14px;
@@ -149,13 +163,16 @@ body {
   margin: 0.75rem 0;
   background: #fff;
 }
+
 .faq summary {
   cursor: pointer;
   font-weight: 800;
 }
+
 .faq p {
   margin: 0.5rem 0 0;
 }
+
 /* -----------------------------
    Header / Hero
 ------------------------------ */
@@ -193,6 +210,25 @@ body {
   margin: 0.1rem auto 1.1rem; /* small nudge; keeps rhythm tight */
 }
 
+/* Keep the text column constrained so it aligns with cards */
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.hero-text h1 {
+  margin: 0;
+  line-height: 1.1;
+}
+
+.hero-text .lead {
+  margin-top: 0.5rem;
+  margin-left: 0; /* force it flush under headline */
+  font-size: 1rem;
+  color: #333;
+}
+
 /* -----------------------------
    Main container
 ------------------------------ */
@@ -214,8 +250,7 @@ main.container {
   font-size: var(--t-xl);
   font-weight: 900;
   letter-spacing: 0.01em;
-  margin-top: 0.5rem;
-  margin: 0 0 0.25rem 0.25rem;
+  margin: 0 0.5rem;
 }
 
 /* Optional sub-copy under section titles that uses .tag */
@@ -263,7 +298,7 @@ main.container {
 }
 
 /* Give cards a little more breathing room on wide screens */
-@media (min-width: 900px) {
+@media (width >= 900px) {
   .lead {
     text-align: left;
     margin-left: 0;
@@ -273,6 +308,7 @@ main.container {
   .card-grid {
     gap: 1.2rem;
   }
+
   .info-card {
     padding: 1.1rem 1.1rem 1.2rem;
   }
@@ -288,7 +324,7 @@ main.container {
   place-items: center;
   margin-bottom: 0.75rem;
   flex-shrink: 0;
-  transform: rotate(0deg) !important;
+  transform: rotate(0deg);
 }
 
 .icon-wrap svg {
@@ -306,12 +342,14 @@ main.container {
   padding: 1rem 1rem 1.25rem;
   background: #fff;
 }
+
 .site-footer p {
   margin: 0.25rem auto 0;
   max-width: 80ch;
   font-size: var(--t-sm);
   color: var(--muted);
 }
+
 .site-footer strong {
   color: var(--ink);
 }
@@ -331,29 +369,33 @@ main.container {
   body {
     background: #fff;
   }
+
   .site-header,
   .site-footer,
   .container {
     padding: 0;
   }
+
   .kymn-hero {
     width: 220px;
-    margin: 0 0 0.5rem 0;
+    margin: 0 0 0.5rem;
   }
+
   .brand {
     font-size: 2rem;
   }
+
   .tag {
     color: #000;
   }
+
   .info-card {
     break-inside: avoid;
-    page-break-inside: avoid;
   }
 }
 
 /* --- Mobile (<=700px): nav stack + header border + hero spacing --- */
-@media (max-width: 700px) {
+@media (width <= 700px) {
   /* Let the header grow so the bottom border sits below the stacked menu */
   .topbar {
     height: auto; /* was fixed at 64px */
@@ -362,6 +404,7 @@ main.container {
     z-index: 1000;
     background: #fff;
   }
+
   .topbar .wrap {
     flex-direction: column;
     align-items: stretch;
@@ -378,6 +421,7 @@ main.container {
     margin: 0;
     padding: 0;
   }
+
   .nav a {
     display: block;
     width: 100%;
@@ -423,16 +467,14 @@ main.container {
   padding: 0;
 }
 
+.menu li a {
+  white-space: nowrap;
+}
+
 .site-nav .menu a {
   text-decoration: none;
   color: #222;
   padding: 0.5rem 0.25rem;
-}
-
-.site-nav .menu a[aria-current="page"] {
-  font-weight: 700;
-  text-underline-offset: 0.25rem;
-  text-decoration: underline;
 }
 
 /* Ensure hamburger bars stack vertically */
@@ -457,10 +499,6 @@ main.container {
   transition: transform 200ms ease, opacity 200ms ease;
 }
 
-.menu li a {
-  white-space: nowrap;
-}
-
 /* Special nav + card colors */
 .link-denied {
   color: #b00020; /* strong red */
@@ -476,12 +514,13 @@ main.container {
 .info-card h3 a.link-denied {
   color: #b00020;
 }
+
 .info-card h3 a.link-approved {
   color: #006400;
 }
 
 /* --- Mobile layout --- */
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .nav-toggle {
     display: inline-flex;
     flex-direction: column;
@@ -489,42 +528,9 @@ main.container {
     justify-content: center;
   }
 
-  /* Stack: brand + toggle visible; menu becomes off-canvas panel */
-  .site-nav .menu {
-    position: fixed;
-    inset: 56px 0 0 0; /* below the header */
-    background: #fff;
-    border-top: 1px solid #eee;
-    display: none; /* hidden by default on mobile */
-    flex-direction: column;
-    align-items: stretch;
-    padding: 0.75rem 1rem 2rem;
-    overflow-y: auto;
-  }
-
   .site-nav {
     width: 220px;
     float: left;
-  }
-
-  .site-nav .menu {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .site-nav .menu li a {
-    font-size: 1rem; /* comfortable size */
-    padding: 0.5rem;
-  }
-
-  .site-nav .menu.open {
-    display: flex;
-  }
-
-  .site-nav .menu li a {
-    padding: 0.75rem 0.25rem;
-    font-size: 1.05rem;
   }
 
   /* Prevent page content from scrolling when menu is open */
@@ -537,9 +543,11 @@ main.container {
   .nav-toggle[aria-expanded="true"] .bar:nth-child(2) {
     opacity: 0;
   }
+
   .nav-toggle[aria-expanded="true"] .bar:nth-child(1) {
     transform: translateY(7px) rotate(45deg);
   }
+
   .nav-toggle[aria-expanded="true"] .bar:nth-child(3) {
     transform: translateY(-7px) rotate(-45deg);
   }
@@ -553,20 +561,7 @@ main.container {
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);
   border: 0;
-}
-
-/* ===== SIDEBAR MODE (desktop ≥900px), topbar on smaller ===== */
-
-/* Neutralize legacy .nav if it ever sneaks into DOM */
-.nav,
-.nav ul,
-.nav li {
-  all: unset;
-}
-.nav {
-  display: none !important;
 }
 
 /* Default: assume topbar (mobile/tablet); remove any forced left margin */
@@ -577,11 +572,12 @@ main,
 }
 
 /* Desktop: fixed left sidebar */
-@media (min-width: 900px) {
+@media (width >= 900px) {
   .topbar {
     height: auto;
     border-bottom: 0; /* sidebar will provide the border line */
   }
+
   .topbar .wrap {
     max-width: none;
     margin: 0;
@@ -609,6 +605,7 @@ main,
     padding: 0.75rem 1rem;
     border-bottom: 2px solid var(--line);
   }
+
   .mini-kymn {
     width: 36px;
     border-radius: 8px;
@@ -625,9 +622,11 @@ main,
     padding: 0.75rem 0.75rem 1rem;
     overflow-y: auto;
   }
+
   .site-nav .menu li {
     margin: 0;
   }
+
   .site-nav .menu a {
     display: block;
     text-decoration: none;
@@ -656,16 +655,18 @@ main,
   .container {
     max-width: 1000px;
   }
+
   .card-grid {
     gap: 1.2rem;
   }
+
   .info-card {
     padding: 1.1rem 1.1rem 1.2rem;
   }
 }
 
 /* Mobile/Tablet: keep horizontal topbar */
-@media (max-width: 899.98px) {
+@media (width <= 899.98px) {
   .site-nav {
     position: sticky;
     top: 0;
@@ -676,6 +677,7 @@ main,
     background: #fff;
     padding: 0.5rem 1rem;
   }
+
   .site-nav .menu {
     display: flex;
     flex-direction: row;
@@ -685,6 +687,7 @@ main,
     padding: 0;
     overflow: auto hidden;
   }
+
   .site-nav .menu a {
     padding: 0.4rem 0.25rem;
     font-size: 0.95rem;
@@ -698,19 +701,15 @@ main,
   background: #f9e6ea;
 }
 
-/* Optional: keep long labels on one line everywhere */
-.menu li a {
-  white-space: nowrap;
-}
-
 /* Homepage hero: mascot left, stacked title on the right */
 .home-hero {
   display: flex;
   align-items: center;
   justify-content: flex-start;
   gap: 1.25rem;
-  text-align: left; /* text left of the block */
-  padding-top: 1.25rem; /* slight breathing room */
+  text-align: left;
+  padding-top: 1.25rem;
+  margin-bottom: 0.75rem;
 }
 
 /* Bigger mascot on desktop; responsive clamp */
@@ -726,35 +725,9 @@ main,
   line-height: 0.95;
   margin: 0; /* tighten header margin */
 }
+
 .logo-stack span {
   display: block;
-}
-
-/* Keep the text column constrained so it aligns with cards */
-.hero-text {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.home-hero {
-  margin-bottom: 0.75rem;
-}
-
-/* Mobile/tablet: stack image above text */
-@media (max-width: 899.98px) {
-  .home-hero {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 0.75rem;
-  }
-  .kymn-left {
-    width: clamp(180px, 45vw, 260px);
-  }
-  .hero-text {
-    align-items: center;
-  }
 }
 
 /* --- Homepage hero: mascot left, stacked title to the right --- */
@@ -767,87 +740,50 @@ main,
   text-align: left;
 }
 
-/* Make sure base column rule can't override this */
 .site-header.home-hero .kymn-left {
   flex: 0 0 auto;
   width: clamp(220px, 26vw, 360px);
 }
+
 .site-header.home-hero .hero-text {
   flex: 1 1 auto;
   max-width: 720px;
 }
+
 .site-header.home-hero .logo-stack {
   line-height: 0.95;
   margin: 0;
 }
+
 .site-header.home-hero .logo-stack span {
   display: block;
 }
+
 .site-header.home-hero .lead {
   margin-top: 0.35rem;
 }
 
 /* Responsive: stack on small screens */
-@media (max-width: 899.98px) {
+@media (width <= 899.98px) {
   .site-header.home-hero {
     flex-direction: column; /* stack vertically on mobile/tablet */
     align-items: center;
     text-align: center;
     gap: 0.75rem;
   }
+
   .site-header.home-hero .kymn-left {
     width: clamp(180px, 45vw, 260px);
   }
+
   .site-header.home-hero .hero-text {
     max-width: 38rem;
   }
 }
 
-.home-hero {
-  display: flex;
-  align-items: center; /* mascot + text align neatly */
-  gap: 1.5rem; /* spacing between mascot and text */
-}
-
-.hero-text {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; /* flush left alignment */
-}
-
-.hero-text h1 {
-  margin: 0;
-  line-height: 1.1;
-}
-
-.hero-text .lead {
-  margin-top: 0.5rem;
-  margin-left: 0; /* force it flush under headline */
-  font-size: 1rem;
-  color: #333;
-}
-
-/* 1) Remove the white bar above */
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
-.site-header {
-  margin-top: 0;
-  padding-top: 0;
-  border: 0;
-  background: transparent;
-}
 /* Some resets that can create top gaps */
 .site-header h1 {
   margin-block-start: 0;
-}
-
-/* 2) Group the hero into a single rounded container */
-:root {
-  --hero-bg: #1f4fbf; /* pick your blue */
-  --hero-radius: 16px; /* match your button corners */
 }
 
 /* Hero card container — anchored left, rounded right */
@@ -857,10 +793,7 @@ body {
   gap: clamp(16px, 3vw, 40px);
   background: royalblue;
   border: 1px solid var(--line);
-  border-top-right-radius: 18px;
-  border-bottom-right-radius: 18px;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
+  border-radius: 0 18px 18px 0;
   border-left: 0;
 
   /* remove the “auto” padding that pushes contents inward */
@@ -891,66 +824,43 @@ body {
   text-align: left; /* left-justify lines */
 }
 
-/* 3) Mascot sizing & behavior */
-.kymn-hero {
-  width: min(34vw, 380px);
-  height: auto;
-  flex-shrink: 0;
-}
-
-/* 4) Stack + align the headline/subhed; reverse to white with shadow */
-.hero-text {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; /* subhed flush with headline */
-}
-
-.logo-stack span {
-  display: block;
-} /* guarantees the stacked look */
-
-.hero-text h1,
-.hero-text .lead {
+.home-hero .hero-card .hero-text h1,
+.home-hero .hero-card .hero-text .lead {
   color: #fff;
-  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.35), 0 0 8px rgba(0, 0, 0, 0.25);
+  text-shadow: 0 2px 0 rgb(0 0 0 / 35%), 0 0 8px rgb(0 0 0 / 25%);
 }
 
-.hero-text h1 {
+.home-hero .hero-card .hero-text h1 {
   margin: 0;
   line-height: 1.05;
 }
 
-.hero-text .lead {
+.home-hero .hero-card .hero-text .lead {
   margin-top: 0.6rem;
   font-size: clamp(1rem, 1.2vw + 0.8rem, 1.25rem);
   opacity: 0.95; /* tiny soften so headline stays dominant */
 }
 
 /* 5) Responsive: tighten spacing on small screens */
-@media (max-width: 720px) {
+@media (width <= 720px) {
   .home-hero .hero-card {
     flex-direction: column;
     text-align: left; /* keeps alignment with side-nav feel */
     gap: 16px;
   }
+
   .kymn-hero {
     width: min(60vw, 360px);
   }
 }
 
-@media (min-width: 900px) {
+@media (width >= 900px) {
   .site-header.home-hero {
     padding-left: 0; /* remove the gutter causing the light strip */
   }
 }
 
-/* Use the same “container” width + right gutter the grid uses */
-:root {
-  --container-max: 1000px; /* matches .container */
-  --container-pad: 1rem; /* matches .container padding */
-}
-
-@media (min-width: 900px) {
+@media (width >= 900px) {
   /* Give the hero header the same right gutter as .container */
   .site-header.home-hero {
     padding-right: var(--container-pad);
@@ -965,21 +875,15 @@ body {
   }
 }
 
-/* ==== HOTFIX — 2025-08-25 ============================== */
-/* 1) One source of truth for sidebar width */
-:root {
-  --sidebar: 232px;
-}
-
 /* 3) Desktop ≥900px: set sidebar + content offsets consistently */
-@media (min-width: 900px) {
+@media (width >= 900px) {
   .site-nav {
     width: var(--sidebar);
   }
 }
 
 /* 5) Hero card: keep it snug to the sidebar and aligned to the grid */
-@media (min-width: 900px) {
+@media (width >= 900px) {
   .home-hero .hero-card {
     margin-left: calc(-1 * 2px); /* stay docked to the sidebar border line */
     margin-right: auto; /* align with container’s right edge */
@@ -987,27 +891,9 @@ body {
     box-sizing: border-box;
   }
 }
-/* ======================================================= */
-
-/* === Cards layout: 3 / 3 / 2 and clear of left nav === */
-@media (min-width: 900px) {
-  .card-grid {
-    display: grid !important;
-    grid-template-columns: repeat(
-      3,
-      minmax(240px, 1fr)
-    ) !important; /* 3 per row */
-    column-gap: 24px !important;
-    row-gap: 24px !important;
-  }
-  .card-grid > li,
-  .card-grid .info-card {
-    width: 100%;
-  }
-}
 
 /* === Align card grid with hero container === */
-@media (min-width: 900px) {
+@media (width >= 900px) {
   .card-grid {
     max-width: 1000px; /* match hero/container max width */
     margin-left: auto; /* push grid right */
@@ -1017,45 +903,17 @@ body {
   }
 }
 
-/* === Unified left alignment for section heading + cards === */
-@media (min-width: 900px) {
-  /* One wrapper rule to lock heading + paragraph + card grid together */
-  .home-hero h2,
-  .home-hero p,
-  .card-grid {
-    margin-left: 16px !important; /* clearance from nav */
-    margin-right: auto;
-    max-width: 1000px; /* keep right edge aligned with hero */
-    box-sizing: border-box;
-  }
-}
-
 /* === Force heading + subhead to line up exactly with card edges === */
-@media (min-width: 900px) {
+@media (width >= 900px) {
   .home-hero h2,
   .home-hero p {
     box-sizing: border-box;
   }
 }
 
-/* === Exact left-edge alignment for heading, subhead, and cards === */
-@media (min-width: 900px) {
-  :root {
-    --align-left: 22px;
-  } /* tweak if you want a hair left/right */
-
-  .home-hero h2,
-  .home-hero p,
-  .card-grid {
-    margin-left: var(--align-left) !important;
-    max-width: 1000px; /* keeps right edge aligned with blue container */
-    box-sizing: border-box;
-  }
-}
-
 /* ===== Minimal reset: restore nav gutter everywhere, home gets a special case ===== */
-@media (min-width: 900px) {
-  :root {
+@media (width >= 900px) {
+  html {
     --nav-gutter: 24px;
   } /* change this once to nudge the global gap */
 
@@ -1064,6 +922,7 @@ body {
     padding-right: var(--nav-gutter);
     border-right: 2px solid var(--line);
   }
+
   .site-header,
   main,
   .site-footer {
@@ -1085,36 +944,15 @@ body {
   } /* headline + cards move together */
 }
 
-/* === Restore nav gutter on all pages; keep Home flush === */
-@media (min-width: 900px) {
-  :root {
-    --nav-gutter: 24px;
-  } /* adjust once to taste */
-
-  /* Default for every page */
-  .site-nav {
-    padding-right: var(--nav-gutter) !important;
-    border-right: 2px solid var(--line);
-  }
-  .site-header,
-  main,
-  .site-footer {
-    box-sizing: border-box;
-  }
-
-  /* Home only (page with the hero block): keep hero flush with the nav border */
-  body:has(.home-hero) .site-nav {
-    padding-right: 0 !important;
-}
-
 /* MOBILE NAV — single source of truth */
-@media (max-width: 899px) {
+@media (width <= 899px) {
   .nav-toggle {
     display: inline-block;
     background: none;
     border: 0;
     padding: 0.5rem;
   }
+
   .site-nav .menu {
     display: none;
     flex-direction: column;
@@ -1125,15 +963,8 @@ body {
   } /* shown when JS toggles .open */
 }
 
-/* MOBILE CARD PADDING */
-@media (max-width: 899px) {
-  ul.card-grid {
-    padding-right: 1rem !important;
-  }
-}
-
 /* Align "Pick a section" with cards */
-@media (max-width: 899px) {
+@media (width <= 899px) {
   .section-intro {
     padding-left: 1rem;
     padding-right: 1rem;
@@ -1141,14 +972,14 @@ body {
 }
 
 /* Align "Pick a section" with cards on mobile, center on desktop */
-@media (max-width: 899px) {
+@media (width <= 899px) {
   .section-intro {
     padding-left: 1rem;
     padding-right: 1rem;
   }
 }
 
-@media (min-width: 900px) {
+@media (width >= 900px) {
   .section-intro {
     text-align: center; /* center headline + subheadline */
     margin: 0 auto 1rem; /* center the block itself */
@@ -1165,7 +996,7 @@ body {
 }
 
 /* Hide mini KYMN logo on the home page (mobile only) */
-@media (max-width: 899px) {
+@media (width <= 899px) {
   .home .site-nav .brand,
   .home .site-nav .brand img {
     display: none;
