@@ -19,7 +19,8 @@
   --lh: 1.5;
   --container-max: 1000px; /* moved up */
   --container-pad: 1rem; /* moved up */
-  --nav-gutter: 0;
+  --nav-gutter: 24px;
+  --sidebar: 232px;
 }
 
 * {
