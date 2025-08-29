@@ -595,12 +595,21 @@ main,
 } /* adjust if you want more/less space */
 
 @media (width >= 900px) {
+  .site-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar);
+    height: 100vh;
+    background: #fff;
+    border-right: 2px solid var(--line);
+    box-sizing: border-box;
+  }
+
   .site-header,
   main,
   .site-footer {
-    margin-left: var(--sidebar); /* keeps the push */
-    padding-left: var(--content-gutter); /* adds the visible spacing */
-    box-sizing: border-box; /* padding won't break layout width */
+    margin-left: calc(var(--sidebar) + 24px) !important;
   }
 }
 
