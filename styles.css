@@ -509,40 +509,6 @@ main.container {
   color: #006400;
 }
 
-/* --- Mobile layout --- */
-@media (width <= 768px) {
-  .nav-toggle {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .site-nav {
-    width: 220px;
-    float: left;
-  }
-
-  /* Prevent page content from scrolling when menu is open */
-  body.nav-open {
-    overflow: hidden;
-    touch-action: none;
-  }
-
-  /* Fancy X animation (optional) */
-  .nav-toggle[aria-expanded="true"] .bar:nth-child(2) {
-    opacity: 0;
-  }
-
-  .nav-toggle[aria-expanded="true"] .bar:nth-child(1) {
-    transform: translateY(7px) rotate(45deg);
-  }
-
-  .nav-toggle[aria-expanded="true"] .bar:nth-child(3) {
-    transform: translateY(-7px) rotate(-45deg);
-  }
-}
-
 /* Screen-reader only helper */
 .sr-only {
   position: absolute !important;
@@ -995,5 +961,14 @@ main,
   .home .site-nav .brand,
   .home .site-nav .brand img {
     display: none;
+  }
+}
+
+@media (width >= 900px) {
+  /* Make the content reserve space for the fixed sidebar */
+  .site-header,
+  main,
+  .site-footer {
+    margin-left: var(--sidebar);
   }
 }
