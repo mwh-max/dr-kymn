@@ -588,3 +588,23 @@ main,
     margin-left: 0;
   }
 }
+
+/* --- Desktop gutter so content doesn't hug the sidebar --- */
+:root {
+  --content-gutter: 24px;
+} /* adjust if you want more/less space */
+
+@media (min-width: 900px) {
+  .site-header,
+  main,
+  .site-footer {
+    margin-left: var(--sidebar); /* keeps the push */
+    padding-left: var(--content-gutter); /* adds the visible spacing */
+    box-sizing: border-box; /* padding won't break layout width */
+  }
+}
+
+/* --- Restore the blue content panel look --- */
+.container {
+  background: #eaf1ff; /* your blue panel; tweak as needed */
+}
