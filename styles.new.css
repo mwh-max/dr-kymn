@@ -1,171 +1,150 @@
-/* styles.clean.css — minimal, stable base */
-
-/* 1) Tokens */
+/* ----------------------------- */
+/* Base Design Tokens            */
+/* ----------------------------- */
 :root {
-  --bg: #f7f8fb;
-  --ink: #111;
-  --muted: #6b7280;
-  --line: #e5e7eb;
-  --brand: #1f3a93; /* deep blue */
-  --danger: #9b1c1c; /* red used for “Denied?” */
-  --surface: #fff;
-  --radius: 12px;
+  --ink: #121212;
+  --muted: #4a4a4a;
+  --bg: #f7f7f5;
+  --card: #fff;
+  --line: #111;
+  --radius-lg: 18px;
+  --radius-md: 14px;
+  --radius-sm: 8px;
+  --radius-xs: 4px;
+
+  /* Font Sizes */
+  --t-xxl: clamp(2rem, 3.8vw + 1rem, 3rem); /* brand */
+  --t-xl: clamp(1.25rem, 1.4vw + 0.9rem, 1.6rem); /* h2 */
+  --t-lg: 1.05rem; /* h3 */
+  --t-md: 1rem; /* body */
+  --t-sm: 0.95rem; /* small */
+  --lh: 1.5; /* line-height */
+  --container-max: 1000px;
 }
 
-/* 2) Reset-ish */
+/* ----------------------------- */
+/* Global Styles & Reset         */
+/* ----------------------------- */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
-
 html,
 body {
   height: 100%;
-}
-
-body {
   margin: 0;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue",
     Arial, "Noto Sans", "Liberation Sans", "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol";
   color: var(--ink);
   background: var(--bg);
-  line-height: 1.4;
+  line-height: var(--lh);
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
+body {
+  padding: 1rem; /* prevent content from bleeding to the edge */
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-/* 3) Page shell */
-.page {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 1rem;
-}
-
-/* 4) Header: mascot + title */
+/* ----------------------------- */
+/* Header Layout (Mascot + Title) */
+/* ----------------------------- */
 .site-header {
   display: flex;
   align-items: center;
   gap: 1rem;
   padding: 1rem 0;
   border-bottom: 1px solid var(--line);
-  background: var(--surface);
+  background: var(--card);
 }
 
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+.site-header .logo {
+  width: 60px; /* mascot size */
 }
 
-.brand .logo {
-  width: 120px;
-}
-
-.brand h1 {
+.site-header h1 {
   margin: 0;
+  font-size: var(--t-xxl);
   font-weight: 800;
-  line-height: 1.05;
-  font-size: clamp(1.6rem, 4vw, 2.6rem);
 }
 
-.brand .subhed {
-  margin: 0.25rem 0 0;
+.site-header .subhed {
+  margin: 0;
   color: var(--muted);
-  max-width: 38ch;
+  font-size: var(--t-md);
+  max-width: 35ch;
 }
 
-/* 5) Top nav as pill buttons */
-.top-nav {
+/* ----------------------------- */
+/* Navigation Bar                */
+/* ----------------------------- */
+.nav {
   display: flex;
+  justify-content: flex-start;
+  gap: 1rem;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin: 1rem 0 0;
+  margin-top: 1rem;
 }
 
-.top-nav a {
-  display: inline-block;
-  padding: 0.5rem 0.9rem;
-  border: 2px solid var(--ink);
-  border-radius: 999px;
-  background: var(--surface);
+.nav a {
+  padding: 0.5rem 1rem;
+  background-color: var(--card);
+  border: 2px solid var(--line);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  color: var(--ink);
   font-weight: 700;
 }
 
-.top-nav a[aria-current="page"] {
-  background: var(--ink);
-  color: #fff;
+.nav a:hover {
+  background-color: var(--ink);
+  color: var(--card);
 }
 
-.top-nav a.link-denied {
-  border-color: var(--danger);
-  color: var(--danger);
+.nav a[aria-current="page"] {
+  background-color: var(--ink);
+  color: var(--card);
 }
 
-.top-nav a.link-denied[aria-current="page"] {
-  background: var(--danger);
-  color: #fff;
-}
+/* ----------------------------- */
+/* Mobile Navigation (Hamburger) */
+/* ----------------------------- */
+@media (max-width: 899px) {
+  .nav {
+    display: none;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    right: 0;
+    background: var(--card);
+    padding: 1rem;
+    z-index: 10;
+  }
 
-/* 6) Cards grid */
-.cards {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-  margin: 1rem 0 2rem;
-}
+  .nav-toggle {
+    display: inline-block;
+    cursor: pointer;
+  }
 
-@media (width >= 600px) {
-  .cards {
-    grid-template-columns: repeat(2, 1fr);
+  .nav.open {
+    display: flex;
   }
 }
 
-@media (width >= 960px) {
-  .cards {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.card {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 1rem;
-  box-shadow: 0 1px 2px rgb(0 0 0 / 4%);
-}
-
-.card h3 {
-  margin: 0 0 0.25rem;
-  font-size: 1.05rem;
-}
-
-.card p {
-  margin: 0;
-  color: var(--muted);
-}
-
-/* 7) Utilities */
+/* ----------------------------- */
+/* Content Padding               */
+/* ----------------------------- */
 .container {
-  max-width: 1100px;
+  max-width: var(--container-max);
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 2rem;
 }
 
-.center {
-  text-align: center;
-}
-
+/* ----------------------------- */
+/* Helper Classes               */
+/* ----------------------------- */
 .hidden {
   display: none;
 }
