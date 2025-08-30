@@ -56,7 +56,7 @@ body {
 }
 
 /* Mobile */
-@media (max-width: 768px) {
+@media (width <= 768px) {
   .site-nav ul {
     flex-direction: column;
     gap: 10px;
