@@ -1,6 +1,6 @@
-/* ----------------------------- */
-/* Base Design Tokens            */
-/* ----------------------------- */
+/* ================================ */
+/* Layout & Design Tokens            */
+/* ================================ */
 :root {
   --ink: #121212;
   --muted: #4a4a4a;
@@ -11,6 +11,7 @@
   --radius-md: 14px;
   --radius-sm: 8px;
   --radius-xs: 4px;
+  --container-max: 1000px;
 
   /* Font Sizes */
   --t-xxl: clamp(2rem, 3.8vw + 1rem, 3rem); /* brand */
@@ -19,21 +20,21 @@
   --t-md: 1rem; /* body */
   --t-sm: 0.95rem; /* small */
   --lh: 1.5; /* line-height */
-  --container-max: 1000px;
 }
 
 /* ----------------------------- */
-/* Global Styles & Reset         */
+/* Reset Styles for Body and Text */
 /* ----------------------------- */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
+
 html,
 body {
-  height: 100%;
   margin: 0;
+  padding: 0;
   font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue",
     Arial, "Noto Sans", "Liberation Sans", "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol";
@@ -43,7 +44,7 @@ body {
 }
 
 body {
-  padding: 1rem; /* prevent content from bleeding to the edge */
+  padding: 1rem; /* ensures padding around content */
 }
 
 /* ----------------------------- */
@@ -59,7 +60,7 @@ body {
 }
 
 .site-header .logo {
-  width: 60px; /* mascot size */
+  width: 60px; /* Adjust mascot size */
 }
 
 .site-header h1 {
@@ -82,8 +83,8 @@ body {
   display: flex;
   justify-content: flex-start;
   gap: 1rem;
-  flex-wrap: wrap;
   margin-top: 1rem;
+  flex-wrap: wrap;
 }
 
 .nav a {
@@ -139,12 +140,5 @@ body {
 .container {
   max-width: var(--container-max);
   margin: 0 auto;
-  padding: 2rem;
-}
-
-/* ----------------------------- */
-/* Helper Classes               */
-/* ----------------------------- */
-.hidden {
-  display: none;
+  padding: 2rem; /* Adding some padding to avoid content touching edges */
 }
