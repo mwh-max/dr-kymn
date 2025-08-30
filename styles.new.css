@@ -23,7 +23,7 @@
 }
 
 /* ----------------------------- */
-/* Reset Styles for Body and Text */
+/* Global Reset and Body Styles   */
 /* ----------------------------- */
 *,
 *::before,
@@ -44,7 +44,7 @@ body {
 }
 
 body {
-  padding: 1rem; /* ensures padding around content */
+  padding: 1rem; /* Prevent text from bleeding to the edge */
 }
 
 /* ----------------------------- */
@@ -67,6 +67,7 @@ body {
   margin: 0;
   font-size: var(--t-xxl);
   font-weight: 800;
+  line-height: 1.1;
 }
 
 .site-header .subhed {
@@ -135,10 +136,8 @@ body {
 }
 
 /* ----------------------------- */
-/* Content Padding               */
-/* ----------------------------- */
 .container {
   max-width: var(--container-max);
   margin: 0 auto;
-  padding: 2rem; /* Adding some padding to avoid content touching edges */
+  padding: 2rem; /* Adding padding to prevent content from touching edges */
 }
