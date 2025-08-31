@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Who Drives? — Kentucky Medicaid Notebook</title>
+    <style>
+      :root {
+        --bg: #0f172a;
+        --card: #111827;
+        --ink: #e5e7eb;
+        --muted: #94a3b8;
+        --ring: #334155;
+        --accent: #22c55e;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Arial,
+          sans-serif;
+      }
+      .wrap {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .logo {
+        text-align: center;
+        margin-bottom: 18px;
+      }
+      .logo img {
+        max-width: 120px;
+        height: auto;
+        filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.35));
+      }
+      header h1 {
+        font-size: 26px;
+        margin: 6px 0 4px;
+      }
+      header p.lead {
+        color: var(--muted);
+        margin: 0 0 14px;
+      }
+      .chip {
+        display: inline-block;
+        font-weight: 700;
+        font-size: 12px;
+        letter-spacing: 0.02em;
+        padding: 4px 8px;
+        border-radius: 999px;
+        background: rgba(34, 197, 94, 0.15);
+        color: #86efac;
+        border: 1px solid rgba(34, 197, 94, 0.35);
+      }
+      .controls {
+        margin: 12px 0 16px;
+      }
+      .select {
+        width: 100%;
+        padding: 12px 12px;
+        border-radius: 12px;
+        border: 1px solid var(--ring);
+        background: var(--card);
+        color: var(--ink);
+      }
+      .count {
+        color: var(--muted);
+        font-size: 14px;
+        margin: 8px 0;
+      }
+      .list {
+        display: grid;
+        gap: 12px;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--ring);
+        border-radius: 14px;
+        padding: 14px;
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.25);
+      }
+      .card h3 {
+        margin: 0 0 6px;
+        font-size: 18px;
+      }
+      .meta {
+        color: var(--muted);
+        font-size: 14px;
+        margin: 0 0 8px;
+      }
+      .btnrow {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .btn {
+        display: inline-block;
+        text-decoration: none;
+        padding: 8px 10px;
+        border-radius: 10px;
+        border: 1px solid var(--ring);
+        background: rgba(34, 197, 94, 0.15);
+        color: #86efac;
+        font-weight: 700;
+        font-size: 14px;
+      }
+      footer {
+        color: var(--muted);
+        font-size: 13px;
+        padding: 24px 20px 36px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap" id="main">
+      <div class="logo">
+        <img src="dr-kymn.png" alt="Dr. KYMN mascot" />
+      </div>
+
+      <header>
+        <span class="chip">Who Drives?</span>
+        <h1>Non-emergency medical rides</h1>
+        <p class="lead">
+          Choose your county below to see the broker that arranges rides to
+          Medicaid appointments.
+        </p>
+      </header>
+
+      <section class="controls" aria-label="Filters">
+        <select id="county" class="select" aria-label="Filter by county">
+          <option value="">Select county…</option>
+        </select>
+        <p id="count" class="count">0 results</p>
+      </section>
+
+      <section id="results" class="list" aria-live="polite"></section>
+    </main>
+
+    <footer>
+      <p>
+        <strong>Dr. KYMN</strong> is a friendly guide, not a medical doctor. Not
+        affiliated with any agency. Made in Lexington, KY. <br />
+        <a
+          href="https://sleepingbear.us/"
+          target="_blank"
+          rel="noopener"
+          style="color: #93c5fd"
+        >
+          sleepingbear.us
+        </a>
+      </p>
+    </footer>
+
+    <script>
+      const BROKERS_BY_COUNTY = {
+        // Region 01 — GRITS
+        Ballard: {
+          region: "01",
+          broker: "Audubon Area Community Services (GRITS)",
+          tollfree: "1-800-816-3511",
+          phone: "270-686-1651",
+          url: "https://www.audubon-area.com",
+        },
+        Calloway: {
+          region: "01",
+          broker: "Audubon Area Community Services (GRITS)",
+          tollfree: "1-800-816-3511",
+          phone: "270-686-1651",
+          url: "https://www.audubon-area.com",
+        },
+        Carlisle: {
+          region: "01",
+          broker: "Audubon Area Community Services (GRITS)",
+          tollfree: "1-800-816-3511",
+          phone: "270-686-1651",
+          url: "https://www.audubon-area.com",
+        },
+        Fulton: {
+          region: "01",
+          broker: "Audubon Area Community Services (GRITS)",
+          tollfree: "1-800-816-3511",
+          phone: "270-686-1651",
+          url: "https://www.audubon-area.com",
+        },
+        Graves: {
+          region: "01",
+          broker: "Audubon Area Community Services (GRITS)",
+          tollfree: "1-800-816-3511",
+          phone: "270-686-1651",
+          url: "https://www.audubon-area.com",
+        },
+        Hickman: {
+          region: "01",
+          broker: "Audubon Area Community Services (GRITS)",
+          tollfree: "1-800-816-3511",
+          phone: "270-686-1651",
+          url: "https://www.audubon-area.com",
+        },
+        Marshall: {
+          region: "01",
+          broker: "Audubon Area Community Services (GRITS)",
+          tollfree: "1-800-816-3511",
+          phone: "270-686-1651",
+          url: "https://www.audubon-area.com",
+        },
+        McCracken: {
+          region: "01",
+          broker: "Audubon Area Community Services (GRITS)",
+          tollfree: "1-800-816-3511",
+          phone: "270-686-1651",
+          url: "https://www.audubon-area.com",
+        },
+
+        // Region 02 — PACS
+        Caldwell: {
+          region: "02",
+          broker: "Pennyrile Allied Community Services (PACS)",
+          tollfree: "1-800-467-4601",
+          phone: "270-886-6641",
+          url: "https://www.pacs-ky.org",
+        },
+        Christian: {
+          region: "02",
+          broker: "Pennyrile Allied Community Services (PACS)",
+          tollfree: "1-800-467-4601",
+          phone: "270-886-6641",
+          url: "https://www.pacs-ky.org",
+        },
+        Crittenden: {
+          region: "02",
+          broker: "Pennyrile Allied Community Services (PACS)",
+          tollfree: "1-800-467-4601",
+          phone: "270-886-6641",
+          url: "https://www.pacs-ky.org",
+        },
+        Hopkins: {
+          region: "02",
+          broker: "Pennyrile Allied Community Services (PACS)",
+          tollfree: "1-800-467-4601",
+          phone: "270-886-6641",
+          url: "https://www.pacs-ky.org",
+        },
+        Livingston: {
+          region: "02",
+          broker: "Pennyrile Allied Community Services (PACS)",
+          tollfree: "1-800-467-4601",
+          phone: "270-886-6641",
+          url: "https://www.pacs-ky.org",
+        },
+        Lyon: {
+          region: "02",
+          broker: "Pennyrile Allied Community Services (PACS)",
+          tollfree: "1-800-467-4601",
+          phone: "270-886-6641",
+          url: "https://www.pacs-ky.org",
+        },
+        Muhlenberg: {
+          region: "02",
+          broker: "Pennyrile Allied Community Services (PACS)",
+          tollfree: "1-800-467-4601",
+          phone: "270-886-6641",
+          url: "https://www.pacs-ky.org",
+        },
+        Todd: {
+          region: "02",
+          broker: "Pennyrile Allied Community Services (PACS)",
+          tollfree: "1-800-467-4601",
+          phone: "270-886-6641",
+          url: "https://www.pacs-ky.org",
+        },
+        Trigg: {
+          region: "02",
+          broker: "Pennyrile Allied Community Services (PACS)",
+          tollfree: "1-800-467-4601",
+          phone: "270-886-6641",
+          url: "https://www.pacs-ky.org",
+        },
+
+        // Region 03 — GRITS
+        Daviess: {
+          region: "03",
+          broker: "Audubon Area Community Services (GRITS)",
+          tollfree: "1-800-816-3511",
+          phone: "270-686-1651",
+          url: "https://www.audubon-area.com",
+        },
+        Hancock: {
+          region: "03",
+          broker: "Audubon Area Community Services (GRITS)",
+          tollfree: "1-800-816-3511",
+          phone: "270-686-1651",
+          url: "https://www.audubon-area.com",
+        },
+        Henderson: {
+          region: "03",
+          broker: "Audubon Area Community Services (GRITS)",
+          tollfree: "1-800-816-3511",
+          phone: "270-686-1651",
+          url: "https://www.audubon-area.com",
+        },
+        McLean: {
+          region: "03",
+          broker: "Audubon Area Community Services (GRITS)",
+          tollfree: "1-800-816-3511",
+          phone: "270-686-1651",
+          url: "https://www.audubon-area.com",
+        },
+        Ohio: {
+          region: "03",
+          broker: "Audubon Area Community Services (GRITS)",
+          tollfree: "1-800-816-3511",
+          phone: "270-686-1651",
+          url: "https://www.audubon-area.com",
+        },
+        Union: {
+          region: "03",
+          broker: "Audubon Area Community Services (GRITS)",
+          tollfree: "1-800-816-3511",
+          phone: "270-686-1651",
+          url: "https://www.audubon-area.com",
+        },
+        Webster: {
+          region: "03",
+          broker: "Audubon Area Community Services (GRITS)",
+          tollfree: "1-800-816-3511",
+          phone: "270-686-1651",
+          url: "https://www.audubon-area.com",
+        },
+
+        // Region 04 — GRITS
+        Breckinridge: {
+          region: "04",
+          broker: "Audubon Area Community Services (GRITS)",
+          tollfree: "1-800-816-3511",
+          phone: "270-686-1651",
+          url: "https://www.audubon-area.com",
+        },
+        Grayson: {
+          region: "04",
+          broker: "Audubon Area Community Services (GRITS)",
+          tollfree: "1-800-816-3511",
+          phone: "270-686-1651",
+          url: "https://www.audubon-area.com",
+        },
+        Hardin: {
+          region: "04",
+          broker: "Audubon Area Community Services (GRITS)",
+          tollfree: "1-800-816-3511",
+          phone: "270-686-1651",
+          url: "https://www.audubon-area.com",
+        },
+        Larue: {
+          region: "04",
+          broker: "Audubon Area Community Services (GRITS)",
+          tollfree: "1-800-816-3511",
+          phone: "270-686-1651",
+          url: "https://www.audubon-area.com",
+        },
+        Marion: {
+          region: "04",
+          broker: "Audubon Area Community Services (GRITS)",
+          tollfree: "1-800-816-3511",
+          phone: "270-686-1651",
+          url: "https://www.audubon-area.com",
+        },
+        Meade: {
+          region: "04",
+          broker: "Audubon Area Community Services (GRITS)",
+          tollfree: "1-800-816-3511",
+          phone: "270-686-1651",
+          url: "https://www.audubon-area.com",
+        },
+        Nelson: {
+          region: "04",
+          broker: "Audubon Area Community Services (GRITS)",
+          tollfree: "1-800-816-3511",
+          phone: "270-686-1651",
+          url: "https://www.audubon-area.com",
+        },
+
+        // Region 05 — LKLP
+        Adair: {
+          region: "05",
+          broker: "LKLP Community Action Council (LKLP)",
+          tollfree: "1-800-245-2826",
+          phone: "606-487-1872",
+          url: "https://www.lklp.org",
+        },
+        Allen: {
+          region: "05",
+          broker: "LKLP Community Action Council (LKLP)",
+          tollfree: "1-800-245-2826",
+          phone: "606-487-1872",
+          url: "https://www.lklp.org",
+        },
+        Barren: {
+          region: "05",
+          broker: "LKLP Community Action Council (LKLP)",
+          tollfree: "1-800-245-2826",
+          phone: "606-487-1872",
+          url: "https://www.lklp.org",
+        },
+        Butler: {
+          region: "05",
+          broker: "LKLP Community Action Council (LKLP)",
+          tollfree: "1-800-245-2826",
+          phone: "606-487-1872",
+          url: "https://www.lklp.org",
+        },
+        Edmonson: {
+          region: "05",
+          broker: "LKLP Community Action Council (LKLP)",
+          tollfree: "1-800-245-2826",
+          phone: "606-487-1872",
+          url: "https://www.lklp.org",
+        },
+        Green: {
+          region: "05",
+          broker: "LKLP Community Action Council (LKLP)",
+          tollfree: "1-800-245-2826",
+          phone: "606-487-1872",
+          url: "https://www.lklp.org",
+        },
+        Hart: {
+          region: "05",
+          broker: "LKLP Community Action Council (LKLP)",
+          tollfree: "1-800-245-2826",
+          phone: "606-487-1872",
+          url: "https://www.lklp.org",
+        },
+        Logan: {
+          region: "05",
+          broker: "LKLP Community Action Council (LKLP)",
+          tollfree: "1-800-245-2826",
+          phone: "606-487-1872",
+          url: "https://www.lklp.org",
+        },
+        Metcalfe: {
+          region: "05",
+          broker: "LKLP Community Action Council (LKLP)",
+          tollfree: "1-800-245-2826",
+          phone: "606-487-1872",
+          url: "https://www.lklp.org",
+        },
+        Simpson: {
+          region: "05",
+          broker: "LKLP Community Action Council (LKLP)",
+          tollfree: "1-800-245-2826",
+          phone: "606-487-1872",
+          url: "https://www.lklp.org",
+        },
+        Taylor: {
+          region: "05",
+          broker: "LKLP Community Action Council (LKLP)",
+          tollfree: "1-800-245-2826",
+          phone: "606-487-1872",
+          url: "https://www.lklp.org",
+        },
+        Warren: {
+          region: "05",
+          broker: "LKLP Community Action Council (LKLP)",
+          tollfree: "1-800-245-2826",
+          phone: "606-487-1872",
+          url: "https://www.lklp.org",
+        },
+
+        // Region 06 — FTSB (Louisville area)
+        Bullitt: {
+          region: "06",
+          broker: "Federated Transportation Services of the Bluegrass (FTSB)",
+          tollfree: "1-888-848-0989",
+          phone: "859-233-0066",
+          url: "https://www.ftsb.org",
+        },
+        Henry: {
+          region: "06",
+          broker: "Federated Transportation Services of the Bluegrass (FTSB)",
+          tollfree: "1-888-848-0989",
+          phone: "859-233-0066",
+          url: "https://www.ftsb.org",
+        },
+        Jefferson: {
+          region: "06",
+          broker: "Federated Transportation Services of the Bluegrass (FTSB)",
+          tollfree: "1-888-848-0989",
+          phone: "859-233-0066",
+          url: "https://www.ftsb.org",
+        },
+        Oldham: {
+          region: "06",
+          broker: "Federated Transportation Services of the Bluegrass (FTSB)",
+          tollfree: "1-888-848-0989",
+          phone: "859-233-0066",
+          url: "https://www.ftsb.org",
+        },
+        Shelby: {
+          region: "06",
+          broker: "Federated Transportation Services of the Bluegrass (FTSB)",
+          tollfree: "1-888-848-0989",
+          phone: "859-233-0066",
+          url: "https://www.ftsb.org",
+        },
+        Spencer: {
+          region: "06",
+          broker: "Federated Transportation Services of the Bluegrass (FTSB)",
+          tollfree: "1-888-848-0989",
+          phone: "859-233-0066",
+          url: "https://www.ftsb.org",
+        },
+        Trimble: {
+          region: "06",
+          broker: "Federated Transportation Services of the Bluegrass (FTSB)",
+          tollfree: "1-888-848-0989",
+          phone: "859-233-0066",
+          url: "https://www.ftsb.org",
+        },
+
+        // Region 08 — BGCAP (BUS)
+        Anderson: {
+          region: "08",
+          broker: "Bluegrass Community Action Partnership (BUS)",
+          tollfree: "1-800-456-6588",
+          phone: "502-695-4290",
+          url: "https://www.bluegrasscommunityaction.org",
+        },
+        Boyle: {
+          region: "08",
+          broker: "Bluegrass Community Action Partnership (BUS)",
+          tollfree: "1-800-456-6588",
+          phone: "502-695-4290",
+          url: "https://www.bluegrasscommunityaction.org",
+        },
+        Casey: {
+          region: "08",
+          broker: "Bluegrass Community Action Partnership (BUS)",
+          tollfree: "1-800-456-6588",
+          phone: "502-695-4290",
+          url: "https://www.bluegrasscommunityaction.org",
+        },
+        Franklin: {
+          region: "08",
+          broker: "Bluegrass Community Action Partnership (BUS)",
+          tollfree: "1-800-456-6588",
+          phone: "502-695-4290",
+          url: "https://www.bluegrasscommunityaction.org",
+        },
+        Garrard: {
+          region: "08",
+          broker: "Bluegrass Community Action Partnership (BUS)",
+          tollfree: "1-800-456-6588",
+          phone: "502-695-4290",
+          url: "https://www.bluegrasscommunityaction.org",
+        },
+        Jessamine: {
+          region: "08",
+          broker: "Bluegrass Community Action Partnership (BUS)",
+          tollfree: "1-800-456-6588",
+          phone: "502-695-4290",
+          url: "https://www.bluegrasscommunityaction.org",
+        },
+        Lincoln: {
+          region: "08",
+          broker: "Bluegrass Community Action Partnership (BUS)",
+          tollfree: "1-800-456-6588",
+          phone: "502-695-4290",
+          url: "https://www.bluegrasscommunityaction.org",
+        },
+        Mercer: {
+          region: "08",
+          broker: "Bluegrass Community Action Partnership (BUS)",
+          tollfree: "1-800-456-6588",
+          phone: "502-695-4290",
+          url: "https://www.bluegrasscommunityaction.org",
+        },
+        Scott: {
+          region: "08",
+          broker: "Bluegrass Community Action Partnership (BUS)",
+          tollfree: "1-800-456-6588",
+          phone: "502-695-4290",
+          url: "https://www.bluegrasscommunityaction.org",
+        },
+        Washington: {
+          region: "08",
+          broker: "Bluegrass Community Action Partnership (BUS)",
+          tollfree: "1-800-456-6588",
+          phone: "502-695-4290",
+          url: "https://www.bluegrasscommunityaction.org",
+        },
+        Woodford: {
+          region: "08",
+          broker: "Bluegrass Community Action Partnership (BUS)",
+          tollfree: "1-800-456-6588",
+          phone: "502-695-4290",
+          url: "https://www.bluegrasscommunityaction.org",
+        },
+
+        // Region 09 — FTSB (NKY)
+        Boone: {
+          region: "09",
+          broker: "Federated Transportation Services of the Bluegrass (FTSB)",
+          tollfree: "1-888-848-0989",
+          phone: "859-233-0066",
+          url: "https://www.ftsb.org",
+        },
+        Campbell: {
+          region: "09",
+          broker: "Federated Transportation Services of the Bluegrass (FTSB)",
+          tollfree: "1-888-848-0989",
+          phone: "859-233-0066",
+          url: "https://www.ftsb.org",
+        },
+        Carroll: {
+          region: "09",
+          broker: "Federated Transportation Services of the Bluegrass (FTSB)",
+          tollfree: "1-888-848-0989",
+          phone: "859-233-0066",
+          url: "https://www.ftsb.org",
+        },
+        Gallatin: {
+          region: "09",
+          broker: "Federated Transportation Services of the Bluegrass (FTSB)",
+          tollfree: "1-888-848-0989",
+          phone: "859-233-0066",
+          url: "https://www.ftsb.org",
+        },
+        Grant: {
+          region: "09",
+          broker: "Federated Transportation Services of the Bluegrass (FTSB)",
+          tollfree: "1-888-848-0989",
+          phone: "859-233-0066",
+          url: "https://www.ftsb.org",
+        },
+        Kenton: {
+          region: "09",
+          broker: "Federated Transportation Services of the Bluegrass (FTSB)",
+          tollfree: "1-888-848-0989",
+          phone: "859-233-0066",
+          url: "https://www.ftsb.org",
+        },
+        Owen: {
+          region: "09",
+          broker: "Federated Transportation Services of the Bluegrass (FTSB)",
+          tollfree: "1-888-848-0989",
+          phone: "859-233-0066",
+          url: "https://www.ftsb.org",
+        },
+        Pendleton: {
+          region: "09",
+          broker: "Federated Transportation Services of the Bluegrass (FTSB)",
+          tollfree: "1-888-848-0989",
+          phone: "859-233-0066",
+          url: "https://www.ftsb.org",
+        },
+
+        // Region 10 — FTSB (Fayette)
+        Fayette: {
+          region: "10",
+          broker: "Federated Transportation Services of the Bluegrass (FTSB)",
+          tollfree: "1-888-848-0989",
+          phone: "859-233-0066",
+          url: "https://www.ftsb.org",
+        },
+
+        // Region 11 — FTSB (surrounding Bluegrass)
+        Bourbon: {
+          region: "11",
+          broker: "Federated Transportation Services of the Bluegrass (FTSB)",
+          tollfree: "1-888-848-0989",
+          phone: "859-233-0066",
+          url: "https://www.ftsb.org",
+        },
+        Clark: {
+          region: "11",
+          broker: "Federated Transportation Services of the Bluegrass (FTSB)",
+          tollfree: "1-888-848-0989",
+          phone: "859-233-0066",
+          url: "https://www.ftsb.org",
+        },
+        Estill: {
+          region: "11",
+          broker: "Federated Transportation Services of the Bluegrass (FTSB)",
+          tollfree: "1-888-848-0989",
+          phone: "859-233-0066",
+          url: "https://www.ftsb.org",
+        },
+        Harrison: {
+          region: "11",
+          broker: "Federated Transportation Services of the Bluegrass (FTSB)",
+          tollfree: "1-888-848-0989",
+          phone: "859-233-0066",
+          url: "https://www.ftsb.org",
+        },
+        Madison: {
+          region: "11",
+          broker: "Federated Transportation Services of the Bluegrass (FTSB)",
+          tollfree: "1-888-848-0989",
+          phone: "859-233-0066",
+          url: "https://www.ftsb.org",
+        },
+        Montgomery: {
+          region: "11",
+          broker: "Federated Transportation Services of the Bluegrass (FTSB)",
+          tollfree: "1-888-848-0989",
+          phone: "859-233-0066",
+          url: "https://www.ftsb.org",
+        },
+        Nicholas: {
+          region: "11",
+          broker: "Federated Transportation Services of the Bluegrass (FTSB)",
+          tollfree: "1-888-848-0989",
+          phone: "859-233-0066",
+          url: "https://www.ftsb.org",
+        },
+        Powell: {
+          region: "11",
+          broker: "Federated Transportation Services of the Bluegrass (FTSB)",
+          tollfree: "1-888-848-0989",
+          phone: "859-233-0066",
+          url: "https://www.ftsb.org",
+        },
+
+        // Region 12 — RTEC
+        Bell: {
+          region: "12",
+          broker: "Rural Transit Enterprises Coordinated (RTEC)",
+          tollfree: "1-800-321-7832",
+          phone: "606-256-9835",
+          url: "https://www.ridertec.org",
+        },
+        Clinton: {
+          region: "12",
+          broker: "Rural Transit Enterprises Coordinated (RTEC)",
+          tollfree: "1-800-321-7832",
+          phone: "606-256-9835",
+          url: "https://www.ridertec.org",
+        },
+        Cumberland: {
+          region: "12",
+          broker: "Rural Transit Enterprises Coordinated (RTEC)",
+          tollfree: "1-800-321-7832",
+          phone: "606-256-9835",
+          url: "https://www.ridertec.org",
+        },
+        Knox: {
+          region: "12",
+          broker: "Rural Transit Enterprises Coordinated (RTEC)",
+          tollfree: "1-800-321-7832",
+          phone: "606-256-9835",
+          url: "https://www.ridertec.org",
+        },
+        Laurel: {
+          region: "12",
+          broker: "Rural Transit Enterprises Coordinated (RTEC)",
+          tollfree: "1-800-321-7832",
+          phone: "606-256-9835",
+          url: "https://www.ridertec.org",
+        },
+        McCreary: {
+          region: "12",
+          broker: "Rural Transit Enterprises Coordinated (RTEC)",
+          tollfree: "1-800-321-7832",
+          phone: "606-256-9835",
+          url: "https://www.ridertec.org",
+        },
+        Monroe: {
+          region: "12",
+          broker: "Rural Transit Enterprises Coordinated (RTEC)",
+          tollfree: "1-800-321-7832",
+          phone: "606-256-9835",
+          url: "https://www.ridertec.org",
+        },
+        Pulaski: {
+          region: "12",
+          broker: "Rural Transit Enterprises Coordinated (RTEC)",
+          tollfree: "1-800-321-7832",
+          phone: "606-256-9835",
+          url: "https://www.ridertec.org",
+        },
+        Rockcastle: {
+          region: "12",
+          broker: "Rural Transit Enterprises Coordinated (RTEC)",
+          tollfree: "1-800-321-7832",
+          phone: "606-256-9835",
+          url: "https://www.ridertec.org",
+        },
+        Russell: {
+          region: "12",
+          broker: "Rural Transit Enterprises Coordinated (RTEC)",
+          tollfree: "1-800-321-7832",
+          phone: "606-256-9835",
+          url: "https://www.ridertec.org",
+        },
+        Wayne: {
+          region: "12",
+          broker: "Rural Transit Enterprises Coordinated (RTEC)",
+          tollfree: "1-800-321-7832",
+          phone: "606-256-9835",
+          url: "https://www.ridertec.org",
+        },
+        Whitley: {
+          region: "12",
+          broker: "Rural Transit Enterprises Coordinated (RTEC)",
+          tollfree: "1-800-321-7832",
+          phone: "606-256-9835",
+          url: "https://www.ridertec.org",
+        },
+
+        // Region 13 — LKLP
+        Breathitt: {
+          region: "13",
+          broker: "LKLP Community Action Council (LKLP)",
+          tollfree: "1-800-245-2826",
+          phone: "606-487-1872",
+          url: "https://www.lklp.org",
+        },
+        Clay: {
+          region: "13",
+          broker: "LKLP Community Action Council (LKLP)",
+          tollfree: "1-800-245-2826",
+          phone: "606-487-1872",
+          url: "https://www.lklp.org",
+        },
+        Harlan: {
+          region: "13",
+          broker: "LKLP Community Action Council (LKLP)",
+          tollfree: "1-800-245-2826",
+          phone: "606-487-1872",
+          url: "https://www.lklp.org",
+        },
+        Jackson: {
+          region: "13",
+          broker: "LKLP Community Action Council (LKLP)",
+          tollfree: "1-800-245-2826",
+          phone: "606-487-1872",
+          url: "https://www.lklp.org",
+        },
+        Knott: {
+          region: "13",
+          broker: "LKLP Community Action Council (LKLP)",
+          tollfree: "1-800-245-2826",
+          phone: "606-487-1872",
+          url: "https://www.lklp.org",
+        },
+        Lee: {
+          region: "13",
+          broker: "LKLP Community Action Council (LKLP)",
+          tollfree: "1-800-245-2826",
+          phone: "606-487-1872",
+          url: "https://www.lklp.org",
+        },
+        Leslie: {
+          region: "13",
+          broker: "LKLP Community Action Council (LKLP)",
+          tollfree: "1-800-245-2826",
+          phone: "606-487-1872",
+          url: "https://www.lklp.org",
+        },
+        Letcher: {
+          region: "13",
+          broker: "LKLP Community Action Council (LKLP)",
+          tollfree: "1-800-245-2826",
+          phone: "606-487-1872",
+          url: "https://www.lklp.org",
+        },
+        Owsley: {
+          region: "13",
+          broker: "LKLP Community Action Council (LKLP)",
+          tollfree: "1-800-245-2826",
+          phone: "606-487-1872",
+          url: "https://www.lklp.org",
+        },
+        Perry: {
+          region: "13",
+          broker: "LKLP Community Action Council (LKLP)",
+          tollfree: "1-800-245-2826",
+          phone: "606-487-1872",
+          url: "https://www.lklp.org",
+        },
+        Wolfe: {
+          region: "13",
+          broker: "LKLP Community Action Council (LKLP)",
+          tollfree: "1-800-245-2826",
+          phone: "606-487-1872",
+          url: "https://www.lklp.org",
+        },
+
+        // Region 14 — SVTS
+        Floyd: {
+          region: "14",
+          broker: "Sandy Valley Transportation Services (SVTS)",
+          tollfree: "1-800-444-7433",
+          phone: "606-886-7039",
+          url: "https://www.svtransport.org",
+        },
+        Johnson: {
+          region: "14",
+          broker: "Sandy Valley Transportation Services (SVTS)",
+          tollfree: "1-800-444-7433",
+          phone: "606-886-7039",
+          url: "https://www.svtransport.org",
+        },
+        Magoffin: {
+          region: "14",
+          broker: "Sandy Valley Transportation Services (SVTS)",
+          tollfree: "1-800-444-7433",
+          phone: "606-886-7039",
+          url: "https://www.svtransport.org",
+        },
+        Martin: {
+          region: "14",
+          broker: "Sandy Valley Transportation Services (SVTS)",
+          tollfree: "1-800-444-7433",
+          phone: "606-886-7039",
+          url: "https://www.svtransport.org",
+        },
+        Pike: {
+          region: "14",
+          broker: "Sandy Valley Transportation Services (SVTS)",
+          tollfree: "1-800-444-7433",
+          phone: "606-886-7039",
+          url: "https://www.svtransport.org",
+        },
+
+        // Region 15 — LKLP
+        Bath: {
+          region: "15",
+          broker: "LKLP Community Action Council (LKLP)",
+          tollfree: "1-800-245-2826",
+          phone: "606-487-1872",
+          url: "https://www.lklp.org",
+        },
+        Boyd: {
+          region: "15",
+          broker: "LKLP Community Action Council (LKLP)",
+          tollfree: "1-800-245-2826",
+          phone: "606-487-1872",
+          url: "https://www.lklp.org",
+        },
+        Carter: {
+          region: "15",
+          broker: "LKLP Community Action Council (LKLP)",
+          tollfree: "1-800-245-2826",
+          phone: "606-487-1872",
+          url: "https://www.lklp.org",
+        },
+        Elliott: {
+          region: "15",
+          broker: "LKLP Community Action Council (LKLP)",
+          tollfree: "1-800-245-2826",
+          phone: "606-487-1872",
+          url: "https://www.lklp.org",
+        },
+        Greenup: {
+          region: "15",
+          broker: "LKLP Community Action Council (LKLP)",
+          tollfree: "1-800-245-2826",
+          phone: "606-487-1872",
+          url: "https://www.lklp.org",
+        },
+        Lawrence: {
+          region: "15",
+          broker: "LKLP Community Action Council (LKLP)",
+          tollfree: "1-800-245-2826",
+          phone: "606-487-1872",
+          url: "https://www.lklp.org",
+        },
+        Menifee: {
+          region: "15",
+          broker: "LKLP Community Action Council (LKLP)",
+          tollfree: "1-800-245-2826",
+          phone: "606-487-1872",
+          url: "https://www.lklp.org",
+        },
+        Morgan: {
+          region: "15",
+          broker: "LKLP Community Action Council (LKLP)",
+          tollfree: "1-800-245-2826",
+          phone: "606-487-1872",
+          url: "https://www.lklp.org",
+        },
+        Rowan: {
+          region: "15",
+          broker: "LKLP Community Action Council (LKLP)",
+          tollfree: "1-800-245-2826",
+          phone: "606-487-1872",
+          url: "https://www.lklp.org",
+        },
+
+        // Region 16 — LVCAP
+        Bracken: {
+          region: "16",
+          broker: "Licking Valley Community Action Program (LVCAP)",
+          tollfree: "1-800-327-5196",
+          phone: "606-845-0081",
+          url: "https://lvcap.com",
+        },
+        Robertson: {
+          region: "16",
+          broker: "Licking Valley Community Action Program (LVCAP)",
+          tollfree: "1-800-327-5196",
+          phone: "606-845-0081",
+          url: "https://lvcap.com",
+        },
+        Mason: {
+          region: "16",
+          broker: "Licking Valley Community Action Program (LVCAP)",
+          tollfree: "1-800-327-5196",
+          phone: "606-845-0081",
+          url: "https://lvcap.com",
+        },
+        Fleming: {
+          region: "16",
+          broker: "Licking Valley Community Action Program (LVCAP)",
+          tollfree: "1-800-327-5196",
+          phone: "606-845-0081",
+          url: "https://lvcap.com",
+        },
+        Lewis: {
+          region: "16",
+          broker: "Licking Valley Community Action Program (LVCAP)",
+          tollfree: "1-800-327-5196",
+          phone: "606-845-0081",
+          url: "https://lvcap.com",
+        },
+      };
+      const countySelect = document.getElementById("county");
+      const listEl = document.getElementById("results");
+      const countEl = document.getElementById("count");
+
+      // Build dropdown
+      countySelect.innerHTML =
+        '<option value="">Select county…</option>' +
+        Object.keys(BROKERS_BY_COUNTY)
+          .sort()
+          .map((c) => `<option value="${c}">${c}</option>`)
+          .join("");
+
+      function renderBrokerFor(county) {
+        listEl.innerHTML = "";
+        const item = BROKERS_BY_COUNTY[county];
+        if (!item) {
+          countEl.textContent = "0 results";
+          const empty = document.createElement("div");
+          empty.className = "card";
+          empty.innerHTML = "<p>No broker found for that county.</p>";
+          listEl.appendChild(empty);
+          return;
+        }
+        countEl.textContent = "1 result";
+        const phoneHref = item.phone
+          ? "tel:" + item.phone.replace(/[^\d+]/g, "")
+          : "";
+        const tollHref = item.tollfree
+          ? "tel:" + item.tollfree.replace(/[^\d+]/g, "")
+          : "";
+        const card = document.createElement("article");
+        card.className = "card";
+        card.innerHTML = `
+        <h3>${item.broker}</h3>
+        <p class="meta">Region ${item.region} · ${county} County</p>
+        <div class="btnrow" style="margin-top:8px">
+          ${
+            item.tollfree
+              ? `<a class="btn" href="${tollHref}">Toll-free ${item.tollfree}</a>`
+              : ""
+          }
+          ${
+            item.phone
+              ? `<a class="btn" href="${phoneHref}">Local ${item.phone}</a>`
+              : ""
+          }
+          ${
+            item.url
+              ? `<a class="btn" href="${item.url}" target="_blank" rel="noopener">Website</a>`
+              : ""
+          }
+        </div>
+      `;
+        listEl.appendChild(card);
+      }
+
+      countySelect.addEventListener("change", () =>
+        renderBrokerFor(countySelect.value)
+      );
+      countEl.textContent = "0 results";
+    </script>
+  </body>
+</html>

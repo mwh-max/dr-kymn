@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>After You Apply — Kentucky Medicaid Notebook</title>
+    <style>
+      :root {
+        --bg: #0f172a; /* slate-900 */
+        --card: #111827; /* gray-900 */
+        --ink: #e5e7eb; /* gray-200 */
+        --muted: #94a3b8; /* slate-400 */
+        --accent: #22c55e; /* green-500 */
+        --ring: #334155; /* slate-700 */
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Arial,
+          sans-serif;
+      }
+      .wrap {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      header h1 {
+        font-size: 26px;
+        margin: 6px 0 4px;
+      }
+      header p.lead {
+        color: var(--muted);
+        margin: 0 0 14px;
+      }
+      .logo {
+        text-align: center;
+        margin-bottom: 18px;
+      }
+      .logo img {
+        max-width: 120px;
+        height: auto;
+        filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.35));
+      }
+      .tag {
+        color: var(--muted);
+        font-size: 14px;
+        margin: 2px 0 14px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      @media (min-width: 560px) {
+        .grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--ring);
+        border-radius: 14px;
+        padding: 14px 14px 12px;
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.25);
+      }
+      .card h3 {
+        margin: 4px 0 6px;
+        font-size: 18px;
+      }
+      .card p {
+        margin: 0;
+      }
+      .chip {
+        display: inline-block;
+        font-weight: 700;
+        font-size: 12px;
+        letter-spacing: 0.02em;
+        padding: 4px 8px;
+        border-radius: 999px;
+        background: rgba(34, 197, 94, 0.15);
+        color: #86efac;
+        border: 1px solid rgba(34, 197, 94, 0.35);
+      }
+      details {
+        background: var(--card);
+        border: 1px solid var(--ring);
+        border-radius: 12px;
+        padding: 10px 12px;
+      }
+      details summary {
+        cursor: pointer;
+        font-weight: 600;
+      }
+      a {
+        color: #93c5fd;
+      }
+      footer {
+        color: var(--muted);
+        font-size: 13px;
+        padding: 24px 20px 36px;
+        text-align: center;
+      }
+      .divider {
+        height: 1px;
+        background: var(--ring);
+        margin: 16px 0;
+        border-radius: 1px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap" id="main" aria-labelledby="title">
+      <div class="logo">
+        <img src="dr-kymn.png" alt="Dr. KYMN mascot" />
+      </div>
+      <header>
+        <span class="chip">After You Apply</span>
+        <h1 id="title">Your next steps</h1>
+        <p class="lead">
+          You submitted your application. Here’s what to expect and what to do
+          to keep things on track.
+        </p>
+      </header>
+
+      <p class="tag">Simple due-diligence checklist after you apply.</p>
+
+      <section class="grid" role="list">
+        <article class="card" role="listitem">
+          <h3>1) Watch your mail</h3>
+          <p>
+            Look for an <strong>approval/denial notice</strong>. If approved,
+            your <strong>Medicaid card</strong> may arrive separately. Keep all
+            letters in a safe place.
+          </p>
+        </article>
+
+        <article class="card" role="listitem">
+          <h3>2) Respond if they ask for more</h3>
+          <p>
+            If the state requests <strong>extra documents</strong> (ID, proof of
+            income, etc.), send them <strong>by the deadline</strong>. Missing
+            deadlines can pause or deny coverage.
+          </p>
+        </article>
+
+        <article class="card" role="listitem">
+          <h3>3) Track your case</h3>
+          <p>
+            Check status and messages in <strong>kynect</strong>. Write down
+            your <strong>case number</strong> for phone calls.
+          </p>
+        </article>
+
+        <article class="card" role="listitem">
+          <h3>4) Use your card</h3>
+          <p>
+            Bring your <strong>Medicaid ID card</strong> to appointments.
+            Confirm the provider <strong>accepts Kentucky Medicaid</strong>.
+          </p>
+        </article>
+
+        <article class="card" role="listitem">
+          <h3>5) Keep info up to date</h3>
+          <p>
+            Report changes to
+            <strong>address, phone, income, household</strong> right away.
+            Out-of-date info can lead to loss of coverage.
+          </p>
+        </article>
+
+        <article class="card" role="listitem">
+          <h3>6) Renewal every year</h3>
+          <p>
+            Medicaid uses <strong>annual redetermination</strong>. Watch for a
+            renewal notice and respond promptly. If you miss it, you may have a
+            short window to fix it.
+          </p>
+        </article>
+      </section>
+
+      <div class="divider"></div>
+
+      <details>
+        <summary>How do I check messages or upload documents?</summary>
+        <p>
+          Log in to <strong>kynect</strong> to view notices and upload requested
+          items. Keep digital copies of what you send and note the date
+          submitted.
+        </p>
+      </details>
+
+      <section style="margin-top: 14px">
+        <h2
+          class="tag"
+          style="font-size: 16px; color: #cbd5e1; margin-bottom: 8px"
+        >
+          Official links
+        </h2>
+        <ul style="margin: 0; padding-left: 18px">
+          <li>
+            <a
+              href="https://kynect.ky.gov/benefits/s/medicaid-kchip-program?language=en_US"
+              target="_blank"
+              rel="noopener"
+              >kynect — Kentucky’s official portal</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://khbe.ky.gov/Enrollment/Pages/MedicaidRenewals.aspx"
+              target="_blank"
+              rel="noopener"
+              >Medicaid renewals and contact updates (KHBE)</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://khbe.ky.gov/Enrollment/Pages/PHEUnwinding.aspx"
+              target="_blank"
+              rel="noopener"
+              >Keep coverage — notices & what to do (KHBE)</a
+            >
+          </li>
+        </ul>
+        <p class="tag"><strong>Last updated:</strong> Aug 25, 2025</p>
+      </section>
+    </main>
+
+    <footer>
+      <p>
+        <strong>Dr. KYMN</strong> is a friendly guide, not a medical doctor. Not
+        affiliated with any agency. Made in Lexington, KY, by <br />
+        <a
+          href="https://sleepingbear.us/"
+          target="_blank"
+          rel="noopener"
+          style="color: #93c5fd"
+        >
+          Sleeping Bear Labs
+        </a>
+      </p>
+    </footer>
+  </body>
+</html>

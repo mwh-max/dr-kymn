@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Who Qualifies — Kentucky Medicaid Notebook</title>
+    <style>
+      :root {
+        --bg: #0f172a;
+        --card: #111827;
+        --ink: #e5e7eb;
+        --muted: #94a3b8;
+        --accent: #22c55e;
+        --ring: #334155;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Arial,
+          sans-serif;
+      }
+      .wrap {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .logo {
+        text-align: center;
+        margin-bottom: 18px;
+      }
+      .logo img {
+        max-width: 120px;
+        height: auto;
+        filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.35));
+      }
+      header h1 {
+        font-size: 26px;
+        margin: 6px 0 4px;
+      }
+      header p.lead {
+        color: var(--muted);
+        margin: 0 0 14px;
+      }
+      .tag {
+        color: var(--muted);
+        font-size: 14px;
+        margin: 2px 0 14px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      @media (min-width: 560px) {
+        .grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--ring);
+        border-radius: 14px;
+        padding: 14px;
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.25);
+      }
+      .card h3 {
+        margin: 4px 0 6px;
+        font-size: 18px;
+      }
+      .chip {
+        display: inline-block;
+        font-weight: 700;
+        font-size: 12px;
+        letter-spacing: 0.02em;
+        padding: 4px 8px;
+        border-radius: 999px;
+        background: rgba(34, 197, 94, 0.15);
+        color: #86efac;
+        border: 1px solid rgba(34, 197, 94, 0.35);
+      }
+      footer {
+        color: var(--muted);
+        font-size: 13px;
+        padding: 24px 20px 36px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <div class="logo">
+        <img src="dr-kymn.png" alt="Dr. KYMN mascot" />
+      </div>
+
+      <header>
+        <span class="chip">Who Qualifies?</span>
+        <h1>Eligibility basics</h1>
+        <p class="lead">
+          Kentucky Medicaid and KCHIP are based on
+          <strong>income, age, disability and household size</strong>. Here’s an
+          overview.
+        </p>
+      </header>
+
+      <section class="grid">
+        <article class="card">
+          <h3>Income limits</h3>
+          <p>
+            Eligibility depends on your
+            <strong
+              >household income compared to the Federal Poverty Level
+              (FPL)</strong
+            >. The thresholds vary by family size and program.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Children & teens</h3>
+          <p>
+            Kids under 19 may qualify through <strong>KCHIP</strong> or
+            Medicaid, depending on income. Coverage includes doctor visits,
+            hospital care, and dental.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Pregnant people</h3>
+          <p>
+            Pregnant Kentuckians may qualify with
+            <strong>higher income limits</strong> than other adults. Prenatal
+            and postpartum care are included.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Adults</h3>
+          <p>
+            Low-income adults ages 19–64 may qualify if income is under the
+            limit. Coverage includes primary, emergency, and specialty care.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Seniors & disability</h3>
+          <p>
+            People over 65 or with qualifying <strong>disabilities</strong> may
+            qualify through Medicaid or Medicare Savings Programs.
+          </p>
+        </article>
+      </section>
+
+      <p class="tag">
+        <strong>Tip:</strong> Use Kentucky’s official portal (<a
+          href="https://kynect.ky.gov/"
+          style="color: #93c5fd"
+          >kynect.ky.gov</a
+        >) to check your eligibility and apply.
+      </p>
+    </main>
+
+    <footer>
+      <p>
+        <strong>Dr. KYMN</strong> is a friendly guide, not a medical doctor. Not
+        affiliated with any agency. Made in Lexington, KY, by <br />
+        <a
+          href="https://sleepingbear.us/"
+          target="_blank"
+          rel="noopener"
+          style="color: #93c5fd"
+        >
+          Sleeping Bear Labs
+        </a>
+      </p>
+    </footer>
+  </body>
+</html>
