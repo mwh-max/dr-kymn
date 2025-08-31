@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Who Drives? — Kentucky Medicaid Notebook</title>
+    <title>Who Drives? â€” Kentucky Medicaid Notebook</title>
     <style>
       :root {
         --bg: #0f172a;
@@ -133,7 +133,7 @@
 
       <section class="controls" aria-label="Filters">
         <select id="county" class="select" aria-label="Filter by county">
-          <option value="">Select county…</option>
+          <option value="">Select countyâ€¦</option>
         </select>
         <p id="count" class="count">0 results</p>
       </section>
@@ -158,7 +158,7 @@
 
     <script>
       const BROKERS_BY_COUNTY = {
-        // Region 01 — GRITS
+        // Region 01 â€” GRITS
         Ballard: {
           region: "01",
           broker: "Audubon Area Community Services (GRITS)",
@@ -216,7 +216,7 @@
           url: "https://www.audubon-area.com",
         },
 
-        // Region 02 — PACS
+        // Region 02 â€” PACS
         Caldwell: {
           region: "02",
           broker: "Pennyrile Allied Community Services (PACS)",
@@ -281,7 +281,7 @@
           url: "https://www.pacs-ky.org",
         },
 
-        // Region 03 — GRITS
+        // Region 03 â€” GRITS
         Daviess: {
           region: "03",
           broker: "Audubon Area Community Services (GRITS)",
@@ -332,7 +332,7 @@
           url: "https://www.audubon-area.com",
         },
 
-        // Region 04 — GRITS
+        // Region 04 â€” GRITS
         Breckinridge: {
           region: "04",
           broker: "Audubon Area Community Services (GRITS)",
@@ -383,7 +383,7 @@
           url: "https://www.audubon-area.com",
         },
 
-        // Region 05 — LKLP
+        // Region 05 â€” LKLP
         Adair: {
           region: "05",
           broker: "LKLP Community Action Council (LKLP)",
@@ -469,7 +469,7 @@
           url: "https://www.lklp.org",
         },
 
-        // Region 06 — FTSB (Louisville area)
+        // Region 06 â€” FTSB (Louisville area)
         Bullitt: {
           region: "06",
           broker: "Federated Transportation Services of the Bluegrass (FTSB)",
@@ -520,7 +520,7 @@
           url: "https://www.ftsb.org",
         },
 
-        // Region 08 — BGCAP (BUS)
+        // Region 08 â€” BGCAP (BUS)
         Anderson: {
           region: "08",
           broker: "Bluegrass Community Action Partnership (BUS)",
@@ -599,7 +599,7 @@
           url: "https://www.bluegrasscommunityaction.org",
         },
 
-        // Region 09 — FTSB (NKY)
+        // Region 09 â€” FTSB (NKY)
         Boone: {
           region: "09",
           broker: "Federated Transportation Services of the Bluegrass (FTSB)",
@@ -657,7 +657,7 @@
           url: "https://www.ftsb.org",
         },
 
-        // Region 10 — FTSB (Fayette)
+        // Region 10 â€” FTSB (Fayette)
         Fayette: {
           region: "10",
           broker: "Federated Transportation Services of the Bluegrass (FTSB)",
@@ -666,7 +666,7 @@
           url: "https://www.ftsb.org",
         },
 
-        // Region 11 — FTSB (surrounding Bluegrass)
+        // Region 11 â€” FTSB (surrounding Bluegrass)
         Bourbon: {
           region: "11",
           broker: "Federated Transportation Services of the Bluegrass (FTSB)",
@@ -724,7 +724,7 @@
           url: "https://www.ftsb.org",
         },
 
-        // Region 12 — RTEC
+        // Region 12 â€” RTEC
         Bell: {
           region: "12",
           broker: "Rural Transit Enterprises Coordinated (RTEC)",
@@ -810,7 +810,7 @@
           url: "https://www.ridertec.org",
         },
 
-        // Region 13 — LKLP
+        // Region 13 â€” LKLP
         Breathitt: {
           region: "13",
           broker: "LKLP Community Action Council (LKLP)",
@@ -889,7 +889,7 @@
           url: "https://www.lklp.org",
         },
 
-        // Region 14 — SVTS
+        // Region 14 â€” SVTS
         Floyd: {
           region: "14",
           broker: "Sandy Valley Transportation Services (SVTS)",
@@ -926,7 +926,7 @@
           url: "https://www.svtransport.org",
         },
 
-        // Region 15 — LKLP
+        // Region 15 â€” LKLP
         Bath: {
           region: "15",
           broker: "LKLP Community Action Council (LKLP)",
@@ -991,7 +991,7 @@
           url: "https://www.lklp.org",
         },
 
-        // Region 16 — LVCAP
+        // Region 16 â€” LVCAP
         Bracken: {
           region: "16",
           broker: "Licking Valley Community Action Program (LVCAP)",
@@ -1034,7 +1034,7 @@
 
       // Build dropdown
       countySelect.innerHTML =
-        '<option value="">Select county…</option>' +
+        '<option value="">Select countyâ€¦</option>' +
         Object.keys(BROKERS_BY_COUNTY)
           .sort()
           .map((c) => `<option value="${c}">${c}</option>`)
@@ -1062,7 +1062,7 @@
         card.className = "card";
         card.innerHTML = `
         <h3>${item.broker}</h3>
-        <p class="meta">Region ${item.region} · ${county} County</p>
+        <p class="meta">Region ${item.region} Â· ${county} County</p>
         <div class="btnrow" style="margin-top:8px">
           ${
             item.tollfree
