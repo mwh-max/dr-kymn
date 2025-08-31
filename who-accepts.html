@@ -3,7 +3,192 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+    $val = <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Who Accepts Medicaid â€” Kentucky Medicaid Notebook</title>
+    <style>
+      :root {
+        --bg: #0f172a;
+        --card: #111827;
+        --ink: #e5e7eb;
+        --muted: #94a3b8;
+        --ring: #334155;
+        --accent: #22c55e;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Arial,
+          sans-serif;
+      }
+      .wrap {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .logo {
+        text-align: center;
+        margin-bottom: 18px;
+      }
+      .logo img {
+        max-width: 120px;
+        height: auto;
+        filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.35));
+      }
+      header h1 {
+        font-size: 26px;
+        margin: 6px 0 4px;
+      }
+      header p.lead {
+        color: var(--muted);
+        margin: 0 0 14px;
+      }
+      .chip {
+        display: inline-block;
+        font-weight: 700;
+        font-size: 12px;
+        letter-spacing: 0.02em;
+        padding: 4px 8px;
+        border-radius: 999px;
+        background: rgba(34, 197, 94, 0.15);
+        color: #86efac;
+        border: 1px solid rgba(34, 197, 94, 0.35);
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--ring);
+        border-radius: 14px;
+        padding: 14px;
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.25);
+      }
+      .card h3 {
+        margin: 4px 0 6px;
+        font-size: 18px;
+      }
+      .tag {
+        color: var(--muted);
+        font-size: 14px;
+        margin: 2px 0 14px;
+      }
+      a {
+        color: #93c5fd;
+      }
+      footer {
+        color: var(--muted);
+        font-size: 13px;
+        padding: 24px 20px 36px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <!-- Swap src for your dr-kymn.png when hosted locally -->
+      <div class="logo">
+        <img src="dr-kymn.png" alt="Dr. KYMN mascot" />
+      </div>
+
+      <header>
+        <span class="chip">Who Accepts?</span>
+        <h1>Finding providers that take Medicaid</h1>
+        <p class="lead">
+          Not every doctor, dentist, or hospital accepts Kentucky Medicaid.
+          Here&rsquo;s how to check before your visit.
+        </p>
+      </header>
+
+      <section class="grid">
+        <article class="card">
+          <h3>1) Use your MCO directory</h3>
+          <p>
+            If you&rsquo;re enrolled in a
+            <strong>Managed Care Organization (MCO)</strong>, each plan has its
+            own online provider directory. Search for doctors, dentists,
+            specialists, or hospitals near you.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>2) Call ahead</h3>
+          <p>
+            Always call the provider&rsquo;s office to confirm they
+            <strong>accept Kentucky Medicaid</strong> (and your MCO, if
+            applicable). Policies can change.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>3) Pharmacies</h3>
+          <p>
+            Most major pharmacy chains and many local pharmacies accept Kentucky
+            Medicaid for prescriptions. Bring your
+            <strong>Medicaid card</strong> each time.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>4) Dental & vision</h3>
+          <p>
+            Coverage varies by age and program. Confirm with providers whether
+            routine dental or vision services are included under your plan.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>5) Hospitals</h3>
+          <p>
+            Most hospitals in Kentucky accept Medicaid, but confirm coverage for
+            specialty care or elective procedures before scheduling.
+          </p>
+        </article>
+      </section>
+
+      <p class="tag">
+        <strong>Tip:</strong> Start with your MCO&rsquo;s member services number (on
+        the back of your Medicaid card) for help finding in-network providers.
+      </p>
+    </main>
+
+    <footer>
+      <p>
+        <strong>Dr. KYMN</strong> is a friendly guide, not a medical doctor. Not
+        affiliated with any agency. Made in Lexington, KY, by <br />
+        <a
+          href="https://sleepingbear.us/"
+          target="_blank"
+          rel="noopener"
+          style="color: #93c5fd"
+        >
+          Sleeping Bear Labs
+        </a>
+      </p>
+    </footer>
+  </body>
+</html>
+.Groups[1].Value
+    $val = $val -replace $patNdash,  "–"
+    $val = $val -replace $patMdash,  "—"
+    $val = $val -replace $patRsquo,  "’"
+    $val = $val -replace $patLsquo,  "‘"
+    $val = $val -replace $patLdquo,  "“"
+    $val = $val -replace $patRdquo,  "”"
+    $val = $val -replace $patHellip, "…"
+    $val = $val -replace $patBull,   "•"
+    return $val
+  </title>
     <style>
       :root {
         --bg: #0f172a;

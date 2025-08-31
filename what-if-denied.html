@@ -3,7 +3,191 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+    $val = <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>What If I'm Denied â€” Kentucky Medicaid Notebook</title>
+    <style>
+      :root {
+        --bg: #0f172a;
+        --card: #111827;
+        --ink: #e5e7eb;
+        --muted: #94a3b8;
+        --accent: #ef4444; /* red for denied */
+        --ring: #334155;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Arial,
+          sans-serif;
+      }
+      .wrap {
+        max-width: 720px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      .logo {
+        text-align: center;
+        margin-bottom: 18px;
+      }
+      .logo img {
+        max-width: 120px;
+        height: auto;
+        filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.35));
+      }
+      header h1 {
+        font-size: 26px;
+        margin: 6px 0 4px;
+      }
+      header p.lead {
+        color: var(--muted);
+        margin: 0 0 14px;
+      }
+      .tag {
+        color: var(--muted);
+        font-size: 14px;
+        margin: 2px 0 14px;
+      }
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--ring);
+        border-radius: 14px;
+        padding: 14px;
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.25);
+      }
+      .card h3 {
+        margin: 4px 0 6px;
+        font-size: 18px;
+        color: #fca5a5;
+      }
+      .chip {
+        display: inline-block;
+        font-weight: 700;
+        font-size: 12px;
+        letter-spacing: 0.02em;
+        padding: 4px 8px;
+        border-radius: 999px;
+        background: rgba(239, 68, 68, 0.15);
+        color: #fca5a5;
+        border: 1px solid rgba(239, 68, 68, 0.35);
+      }
+      footer {
+        color: var(--muted);
+        font-size: 13px;
+        padding: 24px 20px 36px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <div class="logo">
+        <img src="dr-kymn.png" alt="Dr. KYMN mascot" />
+      </div>
+
+      <header>
+        <span class="chip">What If I'm Denied?</span>
+        <h1>Next steps if you get a denial</h1>
+        <p class="lead">
+          Don&rsquo;t panic â€” a denial doesn&rsquo;t always mean the end. You have rights to
+          appeal and other coverage options to explore.
+        </p>
+      </header>
+
+      <section class="grid">
+        <article class="card">
+          <h3>Read the notice carefully</h3>
+          <p>
+            Your denial letter explains <strong>why</strong> you were denied
+            (income too high, missing documents, not eligible for that program,
+            etc.).
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Check for mistakes</h3>
+          <p>
+            Agencies sometimes mis-process applications. Make sure all your
+            documents were submitted and information is correct.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>File an appeal</h3>
+          <p>
+            You usually have <strong>30 days</strong> from the notice date to
+            request a fair hearing. Follow the instructions in your denial
+            notice.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Reapply if circumstances change</h3>
+          <p>
+            If your income or household changes, you can
+            <strong>submit a new application</strong> at any time.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>Explore other options</h3>
+          <p>
+            Even if Medicaid isn&rsquo;t available, you may qualify for
+            <strong
+              >KCHIP, Marketplace coverage with subsidies, or other state
+              programs</strong
+            >.
+          </p>
+        </article>
+      </section>
+
+      <p class="tag">
+        <strong>Tip:</strong> Call
+        <a href="https://kynect.ky.gov/" style="color: #93c5fd">kynect</a> or
+        speak with a local kynector for help with appeals or reapplications.
+      </p>
+    </main>
+
+    <footer>
+      <p>
+        <strong>Dr. KYMN</strong> is a friendly guide, not a medical doctor. Not
+        affiliated with any agency. Made in Lexington, KY, by <br />
+        <a
+          href="https://sleepingbear.us/"
+          target="_blank"
+          rel="noopener"
+          style="color: #93c5fd"
+        >
+          Sleeping Bear Labs
+        </a>
+      </p>
+    </footer>
+  </body>
+</html>
+.Groups[1].Value
+    $val = $val -replace $patNdash,  "–"
+    $val = $val -replace $patMdash,  "—"
+    $val = $val -replace $patRsquo,  "’"
+    $val = $val -replace $patLsquo,  "‘"
+    $val = $val -replace $patLdquo,  "“"
+    $val = $val -replace $patRdquo,  "”"
+    $val = $val -replace $patHellip, "…"
+    $val = $val -replace $patBull,   "•"
+    return $val
+  </title>
     <style>
       :root {
         --bg: #0f172a;
