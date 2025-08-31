@@ -118,9 +118,10 @@
           <p>
             Eligibility is based on
             <strong>income, age, disability, and household size</strong>.
-            Children may qualify through <strong>KCHIP</strong>. Adults 19&ndash;64
-            may qualify if income is within limits. Seniors and people with
-            disabilities may qualify through other Medicaid categories.
+            Children may qualify through <strong>KCHIP</strong>. Adults
+            19&ndash;64 may qualify if income is within limits. Seniors and
+            people with disabilities may qualify through other Medicaid
+            categories.
           </p>
         </details>
 
@@ -143,8 +144,8 @@
             <strong
               >photo ID, Social Security numbers (if available), proof of
               income, and household info</strong
-            >. If the state needs more, they&rsquo;ll request it via mail or your
-            kynect account.
+            >. If the state needs more, they&rsquo;ll request it via mail or
+            your kynect account.
           </p>
         </details>
 
@@ -162,8 +163,8 @@
           <p>
             You can usually <strong>appeal within 30 days</strong> (see your
             notice for instructions). You may reapply if your income or
-            household changes. See the <em>What If I&rsquo;m Denied?</em> page for
-            step-by-step guidance.
+            household changes. See the <em>What If I&rsquo;m Denied?</em> page
+            for step-by-step guidance.
           </p>
         </details>
 
@@ -179,257 +180,8 @@
         <details>
           <summary>How do I find a doctor who takes Medicaid?</summary>
           <p>
-            Check your plan&rsquo;s provider directory and call offices to confirm
-            they <strong>accept Kentucky Medicaid</strong>. Keep your
-            <strong>Medicaid card</strong> with you.
-          </p>
-        </details>
-
-        <details>
-          <summary>What should I do after I&rsquo;m approved?</summary>
-          <p>
-            Check kynect for start dates, confirm your
-            <strong>MCO plan</strong>, pick a
-            <strong>primary care provider</strong>, and bring your card to
-            visits. Keep your <strong>contact info</strong> up to date.
-          </p>
-        </details>
-
-        <details>
-          <summary>How do I update my address or income?</summary>
-          <p>
-            Report changes in <strong>kynect</strong> or by calling DCBS.
-            Updating quickly helps prevent loss of coverage.
-          </p>
-        </details>
-      </section>
-
-      <p class="tag">
-        <strong>Official links:</strong>
-        <a href="https://kynect.ky.gov/" target="_blank" rel="noopener"
-          >kynect.ky.gov</a
-        >
-        Â·
-        <a
-          href="https://khbe.ky.gov/Enrollment/Pages/MedicaidRenewals.aspx"
-          target="_blank"
-          rel="noopener"
-          >Renewals</a
-        >
-        Â·
-        <a
-          href="https://khbe.ky.gov/FreeHelp/Pages/index.aspx"
-          target="_blank"
-          rel="noopener"
-          >Find free local help</a
-        >
-      </p>
-    </main>
-
-    <footer>
-      <p>
-        <strong>Dr. KYMN</strong> is a friendly guide, not a medical doctor. Not
-        affiliated with any agency. Made in Lexington, KY, by <br />
-        <a
-          href="https://sleepingbear.us/"
-          target="_blank"
-          rel="noopener"
-          style="color: #93c5fd"
-        >
-          Sleeping Bear Labs
-        </a>
-      </p>
-    </footer>
-  </body>
-</html>
-.Groups[1].Value
-    $val = $val -replace $patNdash,  "–"
-    $val = $val -replace $patMdash,  "—"
-    $val = $val -replace $patRsquo,  "’"
-    $val = $val -replace $patLsquo,  "‘"
-    $val = $val -replace $patLdquo,  "“"
-    $val = $val -replace $patRdquo,  "”"
-    $val = $val -replace $patHellip, "…"
-    $val = $val -replace $patBull,   "•"
-    return $val
-  </title>
-    <style>
-      :root {
-        --bg: #0f172a;
-        --card: #111827;
-        --ink: #e5e7eb;
-        --muted: #94a3b8;
-        --ring: #334155;
-        --accent: #22c55e;
-      }
-      * {
-        box-sizing: border-box;
-      }
-      body {
-        margin: 0;
-        background: var(--bg);
-        color: var(--ink);
-        font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Arial,
-          sans-serif;
-      }
-      .wrap {
-        max-width: 720px;
-        margin: 0 auto;
-        padding: 20px;
-      }
-      .logo {
-        text-align: center;
-        margin-bottom: 18px;
-      }
-      .logo img {
-        max-width: 120px;
-        height: auto;
-        filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.35));
-      }
-      header h1 {
-        font-size: 26px;
-        margin: 6px 0 4px;
-      }
-      header p.lead {
-        color: var(--muted);
-        margin: 0 0 14px;
-      }
-      .chip {
-        display: inline-block;
-        font-weight: 700;
-        font-size: 12px;
-        letter-spacing: 0.02em;
-        padding: 4px 8px;
-        border-radius: 999px;
-        background: rgba(34, 197, 94, 0.15);
-        color: #86efac;
-        border: 1px solid rgba(34, 197, 94, 0.35);
-      }
-      .faq {
-        display: grid;
-        gap: 12px;
-      }
-      details {
-        background: var(--card);
-        border: 1px solid var(--ring);
-        border-radius: 14px;
-        padding: 12px 14px;
-      }
-      details summary {
-        list-style: none;
-        cursor: pointer;
-        font-weight: 700;
-      }
-      details summary::-webkit-details-marker {
-        display: none;
-      }
-      details[open] {
-        outline: 2px solid rgba(34, 197, 94, 0.25);
-      }
-      details p {
-        margin: 10px 0 0;
-        color: var(--ink);
-      }
-      a {
-        color: #93c5fd;
-      }
-      .tag {
-        color: var(--muted);
-        font-size: 14px;
-        margin: 12px 0 0;
-      }
-      footer {
-        color: var(--muted);
-        font-size: 13px;
-        padding: 24px 20px 36px;
-        text-align: center;
-      }
-    </style>
-  </head>
-  <body>
-    <main class="wrap" id="main">
-      <div class="logo">
-        <img src="dr-kymn.png" alt="Dr. KYMN mascot" />
-      </div>
-
-      <header>
-        <span class="chip">FAQ</span>
-        <h1>Frequently asked questions</h1>
-        <p class="lead">
-          Quick answers about eligibility, applications, renewals, and using
-          your coverage in Kentucky.
-        </p>
-      </header>
-
-      <section class="faq" aria-label="FAQ list">
-        <details>
-          <summary>Who can get Kentucky Medicaid or KCHIP?</summary>
-          <p>
-            Eligibility is based on
-            <strong>income, age, disability, and household size</strong>.
-            Children may qualify through <strong>KCHIP</strong>. Adults 19&ndash;64
-            may qualify if income is within limits. Seniors and people with
-            disabilities may qualify through other Medicaid categories.
-          </p>
-        </details>
-
-        <details>
-          <summary>How do I apply?</summary>
-          <p>
-            Apply online at
-            <a href="https://kynect.ky.gov/" target="_blank" rel="noopener"
-              >kynect.ky.gov</a
-            >, by phone at <strong>855-306-8959</strong>, by mail, or in person
-            at a <strong>DCBS</strong> office. Free
-            <strong>kynectors</strong> can help you submit your application.
-          </p>
-        </details>
-
-        <details>
-          <summary>What documents do I need?</summary>
-          <p>
-            Have
-            <strong
-              >photo ID, Social Security numbers (if available), proof of
-              income, and household info</strong
-            >. If the state needs more, they&rsquo;ll request it via mail or your
-            kynect account.
-          </p>
-        </details>
-
-        <details>
-          <summary>How long does approval take?</summary>
-          <p>
-            Time varies. Watch your mail and
-            <strong>messages in kynect</strong>. Respond quickly to any requests
-            to keep your case moving.
-          </p>
-        </details>
-
-        <details>
-          <summary>What if I&rsquo;m denied?</summary>
-          <p>
-            You can usually <strong>appeal within 30 days</strong> (see your
-            notice for instructions). You may reapply if your income or
-            household changes. See the <em>What If I&rsquo;m Denied?</em> page for
-            step-by-step guidance.
-          </p>
-        </details>
-
-        <details>
-          <summary>How do renewals work?</summary>
-          <p>
-            Medicaid uses <strong>annual redetermination</strong>. You&rsquo;ll
-            receive a renewal notice by mail or in kynect.
-            <strong>Respond by the deadline</strong> to avoid a gap in coverage.
-          </p>
-        </details>
-
-        <details>
-          <summary>How do I find a doctor who takes Medicaid?</summary>
-          <p>
-            Check your plan&rsquo;s provider directory and call offices to confirm
-            they <strong>accept Kentucky Medicaid</strong>. Keep your
+            Check your plan&rsquo;s provider directory and call offices to
+            confirm they <strong>accept Kentucky Medicaid</strong>. Keep your
             <strong>Medicaid card</strong> with you.
           </p>
         </details>
