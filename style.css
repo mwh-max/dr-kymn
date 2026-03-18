@@ -78,6 +78,21 @@ header p.lead {
 a {
   color: #93c5fd;
 }
+.next-step {
+  border-top: 1px solid var(--ring);
+  margin-top: 28px;
+  padding-top: 16px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.next-step a {
+  color: #86efac;
+  font-weight: 600;
+  text-decoration: none;
+}
+.next-step a:hover {
+  text-decoration: underline;
+}
 footer {
   color: var(--muted);
   font-size: 13px;
