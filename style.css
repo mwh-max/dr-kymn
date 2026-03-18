@@ -99,6 +99,8 @@ a {
   color: var(--muted);
 }
 .next-step a {
+  display: inline-block;
+  padding: 6px 0;
   color: #86efac;
   font-weight: 600;
   text-decoration: none;
