@@ -70,6 +70,18 @@ header p.lead {
   font-size: 14px;
   margin: 2px 0 14px;
 }
+.links-section {
+  margin-top: 14px;
+}
+.links-section h2 {
+  font-size: 16px;
+  color: #cbd5e1;
+  margin-bottom: 8px;
+}
+.links-section ul {
+  margin: 0;
+  padding-left: 18px;
+}
 .divider {
   height: 1px;
   background: var(--ring);

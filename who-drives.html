@@ -27,7 +27,7 @@
       .list { display: grid; gap: 12px; }
       .card h3 { margin: 0 0 6px; }
       .meta { color: var(--muted); font-size: 14px; margin: 0 0 8px; }
-      .btnrow { display: flex; gap: 8px; flex-wrap: wrap; }
+      .btnrow { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
       .btn {
         display: inline-block;
         text-decoration: none;
@@ -75,7 +75,6 @@
           href="https://sleepingbear.us/"
           target="_blank"
           rel="noopener noreferrer"
-          style="color: #93c5fd"
         >
           sleepingbear.us
         </a>
@@ -989,7 +988,7 @@
         card.innerHTML = `
         <h3>${item.broker}</h3>
         <p class="meta">Region ${item.region} &middot; ${county} County</p>
-        <div class="btnrow" style="margin-top:8px">
+        <div class="btnrow">
           ${
             item.tollfree
               ? `<a class="btn" href="${tollHref}">Toll-free ${item.tollfree}</a>`
