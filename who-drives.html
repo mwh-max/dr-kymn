@@ -967,6 +967,10 @@
 
       function renderBrokerFor(county) {
         listEl.innerHTML = "";
+        if (!county) {
+          countEl.textContent = "0 results";
+          return;
+        }
         const item = BROKERS_BY_COUNTY[county];
         if (!item) {
           countEl.textContent = "0 results";
