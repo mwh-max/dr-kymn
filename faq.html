@@ -22,8 +22,10 @@
         border-radius: 14px;
         padding: 12px 14px;
       }
-      details summary { list-style: none; cursor: pointer; font-weight: 700; }
+      details summary { list-style: none; cursor: pointer; font-weight: 700; padding-right: 28px; position: relative; }
       details summary::-webkit-details-marker { display: none; }
+      details summary::after { content: "+"; position: absolute; right: 4px; top: 0; font-size: 18px; line-height: 1; }
+      details[open] summary::after { content: "−"; }
       details[open] { outline: 2px solid rgba(34, 197, 94, 0.25); }
       details p { margin: 10px 0 0; color: var(--ink); }
     </style>
@@ -238,7 +240,7 @@
       </p>
     </main>
 
-    <nav class="next-step"><p>More: <a href="who-qualifies.html">Who Qualifies?</a> &nbsp;&middot;&nbsp; <a href="apply.html">How to Apply</a> &nbsp;&middot;&nbsp; <a href="renewal.html">Renewal</a></p></nav>
+    <nav class="next-step" aria-label="Related pages"><p>More: <a href="who-qualifies.html">Who Qualifies?</a> &nbsp;&middot;&nbsp; <a href="apply.html">How to Apply</a> &nbsp;&middot;&nbsp; <a href="renewal.html">Renewal</a></p></nav>
     <footer>
       <p>
         <strong>Dr. KYMN</strong> is a friendly guide, not a medical doctor. Not

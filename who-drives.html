@@ -25,7 +25,7 @@
       }
       .count { color: var(--muted); font-size: 14px; margin: 8px 0; }
       .list { display: grid; gap: 12px; }
-      .card h3 { margin: 0 0 6px; }
+      .card h2 { margin: 0 0 6px; }
       .meta { color: var(--muted); font-size: 14px; margin: 0 0 8px; }
       .btnrow { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
       .btn {
@@ -66,7 +66,7 @@
       <section id="results" class="list" aria-live="polite"></section>
     </main>
 
-    <nav class="next-step"><p>See also: <a href="who-accepts.html">Who Accepts Medicaid?</a> &nbsp;&middot;&nbsp; <a href="apply.html">How to Apply</a></p></nav>
+    <nav class="next-step" aria-label="Related pages"><p>See also: <a href="who-accepts.html">Who Accepts Medicaid?</a> &nbsp;&middot;&nbsp; <a href="apply.html">How to Apply</a></p></nav>
     <footer>
       <p>
         <strong>Dr. KYMN</strong> is a friendly guide, not a medical doctor. Not
@@ -990,7 +990,7 @@
         const card = document.createElement("article");
         card.className = "card";
         card.innerHTML = `
-        <h3>${item.broker}</h3>
+        <h2>${item.broker}</h2>
         <p class="meta">Region ${item.region} &middot; ${county} County</p>
         <div class="btnrow">
           ${
