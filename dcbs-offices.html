@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Find your local Kentucky DCBS office by county. DCBS handles Medicaid applications, renewals, and case updates. Statewide number and county office locator." />
+    <link rel="canonical" href="https://kentuckymedicaidnotebook.org/dcbs-offices.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://kentuckymedicaidnotebook.org/dcbs-offices.html" />
+    <meta property="og:title" content="Find Your DCBS Office | Kentucky Medicaid Notebook" />
+    <meta property="og:description" content="Find your local Kentucky DCBS office by county. DCBS handles Medicaid applications, renewals, and case updates." />
+    <meta property="og:image" content="https://kentuckymedicaidnotebook.org/dr-kymn.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>Find Your DCBS Office | Kentucky Medicaid Notebook</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .controls { margin: 12px 0 16px; }
+      .count { color: var(--muted); font-size: 14px; margin: 8px 0; }
+      .list { display: grid; gap: 12px; }
+      .card h2 { margin: 0 0 6px; }
+      .meta { color: var(--muted); font-size: 14px; margin: 0 0 8px; }
+      .btnrow { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+      .btn {
+        display: inline-block;
+        text-decoration: none;
+        padding: 12px 14px;
+        border-radius: 10px;
+        border: 1px solid var(--ring);
+        background: rgba(34, 197, 94, 0.15);
+        color: #86efac;
+        font-weight: 700;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap" id="main">
+      <div class="logo">
+        <a href="index.html" aria-label="Kentucky Medicaid Notebook — home">
+          <img src="dr-kymn.webp" alt="" width="1024" height="1536" />
+        </a>
+      </div>
+
+      <header>
+        <span class="chip">DCBS Offices</span>
+        <h1>Find your local DCBS office</h1>
+        <p class="lead">
+          The Department for Community Based Services (DCBS) handles Medicaid
+          applications, renewals, and case updates. Select your county below.
+        </p>
+      </header>
+
+      <section class="controls" aria-label="County filter">
+        <label class="field-label" for="county">Your county:</label>
+        <select id="county" class="select" aria-label="Filter by county">
+          <option value="">Select county:</option>
+        </select>
+        <p id="count" class="count"></p>
+      </section>
+
+      <section id="results" class="list" aria-live="polite"></section>
+
+      <p class="tag"><strong>Last updated:</strong> Aug 25, 2025</p>
+    </main>
+
+    <nav class="next-step" aria-label="Related pages"><p>See also: <a href="apply.html">How to Apply</a> &nbsp;&middot;&nbsp; <a href="after-you-apply.html">After You Apply</a></p></nav>
+    <footer>
+      <p>
+        <strong>Dr. KYMN</strong> is a friendly guide, not a medical doctor. Not
+        affiliated with any agency. Made in Lexington, KY, by <br />
+        <a
+          href="https://sleepingbear.us/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Sleeping Bear Labs
+        </a>
+      </p>
+    </footer>
+
+    <script>
+      var COUNTIES = [
+        "Adair","Allen","Anderson","Ballard","Barren","Bath","Bell","Boone",
+        "Bourbon","Boyd","Boyle","Bracken","Breathitt","Breckinridge","Bullitt",
+        "Butler","Caldwell","Calloway","Campbell","Carlisle","Carroll","Carter",
+        "Casey","Christian","Clark","Clay","Clinton","Crittenden","Cumberland",
+        "Daviess","Edmonson","Elliott","Estill","Fayette","Fleming","Floyd",
+        "Franklin","Fulton","Gallatin","Garrard","Grant","Graves","Grayson",
+        "Green","Greenup","Hancock","Hardin","Harlan","Harrison","Hart",
+        "Henderson","Henry","Hickman","Hopkins","Jackson","Jefferson","Jessamine",
+        "Johnson","Kenton","Knott","Knox","Larue","Laurel","Lawrence","Lee",
+        "Leslie","Letcher","Lewis","Lincoln","Livingston","Logan","Lyon",
+        "Madison","Magoffin","Marion","Marshall","Martin","Mason","McCracken",
+        "McCreary","McLean","Meade","Menifee","Mercer","Metcalfe","Monroe",
+        "Montgomery","Morgan","Muhlenberg","Nelson","Nicholas","Ohio","Oldham",
+        "Owen","Owsley","Pendleton","Perry","Pike","Powell","Pulaski",
+        "Robertson","Rockcastle","Rowan","Russell","Scott","Shelby","Simpson",
+        "Spencer","Taylor","Todd","Trigg","Trimble","Union","Warren",
+        "Washington","Wayne","Webster","Whitley","Wolfe","Woodford"
+      ];
+
+      var countySelect = document.getElementById("county");
+      var listEl       = document.getElementById("results");
+      var countEl      = document.getElementById("count");
+
+      countySelect.innerHTML =
+        '<option value="">Select county:</option>' +
+        COUNTIES.map(function (c) {
+          return '<option value="' + c + '">' + c + '</option>';
+        }).join("");
+
+      function render(county) {
+        listEl.innerHTML = "";
+        if (!county) { countEl.textContent = ""; return; }
+        countEl.textContent = "1 result";
+        var card = document.createElement("article");
+        card.className = "card";
+        card.innerHTML =
+          "<h2>" + county + " County</h2>" +
+          "<p class='meta'>Department for Community Based Services (DCBS)</p>" +
+          "<div class='btnrow'>" +
+            "<a class='btn' href='tel:18553068959'>Call 855-306-8959</a>" +
+            "<a class='btn' href='https://chfs.ky.gov/agencies/dcbs/Pages/countyoffices.aspx'" +
+              " target='_blank' rel='noopener noreferrer'>County office list (CHFS)</a>" +
+          "</div>";
+        listEl.appendChild(card);
+      }
+
+      countySelect.addEventListener("change", function () { render(this.value); });
+    </script>
+  </body>
+</html>

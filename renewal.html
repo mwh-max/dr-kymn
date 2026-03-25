@@ -15,6 +15,10 @@
     <link rel="stylesheet" href="style.css" />
     <style>
       .tag { margin: 12px 0; }
+      .reminder-card { margin: 16px 0; }
+      #renewal-result { margin-top: 12px; }
+      .renewal-msg { margin: 0 0 6px; font-size: 16px; }
+      .renewal-note { margin: 0; color: var(--muted); font-size: 14px; }
     </style>
   </head>
   <body>
@@ -87,6 +91,28 @@
         </article>
       </section>
 
+      <div class="card reminder-card">
+        <h2>Find your renewal month</h2>
+        <p class="tool-note">Select the month you enrolled or last renewed to see when your next renewal is due.</p>
+        <label class="field-label" for="enroll-month">Month enrolled or last renewed:</label>
+        <select id="enroll-month" class="select">
+          <option value="">Select a month:</option>
+          <option value="0">January</option>
+          <option value="1">February</option>
+          <option value="2">March</option>
+          <option value="3">April</option>
+          <option value="4">May</option>
+          <option value="5">June</option>
+          <option value="6">July</option>
+          <option value="7">August</option>
+          <option value="8">September</option>
+          <option value="9">October</option>
+          <option value="10">November</option>
+          <option value="11">December</option>
+        </select>
+        <div id="renewal-result" aria-live="polite"></div>
+      </div>
+
       <p class="tag">
         <strong>Official links:</strong>
         <a
@@ -117,5 +143,24 @@
         </a>
       </p>
     </footer>
+  <script>
+    (function () {
+      var MONTHS = ["January","February","March","April","May","June",
+                    "July","August","September","October","November","December"];
+      var sel = document.getElementById("enroll-month");
+      var result = document.getElementById("renewal-result");
+      sel.addEventListener("change", function () {
+        if (this.value === "") { result.innerHTML = ""; return; }
+        var m = parseInt(this.value, 10);
+        var renewalMonth = MONTHS[m];
+        var packetMonth  = MONTHS[(m + 10) % 12]; // ~2 months before renewal
+        result.innerHTML =
+          "<p class='renewal-msg'><strong>Your renewal is due in " + renewalMonth + ".</strong><br>" +
+          "Watch for your renewal packet around <strong>" + packetMonth + "</strong> &mdash; " +
+          "about two months before your renewal is due.</p>" +
+          "<p class='renewal-note'>Respond by the deadline shown in your packet to keep your coverage.</p>";
+      });
+    })();
+  </script>
   </body>
 </html>

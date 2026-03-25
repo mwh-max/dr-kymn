@@ -119,3 +119,41 @@ footer {
   outline-offset: 3px;
   border-radius: 4px;
 }
+/* Shared form controls */
+.select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid var(--ring);
+  background: var(--card);
+  color: var(--ink);
+  font: inherit;
+  font-size: 16px;
+}
+.field-label {
+  display: block;
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 6px;
+}
+.tool-note {
+  color: var(--muted);
+  font-size: 13px;
+  margin: 0 0 12px;
+}
+/* Print */
+@media print {
+  .logo, .chip, .next-step, footer { display: none; }
+  body { background: #fff; color: #000; }
+  .card {
+    background: #fff;
+    border: 1px solid #bbb;
+    box-shadow: none;
+    break-inside: avoid;
+  }
+  .card h2, .card h3, header h1 { color: #000; }
+  header p.lead, .tag, .count { color: #444; }
+  a { color: #000; }
+  .wrap { max-width: 100%; padding: 0; }
+  .select, input[type="number"] { border: 1px solid #bbb; background: #fff; color: #000; }
+}

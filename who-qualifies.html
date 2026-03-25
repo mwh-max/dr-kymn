@@ -17,6 +17,15 @@
       @media (min-width: 560px) {
         .grid { grid-template-columns: 1fr 1fr; }
       }
+      .est-row { margin-bottom: 12px; }
+      .est-checks { margin-bottom: 12px; }
+      .est-checks label { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; cursor: pointer; }
+      .est-checks input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--accent); cursor: pointer; }
+      #monthly-income { width: 100%; padding: 12px; border-radius: 12px; border: 1px solid var(--ring); background: var(--card); color: var(--ink); font: inherit; font-size: 16px; }
+      #est-result { margin-top: 12px; }
+      .est-list { margin: 0; padding-left: 18px; }
+      .est-list li { margin-bottom: 6px; font-size: 15px; }
+      .est-pct { color: var(--muted); font-size: 13px; margin-top: 10px; }
     </style>
   </head>
   <body>
@@ -84,6 +93,38 @@
         </article>
       </section>
 
+      <div class="card" style="margin-top:16px;">
+        <h2>Quick income check</h2>
+        <p class="tool-note">Rough estimate only &mdash; official eligibility is determined by kynect. Based on 2025 federal poverty guidelines.</p>
+
+        <div class="est-row">
+          <label class="field-label" for="hh-size">Household size:</label>
+          <select id="hh-size" class="select">
+            <option value="">Select size:</option>
+            <option value="1">1 person</option>
+            <option value="2">2 people</option>
+            <option value="3">3 people</option>
+            <option value="4">4 people</option>
+            <option value="5">5 people</option>
+            <option value="6">6 people</option>
+            <option value="7">7 people</option>
+            <option value="8">8 people</option>
+          </select>
+        </div>
+
+        <div class="est-row">
+          <label class="field-label" for="monthly-income">Monthly gross income ($):</label>
+          <input id="monthly-income" type="number" min="0" placeholder="e.g. 1500" />
+        </div>
+
+        <div class="est-checks">
+          <label><input type="checkbox" id="has-children"> Household includes children under 19</label>
+          <label><input type="checkbox" id="is-pregnant"> Someone in the household is pregnant</label>
+        </div>
+
+        <div id="est-result" aria-live="polite"></div>
+      </div>
+
       <p class="tag">
         <strong>Tip:</strong> Use Kentucky&rsquo;s official portal (<a
           href="https://kynect.ky.gov/"
@@ -108,5 +149,67 @@
         </a>
       </p>
     </footer>
+  <script>
+    (function () {
+      // 2025 federal poverty guidelines (48 contiguous states)
+      var FPL = [15650, 21150, 26650, 32150, 37650, 43150, 48650, 54150];
+      function getFPL(size) {
+        return size <= 8 ? FPL[size - 1] : FPL[7] + (size - 8) * 5500;
+      }
+
+      function calculate() {
+        var size    = parseInt(document.getElementById("hh-size").value, 10);
+        var monthly = parseFloat(document.getElementById("monthly-income").value);
+        var hasKids = document.getElementById("has-children").checked;
+        var pregnant= document.getElementById("is-pregnant").checked;
+        var out     = document.getElementById("est-result");
+
+        if (!size || isNaN(monthly) || monthly < 0 || monthly === 0 && document.getElementById("monthly-income").value === "") {
+          out.innerHTML = ""; return;
+        }
+
+        var annual = monthly * 12;
+        var fpl    = getFPL(size);
+        var pct    = Math.round((annual / fpl) * 100);
+        var items  = [];
+
+        // Adults 19–64
+        if (pct <= 138) {
+          items.push("<strong>Adults 19&ndash;64:</strong> You may qualify for Kentucky Medicaid.");
+        } else {
+          items.push("<strong>Adults 19&ndash;64:</strong> Income is above the standard Medicaid limit (138% FPL). Check Marketplace plans on kynect.");
+        }
+
+        // Children
+        if (hasKids) {
+          if (pct <= 138) {
+            items.push("<strong>Children under 19:</strong> May qualify for Medicaid.");
+          } else if (pct <= 218) {
+            items.push("<strong>Children under 19:</strong> May qualify for KCHIP (up to 218% FPL).");
+          } else {
+            items.push("<strong>Children under 19:</strong> Income is above the KCHIP limit. Check Marketplace plans on kynect.");
+          }
+        }
+
+        // Pregnancy
+        if (pregnant) {
+          if (pct <= 195) {
+            items.push("<strong>Pregnancy:</strong> May qualify for Medicaid (higher income limit of 195% FPL applies).");
+          } else {
+            items.push("<strong>Pregnancy:</strong> Income may be above the pregnancy Medicaid limit (195% FPL). Check kynect for options.");
+          }
+        }
+
+        out.innerHTML =
+          "<ul class='est-list'>" + items.map(function(i){ return "<li>" + i + "</li>"; }).join("") + "</ul>" +
+          "<p class='est-pct'>Your income is approximately <strong>" + pct + "%</strong> of the federal poverty level for a household of " + size + ".</p>";
+      }
+
+      ["hh-size","monthly-income","has-children","is-pregnant"].forEach(function(id) {
+        document.getElementById(id).addEventListener("change", calculate);
+      });
+      document.getElementById("monthly-income").addEventListener("input", calculate);
+    })();
+  </script>
   </body>
 </html>
