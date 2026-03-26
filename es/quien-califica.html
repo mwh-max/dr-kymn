@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Conozca si califica para Medicaid de Kentucky o KCHIP. La elegibilidad depende del ingreso, la edad, la discapacidad y el tamaño del hogar." />
+    <meta name="theme-color" content="#0f172a" />
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../manifest.json" />
+    <title>¿Quién califica? | Cuaderno de Medicaid de Kentucky</title>
+    <link rel="stylesheet" href="../style.css" />
+    <style>
+      @media (min-width: 560px) {
+        .grid { grid-template-columns: 1fr 1fr; }
+      }
+      .est-row { margin-bottom: 12px; }
+      .est-checks { margin-bottom: 12px; }
+      .est-checks label { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; cursor: pointer; }
+      .est-checks input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--accent); cursor: pointer; }
+      #monthly-income { width: 100%; padding: 12px; border-radius: 12px; border: 1px solid var(--ring); background: var(--card); color: var(--ink); font: inherit; font-size: 16px; }
+      #est-result { margin-top: 12px; }
+      .est-list { margin: 0; padding-left: 18px; }
+      .est-list li { margin-bottom: 6px; font-size: 15px; }
+      .est-pct { color: var(--muted); font-size: 13px; margin-top: 10px; }
+    </style>
+  </head>
+  <body>
+    <nav class="site-nav" aria-label="Navegación del sitio">
+      <ul>
+        <li><a href="./index.html">Inicio</a></li>
+        <li><a href="./quien-califica.html">¿Quién califica?</a></li>
+        <li><a href="./como-aplicar.html">Cómo aplicar</a></li>
+        <li><a href="../who-drives.html">¿Quién maneja?</a></li>
+        <li><a href="./preguntas-frecuentes.html">Preguntas</a></li>
+      </ul>
+    </nav>
+    <div style="text-align:right;padding:4px 20px;font-size:13px;font-weight:600;">
+      <a href="../who-qualifies.html" style="color:#93c5fd;text-decoration:none;">English</a>
+      <span style="color:var(--ring);"> / </span>
+      <span style="color:var(--muted);">Español</span>
+    </div>
+    <main class="wrap">
+      <div class="logo">
+        <a href="./index.html" aria-label="Cuaderno de Medicaid de Kentucky — inicio">
+          <img src="../dr-kymn.webp" alt="" width="120" height="180" />
+        </a>
+      </div>
+
+      <header>
+        <span class="chip">¿Quién califica?</span>
+        <h1>Conceptos básicos de elegibilidad</h1>
+        <p class="lead">
+          Medicaid de Kentucky y KCHIP se basan en
+          <strong>ingreso, edad, discapacidad y tamaño del hogar</strong>.
+          Aquí tiene una descripción general.
+        </p>
+      </header>
+
+      <section class="grid">
+        <article class="card">
+          <h2>Límites de ingreso</h2>
+          <p>
+            La elegibilidad depende de su
+            <strong>ingreso del hogar comparado con el Nivel Federal de Pobreza (FPL)</strong>.
+            Los límites varían según el tamaño del hogar y el programa.
+          </p>
+        </article>
+
+        <article class="card">
+          <h2>Niños y adolescentes</h2>
+          <p>
+            Los menores de 19 años pueden calificar a través del
+            <strong>Programa de Seguro de Salud para Niños de Kentucky (KCHIP)</strong> o
+            Medicaid, según el ingreso. La cobertura incluye visitas médicas,
+            hospitalización y cuidado dental.
+          </p>
+        </article>
+
+        <article class="card">
+          <h2>Personas embarazadas</h2>
+          <p>
+            Las personas embarazadas en Kentucky pueden calificar con
+            <strong>límites de ingreso más altos</strong> que otros adultos. Se incluye
+            atención prenatal y posparto.
+          </p>
+        </article>
+
+        <article class="card">
+          <h2>Adultos</h2>
+          <p>
+            Los adultos de bajos ingresos entre 19 y 64 años pueden calificar
+            si su ingreso está dentro del límite. La cobertura incluye atención
+            primaria, de emergencia y especializada.
+          </p>
+        </article>
+
+        <article class="card">
+          <h2>Personas mayores y con discapacidad</h2>
+          <p>
+            Las personas mayores de 65 años o con
+            <strong>discapacidades que califican</strong> pueden acceder a Medicaid
+            o a los Programas de Ahorro de Medicare.
+          </p>
+        </article>
+      </section>
+
+      <div class="card" style="margin-top:16px;">
+        <h2>Verificación rápida de ingreso</h2>
+        <p class="tool-note">Solo una estimación aproximada &mdash; la elegibilidad oficial la determina kynect. Basado en las pautas federales de pobreza de 2025.</p>
+
+        <div class="est-row">
+          <label class="field-label" for="hh-size">Tamaño del hogar:</label>
+          <select id="hh-size" class="select">
+            <option value="">Seleccione:</option>
+            <option value="1">1 persona</option>
+            <option value="2">2 personas</option>
+            <option value="3">3 personas</option>
+            <option value="4">4 personas</option>
+            <option value="5">5 personas</option>
+            <option value="6">6 personas</option>
+            <option value="7">7 personas</option>
+            <option value="8">8 personas</option>
+          </select>
+        </div>
+
+        <div class="est-row">
+          <label class="field-label" for="monthly-income">Ingreso mensual bruto ($):</label>
+          <input id="monthly-income" type="number" min="0" placeholder="ej. 1500" />
+        </div>
+
+        <div class="est-checks">
+          <label><input type="checkbox" id="has-children"> El hogar incluye menores de 19 años</label>
+          <label><input type="checkbox" id="is-pregnant"> Alguien en el hogar está embarazado/a</label>
+        </div>
+
+        <div id="est-result" aria-live="polite"></div>
+      </div>
+
+      <div class="card" style="margin-top: 16px;">
+        <h2>Límites de ingreso por tamaño del hogar</h2>
+        <p class="tool-note">Límites de ingreso mensual bruto. Basado en las pautas federales de pobreza de 2025. Verifique los límites actuales en kynect.ky.gov antes de aplicar.</p>
+        <div style="overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 -14px; padding: 0 14px 2px;">
+          <table style="width: 100%; border-collapse: collapse; font-size: 13px; min-width: 540px;">
+            <thead>
+              <tr>
+                <th style="text-align: left; padding: 7px 10px 7px 0; border-bottom: 1px solid var(--ring); color: var(--muted); font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap;">Programa</th>
+                <th style="text-align: right; padding: 7px 6px; border-bottom: 1px solid var(--ring); color: var(--muted); font-size: 11px; font-weight: 700; white-space: nowrap;">1 persona</th>
+                <th style="text-align: right; padding: 7px 6px; border-bottom: 1px solid var(--ring); color: var(--muted); font-size: 11px; font-weight: 700; white-space: nowrap;">2 personas</th>
+                <th style="text-align: right; padding: 7px 6px; border-bottom: 1px solid var(--ring); color: var(--muted); font-size: 11px; font-weight: 700; white-space: nowrap;">3 personas</th>
+                <th style="text-align: right; padding: 7px 6px; border-bottom: 1px solid var(--ring); color: var(--muted); font-size: 11px; font-weight: 700; white-space: nowrap;">4 personas</th>
+                <th style="text-align: right; padding: 7px 6px; border-bottom: 1px solid var(--ring); color: var(--muted); font-size: 11px; font-weight: 700; white-space: nowrap;">5 personas</th>
+                <th style="text-align: right; padding: 7px 6px; border-bottom: 1px solid var(--ring); color: var(--muted); font-size: 11px; font-weight: 700; white-space: nowrap;">6 personas</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td style="padding: 10px 10px 10px 0; border-bottom: 1px solid var(--ring); white-space: nowrap;">
+                  <strong>Adultos de 19 a 64 años</strong>
+                  <span style="display: block; color: var(--muted); font-size: 11px;">138% FPL</span>
+                </td>
+                <td style="text-align: right; padding: 10px 6px; border-bottom: 1px solid var(--ring); white-space: nowrap;">$1,800<span style="display: block; color: var(--muted); font-size: 11px;">$21,597/año</span></td>
+                <td style="text-align: right; padding: 10px 6px; border-bottom: 1px solid var(--ring); white-space: nowrap;">$2,432<span style="display: block; color: var(--muted); font-size: 11px;">$29,187/año</span></td>
+                <td style="text-align: right; padding: 10px 6px; border-bottom: 1px solid var(--ring); white-space: nowrap;">$3,065<span style="display: block; color: var(--muted); font-size: 11px;">$36,777/año</span></td>
+                <td style="text-align: right; padding: 10px 6px; border-bottom: 1px solid var(--ring); white-space: nowrap;">$3,697<span style="display: block; color: var(--muted); font-size: 11px;">$44,367/año</span></td>
+                <td style="text-align: right; padding: 10px 6px; border-bottom: 1px solid var(--ring); white-space: nowrap;">$4,330<span style="display: block; color: var(--muted); font-size: 11px;">$51,957/año</span></td>
+                <td style="text-align: right; padding: 10px 6px; border-bottom: 1px solid var(--ring); white-space: nowrap;">$4,962<span style="display: block; color: var(--muted); font-size: 11px;">$59,547/año</span></td>
+              </tr>
+              <tr>
+                <td style="padding: 10px 10px 10px 0; border-bottom: 1px solid var(--ring); white-space: nowrap;">
+                  <strong>Medicaid para embarazo</strong>
+                  <span style="display: block; color: var(--muted); font-size: 11px;">195% FPL</span>
+                </td>
+                <td style="text-align: right; padding: 10px 6px; border-bottom: 1px solid var(--ring); white-space: nowrap;">$2,543<span style="display: block; color: var(--muted); font-size: 11px;">$30,518/año</span></td>
+                <td style="text-align: right; padding: 10px 6px; border-bottom: 1px solid var(--ring); white-space: nowrap;">$3,437<span style="display: block; color: var(--muted); font-size: 11px;">$41,243/año</span></td>
+                <td style="text-align: right; padding: 10px 6px; border-bottom: 1px solid var(--ring); white-space: nowrap;">$4,331<span style="display: block; color: var(--muted); font-size: 11px;">$51,968/año</span></td>
+                <td style="text-align: right; padding: 10px 6px; border-bottom: 1px solid var(--ring); white-space: nowrap;">$5,224<span style="display: block; color: var(--muted); font-size: 11px;">$62,693/año</span></td>
+                <td style="text-align: right; padding: 10px 6px; border-bottom: 1px solid var(--ring); white-space: nowrap;">$6,118<span style="display: block; color: var(--muted); font-size: 11px;">$73,418/año</span></td>
+                <td style="text-align: right; padding: 10px 6px; border-bottom: 1px solid var(--ring); white-space: nowrap;">$7,012<span style="display: block; color: var(--muted); font-size: 11px;">$84,143/año</span></td>
+              </tr>
+              <tr>
+                <td style="padding: 10px 10px 10px 0; border-bottom: 1px solid var(--ring); white-space: nowrap;">
+                  <strong>CHIP Perinatal</strong>
+                  <span style="display: block; color: var(--muted); font-size: 11px;">218% FPL &mdash; para quienes superan el límite del 195%</span>
+                </td>
+                <td style="text-align: right; padding: 10px 6px; border-bottom: 1px solid var(--ring); white-space: nowrap;">$2,843<span style="display: block; color: var(--muted); font-size: 11px;">$34,117/año</span></td>
+                <td style="text-align: right; padding: 10px 6px; border-bottom: 1px solid var(--ring); white-space: nowrap;">$3,842<span style="display: block; color: var(--muted); font-size: 11px;">$46,107/año</span></td>
+                <td style="text-align: right; padding: 10px 6px; border-bottom: 1px solid var(--ring); white-space: nowrap;">$4,841<span style="display: block; color: var(--muted); font-size: 11px;">$58,097/año</span></td>
+                <td style="text-align: right; padding: 10px 6px; border-bottom: 1px solid var(--ring); white-space: nowrap;">$5,841<span style="display: block; color: var(--muted); font-size: 11px;">$70,087/año</span></td>
+                <td style="text-align: right; padding: 10px 6px; border-bottom: 1px solid var(--ring); white-space: nowrap;">$6,840<span style="display: block; color: var(--muted); font-size: 11px;">$82,077/año</span></td>
+                <td style="text-align: right; padding: 10px 6px; border-bottom: 1px solid var(--ring); white-space: nowrap;">$7,839<span style="display: block; color: var(--muted); font-size: 11px;">$94,067/año</span></td>
+              </tr>
+              <tr>
+                <td style="padding: 10px 10px 10px 0; border-bottom: 1px solid var(--ring); white-space: nowrap;">
+                  <strong>KCHIP &mdash; niños</strong>
+                  <span style="display: block; color: var(--muted); font-size: 11px;">218% FPL</span>
+                </td>
+                <td style="text-align: right; padding: 10px 6px; border-bottom: 1px solid var(--ring); white-space: nowrap;">$2,843<span style="display: block; color: var(--muted); font-size: 11px;">$34,117/año</span></td>
+                <td style="text-align: right; padding: 10px 6px; border-bottom: 1px solid var(--ring); white-space: nowrap;">$3,842<span style="display: block; color: var(--muted); font-size: 11px;">$46,107/año</span></td>
+                <td style="text-align: right; padding: 10px 6px; border-bottom: 1px solid var(--ring); white-space: nowrap;">$4,841<span style="display: block; color: var(--muted); font-size: 11px;">$58,097/año</span></td>
+                <td style="text-align: right; padding: 10px 6px; border-bottom: 1px solid var(--ring); white-space: nowrap;">$5,841<span style="display: block; color: var(--muted); font-size: 11px;">$70,087/año</span></td>
+                <td style="text-align: right; padding: 10px 6px; border-bottom: 1px solid var(--ring); white-space: nowrap;">$6,840<span style="display: block; color: var(--muted); font-size: 11px;">$82,077/año</span></td>
+                <td style="text-align: right; padding: 10px 6px; border-bottom: 1px solid var(--ring); white-space: nowrap;">$7,839<span style="display: block; color: var(--muted); font-size: 11px;">$94,067/año</span></td>
+              </tr>
+              <tr>
+                <td style="padding: 10px 10px 10px 0; white-space: nowrap;">
+                  <strong>Menores de 19 años</strong>
+                  <span style="display: block; color: var(--muted); font-size: 11px;">Medicaid estándar</span>
+                </td>
+                <td colspan="6" style="text-align: center; padding: 10px 6px; color: var(--muted); font-size: 12px;">
+                  Límite no confirmado &mdash; consulte <a href="https://kynect.ky.gov/" target="_blank" rel="noopener noreferrer">kynect.ky.gov</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="tool-note" style="margin: 10px 0 3px;">
+          Fuentes: <a href="https://www.kff.org/affordable-care-act/state-indicator/medicaid-and-chip-income-eligibility-limits-for-pregnant-women-as-a-percent-of-the-federal-poverty-level/" target="_blank" rel="noopener noreferrer">KFF State Health Facts</a> (ene 2025) &middot; <a href="https://aspe.hhs.gov/topics/poverty-economic-mobility/poverty-guidelines" target="_blank" rel="noopener noreferrer">HHS Poverty Guidelines</a> (2025). Consultado el 26 de marzo de 2026.
+        </p>
+      </div>
+
+      <p class="tag">
+        <strong>Consejo:</strong> Use el portal oficial de Kentucky (<a
+          href="https://kynect.ky.gov/"
+          target="_blank"
+          rel="noopener noreferrer">kynect.ky.gov</a
+        >) para verificar su elegibilidad y aplicar.
+      </p>
+      <p class="tag"><strong>Última actualización:</strong> ago 2025</p>
+    </main>
+
+    <nav class="next-step" aria-label="Páginas relacionadas"><p>¿Cree que califica? &rarr; <a href="./como-aplicar.html">Cómo aplicar</a></p></nav>
+    <footer>
+      <p>
+        <strong>Dr. KYMN</strong> es una guía amigable, no un médico de verdad. No
+        está afiliado a ninguna agencia. Hecho en Lexington, KY, por <br />
+        <a href="https://sleepingbear.us/" target="_blank" rel="noopener noreferrer">
+          Sleeping Bear Labs
+        </a>
+        &nbsp;&middot;&nbsp; <a href="../about.html">Acerca de</a>
+      </p>
+    </footer>
+  <script>
+    (function () {
+      var FPL = [15650, 21150, 26650, 32150, 37650, 43150, 48650, 54150];
+      function getFPL(size) {
+        return size <= 8 ? FPL[size - 1] : FPL[7] + (size - 8) * 5500;
+      }
+
+      function calculate() {
+        var size    = parseInt(document.getElementById("hh-size").value, 10);
+        var monthly = parseFloat(document.getElementById("monthly-income").value);
+        var hasKids = document.getElementById("has-children").checked;
+        var pregnant= document.getElementById("is-pregnant").checked;
+        var out     = document.getElementById("est-result");
+
+        if (!size || isNaN(monthly) || monthly < 0 || monthly === 0 && document.getElementById("monthly-income").value === "") {
+          out.innerHTML = ""; return;
+        }
+
+        var annual = monthly * 12;
+        var fpl    = getFPL(size);
+        var pct    = Math.round((annual / fpl) * 100);
+        var items  = [];
+
+        if (pct <= 138) {
+          items.push("<strong>Adultos de 19 a 64 a\u00f1os:</strong> Es posible que califique para Medicaid de Kentucky.");
+        } else {
+          items.push("<strong>Adultos de 19 a 64 a\u00f1os:</strong> Su ingreso est\u00e1 por encima del l\u00edmite de Medicaid (138% FPL). Revise los planes del Mercado en kynect.");
+        }
+
+        if (hasKids) {
+          if (pct <= 138) {
+            items.push("<strong>Menores de 19 a\u00f1os:</strong> Es posible que califiquen para Medicaid.");
+          } else if (pct <= 218) {
+            items.push("<strong>Menores de 19 a\u00f1os:</strong> Es posible que califiquen para KCHIP (hasta 218% FPL).");
+          } else {
+            items.push("<strong>Menores de 19 a\u00f1os:</strong> El ingreso est\u00e1 por encima del l\u00edmite de KCHIP. Revise los planes del Mercado en kynect.");
+          }
+        }
+
+        if (pregnant) {
+          if (pct <= 195) {
+            items.push("<strong>Embarazo:</strong> Es posible que califique para Medicaid (l\u00edmite de ingreso m\u00e1s alto: 195% FPL).");
+          } else {
+            items.push("<strong>Embarazo:</strong> El ingreso puede estar por encima del l\u00edmite de Medicaid para embarazo (195% FPL). Consulte kynect para opciones.");
+          }
+        }
+
+        out.innerHTML =
+          "<ul class='est-list'>" + items.map(function(i){ return "<li>" + i + "</li>"; }).join("") + "</ul>" +
+          "<p class='est-pct'>Su ingreso es aproximadamente el <strong>" + pct + "%</strong> del nivel federal de pobreza para un hogar de " + size + " persona(s).</p>";
+      }
+
+      ["hh-size","monthly-income","has-children","is-pregnant"].forEach(function(id) {
+        document.getElementById(id).addEventListener("change", calculate);
+      });
+      document.getElementById("monthly-income").addEventListener("input", calculate);
+    })();
+  </script>
+  <script src="../app.js"></script>
+  </body>
+</html>

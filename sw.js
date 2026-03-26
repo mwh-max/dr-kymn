@@ -1,4 +1,4 @@
-var CACHE = 'kymn-v3';
+var CACHE = 'kymn-v4';
 var CORE = [
   '/',
   '/index.html',
@@ -28,7 +28,12 @@ var CORE = [
   '/what-is-covered.html',
   '/who-accepts.html',
   '/who-drives.html',
-  '/who-qualifies.html'
+  '/who-qualifies.html',
+  '/es/index.html',
+  '/es/quien-califica.html',
+  '/es/como-aplicar.html',
+  '/es/preguntas-frecuentes.html',
+  '/es/despues-de-aplicar.html'
 ];
 
 self.addEventListener('install', function (e) {
