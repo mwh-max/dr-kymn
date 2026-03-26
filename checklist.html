@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Plain-language document checklist for Kentucky Medicaid and KCHIP applications. Know what to bring before you apply." />
+    <link rel="canonical" href="https://kentuckymedicaidnotebook.org/checklist.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://kentuckymedicaidnotebook.org/checklist.html" />
+    <meta property="og:title" content="Document Checklist | Kentucky Medicaid Notebook" />
+    <meta property="og:description" content="Plain-language document checklist for Kentucky Medicaid and KCHIP applications. Know what to bring before you apply." />
+    <meta property="og:image" content="https://kentuckymedicaidnotebook.org/dr-kymn.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#0f172a" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="manifest.json" />
+    <title>Document Checklist | Kentucky Medicaid Notebook</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Program selector buttons */
+      .prog-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin: 4px 0 0;
+      }
+      .prog-btn {
+        padding: 14px 10px;
+        border-radius: 12px;
+        border: 1px solid var(--ring);
+        background: transparent;
+        color: var(--ink);
+        font: inherit;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.35;
+        cursor: pointer;
+        text-align: center;
+        transition: background 0.15s, border-color 0.15s;
+      }
+      .prog-btn:hover { background: rgba(255,255,255,0.05); }
+      .prog-btn.active {
+        background: rgba(34,197,94,0.15);
+        border-color: var(--accent);
+        color: #86efac;
+      }
+
+      /* Checklist items */
+      .cl-list {
+        list-style: none;
+        margin: 12px 0 0;
+        padding: 0;
+      }
+      .cl-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 10px 0;
+        border-bottom: 1px solid var(--ring);
+        line-height: 1.5;
+      }
+      .cl-list li:last-child { border-bottom: none; }
+      .cl-list input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+        margin-top: 2px;
+        accent-color: var(--accent);
+        cursor: pointer;
+      }
+      .cl-list label {
+        cursor: pointer;
+        font-size: 15px;
+      }
+      .cl-list label .cl-note {
+        display: block;
+        color: var(--muted);
+        font-size: 13px;
+        margin-top: 2px;
+      }
+      /* Checked item style */
+      .cl-list li.done label { color: var(--muted); text-decoration: line-through; }
+
+      /* Progress line */
+      .cl-progress {
+        font-size: 13px;
+        color: var(--muted);
+        margin: 14px 0 0;
+      }
+      .cl-progress strong { color: #86efac; }
+
+      /* Print button */
+      .print-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 16px;
+        padding: 10px 18px;
+        border-radius: 10px;
+        border: 1px solid var(--ring);
+        background: transparent;
+        color: var(--muted);
+        font: inherit;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: color 0.15s, border-color 0.15s;
+      }
+      .print-btn:hover { color: var(--ink); border-color: var(--ink); }
+
+      /* Print overrides */
+      @media print {
+        .prog-selector, .print-btn, .cl-progress, .site-nav,
+        .logo, .chip, .next-step, footer, header p.lead { display: none !important; }
+        body { background: #fff !important; color: #000 !important; }
+        .card { background: #fff !important; border: 1px solid #bbb !important; box-shadow: none !important; }
+        .card h2 { color: #000 !important; }
+        .cl-list li { border-bottom: 1px solid #ddd !important; }
+        .cl-list label { color: #000 !important; text-decoration: none !important; }
+        .cl-list .cl-note { color: #555 !important; }
+        .cl-list input[type="checkbox"] { accent-color: #000; }
+        #cl-placeholder { display: none !important; }
+        #cl-card { display: block !important; }
+        .print-label { display: block !important; }
+      }
+      .print-label { display: none; font-size: 12px; color: #555; margin-bottom: 12px; }
+    </style>
+  </head>
+  <body>
+    <nav class="site-nav" aria-label="Site navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="who-qualifies.html">Who Qualifies?</a></li>
+        <li><a href="apply.html">How to Apply</a></li>
+        <li><a href="who-drives.html">Who Drives?</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </nav>
+    <main class="wrap">
+      <div class="logo">
+        <a href="index.html" aria-label="Kentucky Medicaid Notebook &mdash; home">
+          <img src="dr-kymn.webp" alt="" width="120" height="180" />
+        </a>
+      </div>
+
+      <header>
+        <span class="chip">Document Checklist</span>
+        <h1>What to bring when you apply</h1>
+        <p class="lead">
+          Choose your program below to see a plain-language list of documents
+          you&rsquo;ll typically need. Check each item off as you gather it.
+        </p>
+      </header>
+
+      <!-- Program selector -->
+      <div class="card prog-selector">
+        <p class="tool-note" style="margin-bottom: 10px;">Which program are you applying for?</p>
+        <div class="prog-grid" role="group" aria-label="Choose a program">
+          <button class="prog-btn" data-prog="adults" type="button">Medicaid<br>for Adults</button>
+          <button class="prog-btn" data-prog="kchip"  type="button">KCHIP<br>(for a child)</button>
+          <button class="prog-btn" data-prog="pregnancy" type="button">Medicaid for<br>Pregnant People</button>
+          <button class="prog-btn" data-prog="abd"    type="button">Medicaid for<br>Seniors / Disability</button>
+        </div>
+      </div>
+
+      <!-- Placeholder shown before selection -->
+      <p class="tag" id="cl-placeholder">Select a program above to see your checklist.</p>
+
+      <!-- Checklist card — hidden until a program is chosen -->
+      <div class="card" id="cl-card" hidden style="margin-top: 16px;">
+        <p class="print-label" id="cl-print-label"></p>
+        <h2 id="cl-title"></h2>
+        <p class="tool-note" id="cl-subtitle"></p>
+        <ul class="cl-list" id="cl-list" aria-label="Document checklist"></ul>
+        <p class="cl-progress" id="cl-progress" aria-live="polite"></p>
+        <button class="print-btn" type="button" onclick="window.print()">
+          &#x1F5A8;&nbsp; Print / Save as PDF
+        </button>
+      </div>
+
+      <p class="tag" style="margin-top: 18px;">
+        <strong>Tip:</strong> You may not need every document on this list &mdash;
+        kynect can sometimes verify information electronically. Bring what you have
+        and let the caseworker know if something is missing.
+      </p>
+      <p class="tag"><strong>Last updated:</strong> Mar 2026</p>
+    </main>
+
+    <nav class="next-step" aria-label="Related pages">
+      <p>Ready to apply? &rarr; <a href="apply.html">How to Apply</a> &nbsp;&middot;&nbsp; <a href="who-qualifies.html">Who Qualifies?</a></p>
+    </nav>
+    <footer>
+      <p>
+        <strong>Dr. KYMN</strong> is a friendly guide, not a medical doctor. Not
+        affiliated with any agency. Made in Lexington, KY, by <br />
+        <a href="https://sleepingbear.us/" target="_blank" rel="noopener noreferrer">
+          Sleeping Bear Labs
+        </a>
+        &nbsp;&middot;&nbsp; <a href="about.html">About</a>
+      </p>
+    </footer>
+
+    <script>
+    (function () {
+      'use strict';
+
+      var PROGRAMS = {
+        adults: {
+          title: 'Medicaid for Adults (19\u201364)',
+          subtitle: 'Documents typically required for ACA Medicaid Expansion.',
+          items: [
+            {
+              text: 'Government-issued photo ID',
+              note: "Driver\u2019s license, state ID card, or passport."
+            },
+            {
+              text: 'Social Security number for each person applying',
+              note: 'A Social Security card, tax document, or other official record showing the number.'
+            },
+            {
+              text: 'Proof of Kentucky residency',
+              note: 'A utility bill, bank statement, lease agreement, or piece of official mail showing your current address.'
+            },
+            {
+              text: 'Proof of income \u2014 last 30 days',
+              note: 'Recent pay stubs, an employer letter, or a written self-statement if you have no income. Include all household members\u2019 income.'
+            },
+            {
+              text: 'Proof of citizenship or immigration status',
+              note: 'U.S. birth certificate, U.S. passport, or immigration documents (green card, visa, etc.).'
+            },
+            {
+              text: 'If self-employed: most recent federal tax return',
+              note: 'Or a written statement of your business income and expenses.'
+            }
+          ]
+        },
+        kchip: {
+          title: 'KCHIP \u2014 for a child',
+          subtitle: "Documents typically required for the Kentucky Children\u2019s Health Insurance Program.",
+          items: [
+            {
+              text: "Child\u2019s birth certificate",
+              note: 'To verify the child\u2019s age and identity.'
+            },
+            {
+              text: "Child\u2019s Social Security number",
+              note: 'Social Security card or another official document showing the number.'
+            },
+            {
+              text: 'Photo ID for the parent or guardian applying',
+              note: "Driver\u2019s license, state ID, or passport."
+            },
+            {
+              text: 'Social Security numbers for all household members',
+              note: 'Required for everyone in the household, not just the child.'
+            },
+            {
+              text: 'Proof of Kentucky residency',
+              note: 'Utility bill, lease, bank statement, or official mail showing your current address.'
+            },
+            {
+              text: 'Proof of household income \u2014 last 30 days',
+              note: 'Pay stubs, employer letter, or tax return. Include all sources of income in the household.'
+            },
+            {
+              text: 'Current health insurance information (if the child has any)',
+              note: 'KCHIP is for uninsured or underinsured children. Bring insurance card or policy number if applicable.'
+            }
+          ]
+        },
+        pregnancy: {
+          title: 'Medicaid for Pregnant People',
+          subtitle: 'Documents typically required for Pregnancy Medicaid (195% FPL limit).',
+          items: [
+            {
+              text: 'Government-issued photo ID',
+              note: "Driver\u2019s license, state ID, or passport."
+            },
+            {
+              text: 'Social Security number',
+              note: 'Social Security card or another document showing your number.'
+            },
+            {
+              text: 'Proof of Kentucky residency',
+              note: 'Utility bill, lease, bank statement, or official mail with your current address.'
+            },
+            {
+              text: 'Proof of pregnancy',
+              note: 'A letter or written statement from your doctor, midwife, or clinic that confirms your pregnancy and estimated due date.'
+            },
+            {
+              text: 'Proof of income \u2014 last 30 days',
+              note: 'Pay stubs, employer letter, or a written self-statement if you have no income.'
+            },
+            {
+              text: 'Proof of citizenship or immigration status',
+              note: 'U.S. birth certificate, U.S. passport, or immigration documents.'
+            }
+          ]
+        },
+        abd: {
+          title: 'Medicaid for Seniors / Disability (ABD)',
+          subtitle: 'Documents typically required for Aged, Blind, and Disabled Medicaid (74% FPL limit). This program also has asset limits.',
+          items: [
+            {
+              text: 'Government-issued photo ID',
+              note: "Driver\u2019s license, state ID, or passport."
+            },
+            {
+              text: 'Social Security card or a document showing your Social Security number',
+              note: 'Required for identity verification and to check SSI/SSDI records.'
+            },
+            {
+              text: 'Proof of Kentucky residency',
+              note: 'Utility bill, lease, bank statement, or official mail with your current address.'
+            },
+            {
+              text: 'Proof of age (for seniors applying due to age)',
+              note: 'Birth certificate, U.S. passport, or other official document showing your date of birth.'
+            },
+            {
+              text: 'Proof of disability (if applying due to disability)',
+              note: 'SSI or SSDI award letter, or a written statement from your doctor describing your condition and how long it is expected to last.'
+            },
+            {
+              text: 'Proof of income',
+              note: 'Social Security or SSDI award letter, pension statements, pay stubs, or a written statement of no income.'
+            },
+            {
+              text: 'Bank and asset statements',
+              note: 'Recent statements for all checking and savings accounts. ABD Medicaid has resource limits \u2014 bring documentation of any property, vehicles, or other assets as well.'
+            },
+            {
+              text: 'Medicare card (if you have one)',
+              note: 'ABD Medicaid often coordinates with Medicare. Bring your red, white, and blue Medicare card if you are enrolled.'
+            },
+            {
+              text: 'Proof of citizenship or immigration status',
+              note: 'U.S. birth certificate, U.S. passport, or immigration documents.'
+            }
+          ]
+        }
+      };
+
+      var currentProg = null;
+      var card    = document.getElementById('cl-card');
+      var title   = document.getElementById('cl-title');
+      var subtitle = document.getElementById('cl-subtitle');
+      var list    = document.getElementById('cl-list');
+      var progress = document.getElementById('cl-progress');
+      var placeholder = document.getElementById('cl-placeholder');
+      var printLabel  = document.getElementById('cl-print-label');
+
+      function updateProgress() {
+        var boxes = list.querySelectorAll('input[type="checkbox"]');
+        var checked = list.querySelectorAll('input[type="checkbox"]:checked').length;
+        if (boxes.length === 0) { progress.innerHTML = ''; return; }
+        progress.innerHTML =
+          '<strong>' + checked + ' of ' + boxes.length + '</strong> items gathered.';
+      }
+
+      function renderChecklist(progKey) {
+        var prog = PROGRAMS[progKey];
+        title.textContent = prog.title;
+        subtitle.textContent = prog.subtitle;
+        printLabel.textContent = 'Kentucky Medicaid Notebook \u2014 kentuckymedicaidnotebook.org';
+
+        list.innerHTML = prog.items.map(function (item, i) {
+          var id = 'cl-item-' + i;
+          var noteHtml = item.note
+            ? '<span class="cl-note">' + item.note + '</span>'
+            : '';
+          return (
+            '<li>' +
+            '<input type="checkbox" id="' + id + '">' +
+            '<label for="' + id + '">' + item.text + noteHtml + '</label>' +
+            '</li>'
+          );
+        }).join('');
+
+        list.querySelectorAll('input[type="checkbox"]').forEach(function (cb) {
+          cb.addEventListener('change', function () {
+            var li = this.closest('li');
+            if (this.checked) {
+              li.classList.add('done');
+            } else {
+              li.classList.remove('done');
+            }
+            updateProgress();
+          });
+        });
+
+        updateProgress();
+        card.hidden = false;
+        placeholder.hidden = true;
+      }
+
+      document.querySelectorAll('.prog-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          document.querySelectorAll('.prog-btn').forEach(function (b) {
+            b.classList.remove('active');
+          });
+          this.classList.add('active');
+          currentProg = this.dataset.prog;
+          renderChecklist(currentProg);
+          card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
+      });
+    })();
+    </script>
+    <script src="app.js"></script>
+  </body>
+</html>
