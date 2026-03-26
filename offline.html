@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0f172a" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="manifest.json" />
+    <title>You're Offline | Kentucky Medicaid Notebook</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .offline-card {
+        text-align: center;
+        padding: 28px 20px;
+      }
+      .offline-card h1 {
+        font-size: 22px;
+        margin: 0 0 10px;
+        color: #86efac;
+      }
+      .offline-card p {
+        color: var(--muted);
+        margin: 0 0 20px;
+        line-height: 1.6;
+      }
+      .retry-btn {
+        display: inline-block;
+        padding: 12px 20px;
+        border-radius: 10px;
+        border: 1px solid var(--ring);
+        background: rgba(34, 197, 94, 0.15);
+        color: #86efac;
+        font-weight: 700;
+        font-size: 14px;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="site-nav" aria-label="Site navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="who-qualifies.html">Who Qualifies?</a></li>
+        <li><a href="apply.html">How to Apply</a></li>
+        <li><a href="who-drives.html">Who Drives?</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </nav>
+    <main class="wrap">
+      <div class="logo">
+        <!-- TODO: generate a 120px-wide version of dr-kymn.webp to reduce page weight -->
+        <img src="dr-kymn.webp" alt="Dr. KYMN mascot" width="120" height="180" />
+      </div>
+
+      <div class="card offline-card">
+        <h1>You&rsquo;re offline right now</h1>
+        <p>
+          No connection detected &mdash; but you can still read any pages
+          you&rsquo;ve already visited. They&rsquo;re saved on your device.<br />
+          Try again when you&rsquo;re back online.
+        </p>
+        <button class="retry-btn" onclick="location.reload()">Try again</button>
+      </div>
+    </main>
+
+    <footer>
+      <p>
+        <strong>Dr. KYMN</strong> is a friendly guide, not a medical doctor. Not
+        affiliated with any agency. Made in Lexington, KY, by <br />
+        <a
+          href="https://sleepingbear.us/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Sleeping Bear Labs
+        </a>
+      </p>
+    </footer>
+    <script src="app.js"></script>
+  </body>
+</html>

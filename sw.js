@@ -1,7 +1,8 @@
-var CACHE = 'kymn-v1';
+var CACHE = 'kymn-v2';
 var CORE = [
   '/',
   '/index.html',
+  '/offline.html',
   '/style.css',
   '/favicon.svg',
   '/dr-kymn.webp'
@@ -20,7 +21,8 @@ self.addEventListener('activate', function (e) {
   );
 });
 
-// Cache-first: serve cached version, then fetch and cache new pages automatically
+// Cache-first: serve cached version, fetch and cache new pages automatically,
+// fall back to /offline.html for HTML navigation requests when the network fails.
 self.addEventListener('fetch', function (e) {
   if (e.request.method !== 'GET') return;
   e.respondWith(
@@ -31,6 +33,10 @@ self.addEventListener('fetch', function (e) {
         var clone = res.clone();
         caches.open(CACHE).then(function (c) { c.put(e.request, clone); });
         return res;
+      }).catch(function () {
+        if (e.request.mode === 'navigate') {
+          return caches.match('/offline.html');
+        }
       });
     })
   );
