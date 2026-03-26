@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Medicaid de Kentucky requiere una renovación anual (redeterminación). Sepa cuándo esperar su aviso y cómo responder a tiempo para mantener su cobertura." />
+    <meta name="theme-color" content="#0f172a" />
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="../manifest.json" />
+    <title>Renovación de Medicaid | Cuaderno de Medicaid de Kentucky</title>
+    <link rel="stylesheet" href="../style.css" />
+    <style>
+      .tag { margin: 12px 0; }
+      .reminder-card { margin: 16px 0; }
+      #renewal-result { margin-top: 12px; }
+      .renewal-msg { margin: 0 0 6px; font-size: 16px; }
+      .renewal-note { margin: 0; color: var(--muted); font-size: 14px; }
+    </style>
+  </head>
+  <body>
+    <nav class="site-nav" aria-label="Navegación del sitio">
+      <ul>
+        <li><a href="./index.html">Inicio</a></li>
+        <li><a href="./quien-califica.html">¿Quién califica?</a></li>
+        <li><a href="./como-aplicar.html">Cómo aplicar</a></li>
+        <li><a href="../who-drives.html">¿Quién maneja?</a></li>
+        <li><a href="./preguntas-frecuentes.html">Preguntas</a></li>
+      </ul>
+    </nav>
+    <div style="text-align:right;padding:4px 20px;font-size:13px;font-weight:600;">
+      <a href="../renewal.html" style="color:#93c5fd;text-decoration:none;">English</a>
+      <span style="color:var(--ring);"> / </span>
+      <span style="color:var(--muted);">Español</span>
+    </div>
+    <main class="wrap">
+      <div class="logo">
+        <a href="./index.html" aria-label="Cuaderno de Medicaid de Kentucky — inicio">
+          <img src="../dr-kymn.webp" alt="" width="120" height="180" />
+        </a>
+      </div>
+
+      <header>
+        <span class="chip">Renovación</span>
+        <h1>Cómo mantener su cobertura</h1>
+        <p class="lead">
+          Medicaid requiere una renovación anual (también llamada
+          redeterminación). Esté pendiente de los avisos y responda a tiempo
+          para no perder su cobertura.
+        </p>
+      </header>
+
+      <section class="grid">
+        <article class="card">
+          <h2>1) Esté pendiente del correo y los mensajes</h2>
+          <p>
+            Recibirá un <strong>paquete de renovación</strong> por correo o a
+            través de
+            <a href="https://kynect.ky.gov/" target="_blank" rel="noopener noreferrer"
+              >kynect</a
+            >. Es posible que le pidan información actualizada.
+          </p>
+        </article>
+
+        <article class="card">
+          <h2>2) Responda antes de la fecha límite</h2>
+          <p>
+            Si no devuelve el formulario de renovación o los documentos
+            solicitados, su cobertura puede terminar. Los plazos suelen ser
+            <strong>30 días</strong> desde la fecha del aviso.
+          </p>
+        </article>
+
+        <article class="card">
+          <h2>3) Actualice su información en cualquier momento</h2>
+          <p>
+            Reporte cambios de
+            <strong>dirección, ingresos, teléfono o composición del hogar</strong>
+            de inmediato. Esto ayuda a evitar interrupciones al momento de
+            renovar.
+          </p>
+        </article>
+
+        <article class="card">
+          <h2>4) Si pierde la cobertura</h2>
+          <p>
+            Es posible que tenga un período corto para reactivar la cobertura
+            sin una nueva solicitud. Si lo pierde, puede volver a aplicar en
+            kynect.
+          </p>
+        </article>
+
+        <article class="card">
+          <h2>5) ¿Necesita ayuda?</h2>
+          <p>
+            Llame a DCBS al <strong>855-306-8959</strong> o comuníquese con un
+            <a
+              href="https://kynect.ky.gov/healthcoverage/s/kynectors?language=en_US"
+              target="_blank"
+              rel="noopener noreferrer"
+              >kynector</a
+            >
+            gratuito para recibir ayuda con la renovación.
+          </p>
+        </article>
+      </section>
+
+      <div class="card reminder-card">
+        <h2>Encuentre su mes de renovación</h2>
+        <p class="tool-note">Seleccione el mes en que se inscribió o renovó por última vez para ver cuándo vence su próxima renovación.</p>
+        <label class="field-label" for="enroll-month">Mes de inscripción o última renovación:</label>
+        <select id="enroll-month" class="select">
+          <option value="">Seleccione un mes:</option>
+          <option value="0">Enero</option>
+          <option value="1">Febrero</option>
+          <option value="2">Marzo</option>
+          <option value="3">Abril</option>
+          <option value="4">Mayo</option>
+          <option value="5">Junio</option>
+          <option value="6">Julio</option>
+          <option value="7">Agosto</option>
+          <option value="8">Septiembre</option>
+          <option value="9">Octubre</option>
+          <option value="10">Noviembre</option>
+          <option value="11">Diciembre</option>
+        </select>
+        <div id="renewal-result" aria-live="polite"></div>
+      </div>
+
+      <p class="tag">
+        <strong>Enlaces oficiales:</strong>
+        <a
+          href="https://khbe.ky.gov/Enrollment/Pages/MedicaidRenewals.aspx"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Renovaciones (KHBE)</a
+        >
+        &middot;
+        <a href="https://kynect.ky.gov/" target="_blank" rel="noopener noreferrer"
+          >kynect.ky.gov</a
+        >
+      </p>
+      <p class="tag"><strong>Última actualización:</strong> ago 2025</p>
+    </main>
+
+    <nav class="next-step" aria-label="Páginas relacionadas"><p>Ver también: <a href="./despues-de-aplicar.html">Después de aplicar</a> &nbsp;&middot;&nbsp; <a href="./si-me-aprueban.html">¿Si me aprueban?</a></p></nav>
+    <footer>
+      <p>
+        <strong>Dr. KYMN</strong> es una guía amigable, no un médico de verdad. No
+        está afiliado a ninguna agencia. Hecho en Lexington, KY, por <br />
+        <a href="https://sleepingbear.us/" target="_blank" rel="noopener noreferrer">
+          Sleeping Bear Labs
+        </a>
+        &nbsp;&middot;&nbsp; <a href="../about.html">Acerca de</a>
+      </p>
+    </footer>
+  <script>
+    (function () {
+      var MESES = ["enero","febrero","marzo","abril","mayo","junio",
+                   "julio","agosto","septiembre","octubre","noviembre","diciembre"];
+      var sel = document.getElementById("enroll-month");
+      var result = document.getElementById("renewal-result");
+      sel.addEventListener("change", function () {
+        if (this.value === "") { result.innerHTML = ""; return; }
+        var m = parseInt(this.value, 10);
+        var mesRenovacion = MESES[m];
+        var mesPaquete    = MESES[(m + 10) % 12];
+        result.innerHTML =
+          "<p class='renewal-msg'><strong>Su renovaci\u00f3n vence en " + mesRenovacion + ".</strong><br>" +
+          "Est\u00e9 pendiente de su paquete de renovaci\u00f3n alrededor de <strong>" + mesPaquete + "</strong> &mdash; " +
+          "aproximadamente dos meses antes de la fecha de renovaci\u00f3n.</p>" +
+          "<p class='renewal-note'>Responda antes de la fecha l\u00edmite indicada en su paquete para mantener su cobertura.</p>";
+      });
+    })();
+  </script>
+  <script src="../app.js"></script>
+  </body>
+</html>

@@ -1,4 +1,4 @@
-var CACHE = 'kymn-v4';
+var CACHE = 'kymn-v5';
 var CORE = [
   '/',
   '/index.html',
@@ -33,7 +33,10 @@ var CORE = [
   '/es/quien-califica.html',
   '/es/como-aplicar.html',
   '/es/preguntas-frecuentes.html',
-  '/es/despues-de-aplicar.html'
+  '/es/despues-de-aplicar.html',
+  '/es/renovacion.html',
+  '/es/si-me-niegan.html',
+  '/es/si-me-aprueban.html'
 ];
 
 self.addEventListener('install', function (e) {
