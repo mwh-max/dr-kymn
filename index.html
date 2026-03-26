@@ -35,6 +35,14 @@
         font-size: 14px;
       }
       .tag { text-align: center; margin: 20px 0 0; }
+      .section-label {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin: 24px 0 10px;
+      }
       @media (min-width: 560px) {
         .grid { grid-template-columns: 1fr 1fr; }
       }
@@ -51,18 +59,11 @@
         <p class="lead">Plain-language answers. Short pages. No jargon.</p>
       </header>
 
-      <section class="grid">
+      <p class="section-label">Getting Coverage</h2>
+      <section class="grid" aria-label="Getting Coverage">
         <article class="card">
           <h2>Who Qualifies?</h2>
           <a href="who-qualifies.html" aria-label="Open Who Qualifies?">Open</a>
-        </article>
-        <article class="card">
-          <h2>Who Accepts?</h2>
-          <a href="who-accepts.html" aria-label="Open Who Accepts?">Open</a>
-        </article>
-        <article class="card">
-          <h2>Who Drives?</h2>
-          <a href="who-drives.html" aria-label="Open Who Drives?">Open</a>
         </article>
         <article class="card">
           <h2>How to Apply</h2>
@@ -72,6 +73,26 @@
           <h2>After You Apply</h2>
           <a href="after-you-apply.html" aria-label="Open After You Apply">Open</a>
         </article>
+      </section>
+
+      <p class="section-label">Using Coverage</h2>
+      <section class="grid" aria-label="Using Coverage">
+        <article class="card">
+          <h2>Who Accepts?</h2>
+          <a href="who-accepts.html" aria-label="Open Who Accepts?">Open</a>
+        </article>
+        <article class="card">
+          <h2>Who Drives?</h2>
+          <a href="who-drives.html" aria-label="Open Who Drives?">Open</a>
+        </article>
+        <article class="card">
+          <h2>What If Approved?</h2>
+          <a href="what-if-approved.html" aria-label="Open What If Approved?">Open</a>
+        </article>
+      </section>
+
+      <p class="section-label">If Things Change</h2>
+      <section class="grid" aria-label="If Things Change">
         <article class="card">
           <h2>Renewal</h2>
           <a href="renewal.html" aria-label="Open Renewal">Open</a>
@@ -81,17 +102,13 @@
           <a href="what-if-denied.html" aria-label="Open What If Denied?">Open</a>
         </article>
         <article class="card">
-          <h2>What If Approved?</h2>
-          <a href="what-if-approved.html" aria-label="Open What If Approved?">Open</a>
-        </article>
-        <article class="card">
           <h2>FAQ</h2>
           <a href="faq.html" aria-label="Open FAQ">Open</a>
         </article>
-        <article class="card">
-          <h2>DCBS Offices</h2>
-          <a href="dcbs-offices.html" aria-label="Open DCBS Offices">Open</a>
-        </article>
+      </section>
+
+      <p class="section-label">Reference</h2>
+      <section class="grid" aria-label="Reference">
         <article class="card">
           <h2>What's Covered?</h2>
           <a href="what-is-covered.html" aria-label="Open What's Covered?">Open</a>
@@ -107,6 +124,10 @@
         <article class="card">
           <h2>Keep Coverage</h2>
           <a href="keep-coverage.html" aria-label="Open Keep Your Coverage">Open</a>
+        </article>
+        <article class="card">
+          <h2>DCBS Offices</h2>
+          <a href="dcbs-offices.html" aria-label="Open DCBS Offices">Open</a>
         </article>
         <article class="card">
           <h2>Glossary</h2>
