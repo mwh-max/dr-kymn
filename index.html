@@ -14,10 +14,12 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="theme-color" content="#0f172a" />
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="manifest.json" />
     <title>Home | Kentucky Medicaid Notebook</title>
     <link rel="stylesheet" href="style.css" />
     <style>
       .logo img { max-width: 140px; }
+      .card h2 { color: var(--ink); }
       header h1 { font-size: 28px; margin: 8px 0 6px; text-align: center; }
       header p.lead { margin: 0 0 20px; text-align: center; }
       .card { padding: 16px; text-align: center; }
@@ -98,6 +100,22 @@
           <h2>Emergency Care</h2>
           <a href="emergency-care.html" aria-label="Open Emergency Care">Open</a>
         </article>
+        <article class="card">
+          <h2>KCHIP</h2>
+          <a href="kchip.html" aria-label="Open KCHIP">Open</a>
+        </article>
+        <article class="card">
+          <h2>Keep Coverage</h2>
+          <a href="keep-coverage.html" aria-label="Open Keep Your Coverage">Open</a>
+        </article>
+        <article class="card">
+          <h2>Glossary</h2>
+          <a href="glossary.html" aria-label="Open Glossary">Open</a>
+        </article>
+        <article class="card">
+          <h2>Key Contacts</h2>
+          <a href="phone-numbers.html" aria-label="Open Key Contacts">Open</a>
+        </article>
       </section>
 
       <p class="tag">
@@ -118,5 +136,6 @@
         </a>
       </p>
     </footer>
+    <script src="app.js"></script>
   </body>
 </html>

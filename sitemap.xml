@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://kentuckymedicaidnotebook.org/</loc><priority>1.0</priority></url>
-  <url><loc>https://kentuckymedicaidnotebook.org/who-qualifies.html</loc></url>
-  <url><loc>https://kentuckymedicaidnotebook.org/who-accepts.html</loc></url>
-  <url><loc>https://kentuckymedicaidnotebook.org/who-drives.html</loc></url>
-  <url><loc>https://kentuckymedicaidnotebook.org/apply.html</loc></url>
-  <url><loc>https://kentuckymedicaidnotebook.org/after-you-apply.html</loc></url>
-  <url><loc>https://kentuckymedicaidnotebook.org/renewal.html</loc></url>
-  <url><loc>https://kentuckymedicaidnotebook.org/what-if-denied.html</loc></url>
-  <url><loc>https://kentuckymedicaidnotebook.org/what-if-approved.html</loc></url>
-  <url><loc>https://kentuckymedicaidnotebook.org/faq.html</loc></url>
-  <url><loc>https://kentuckymedicaidnotebook.org/dcbs-offices.html</loc></url>
-  <url><loc>https://kentuckymedicaidnotebook.org/what-is-covered.html</loc></url>
-  <url><loc>https://kentuckymedicaidnotebook.org/emergency-care.html</loc></url>
+  <url><loc>https://kentuckymedicaidnotebook.org/</loc><priority>1.0</priority><lastmod>2025-08-25</lastmod></url>
+  <url><loc>https://kentuckymedicaidnotebook.org/who-qualifies.html</loc><lastmod>2025-08-25</lastmod></url>
+  <url><loc>https://kentuckymedicaidnotebook.org/who-accepts.html</loc><lastmod>2025-08-25</lastmod></url>
+  <url><loc>https://kentuckymedicaidnotebook.org/who-drives.html</loc><lastmod>2025-08-25</lastmod></url>
+  <url><loc>https://kentuckymedicaidnotebook.org/apply.html</loc><lastmod>2025-08-25</lastmod></url>
+  <url><loc>https://kentuckymedicaidnotebook.org/after-you-apply.html</loc><lastmod>2025-08-25</lastmod></url>
+  <url><loc>https://kentuckymedicaidnotebook.org/renewal.html</loc><lastmod>2025-08-25</lastmod></url>
+  <url><loc>https://kentuckymedicaidnotebook.org/what-if-denied.html</loc><lastmod>2025-08-25</lastmod></url>
+  <url><loc>https://kentuckymedicaidnotebook.org/what-if-approved.html</loc><lastmod>2025-08-25</lastmod></url>
+  <url><loc>https://kentuckymedicaidnotebook.org/faq.html</loc><lastmod>2025-08-25</lastmod></url>
+  <url><loc>https://kentuckymedicaidnotebook.org/dcbs-offices.html</loc><lastmod>2025-08-25</lastmod></url>
+  <url><loc>https://kentuckymedicaidnotebook.org/what-is-covered.html</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://kentuckymedicaidnotebook.org/emergency-care.html</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://kentuckymedicaidnotebook.org/glossary.html</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://kentuckymedicaidnotebook.org/kchip.html</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://kentuckymedicaidnotebook.org/keep-coverage.html</loc><lastmod>2026-03-25</lastmod></url>
+  <url><loc>https://kentuckymedicaidnotebook.org/phone-numbers.html</loc><lastmod>2026-03-25</lastmod></url>
 </urlset>

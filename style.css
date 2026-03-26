@@ -64,6 +64,7 @@ header p.lead {
 .card h3 {
   margin: 4px 0 6px;
   font-size: 18px;
+  color: #86efac;
 }
 .tag {
   color: var(--muted);
