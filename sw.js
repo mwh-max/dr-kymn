@@ -1,11 +1,34 @@
-var CACHE = 'kymn-v2';
+var CACHE = 'kymn-v3';
 var CORE = [
   '/',
   '/index.html',
   '/offline.html',
   '/style.css',
   '/favicon.svg',
-  '/dr-kymn.webp'
+  '/dr-kymn.webp',
+  '/manifest.json',
+  '/app.js',
+  '/eligibility.js',
+  '/404.html',
+  '/about.html',
+  '/after-you-apply.html',
+  '/apply.html',
+  '/checklist.html',
+  '/dcbs-offices.html',
+  '/eligibility-check.html',
+  '/emergency-care.html',
+  '/faq.html',
+  '/glossary.html',
+  '/kchip.html',
+  '/keep-coverage.html',
+  '/phone-numbers.html',
+  '/renewal.html',
+  '/what-if-approved.html',
+  '/what-if-denied.html',
+  '/what-is-covered.html',
+  '/who-accepts.html',
+  '/who-drives.html',
+  '/who-qualifies.html'
 ];
 
 self.addEventListener('install', function (e) {
