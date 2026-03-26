@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Answer 6 plain-language questions to see which Kentucky Medicaid program you may qualify for — Expansion, Pregnancy, or ABD." />
+    <link rel="canonical" href="https://kentuckymedicaidnotebook.org/eligibility-check.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://kentuckymedicaidnotebook.org/eligibility-check.html" />
+    <meta property="og:title" content="Eligibility Pre-Screener | Kentucky Medicaid Notebook" />
+    <meta property="og:description" content="Answer 6 plain-language questions to see which Kentucky Medicaid program you may qualify for." />
+    <meta property="og:image" content="https://kentuckymedicaidnotebook.org/dr-kymn.webp" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#0f172a" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="manifest.json" />
+    <title>Eligibility Pre-Screener | Kentucky Medicaid Notebook</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Progress bar */
+      .eq-progress-wrap { margin: 0 0 22px; }
+      .eq-progress-track {
+        height: 6px;
+        background: var(--ring);
+        border-radius: 999px;
+        overflow: hidden;
+      }
+      .eq-progress-bar {
+        height: 100%;
+        background: var(--accent);
+        border-radius: 999px;
+        transition: width 0.3s ease;
+        width: 0%;
+      }
+      .eq-progress-label {
+        font-size: 12px;
+        color: var(--muted);
+        margin-top: 5px;
+      }
+
+      /* Question heading + note */
+      .eq-question {
+        font-size: 19px;
+        font-weight: 700;
+        color: var(--ink);
+        margin: 0 0 6px;
+        line-height: 1.4;
+      }
+      .eq-question-note {
+        color: var(--muted);
+        font-size: 14px;
+        margin: 0 0 16px;
+        line-height: 1.5;
+      }
+
+      /* Yes / No buttons */
+      .eq-yn-group {
+        display: flex;
+        gap: 10px;
+        margin-top: 4px;
+      }
+      .eq-yn-btn {
+        flex: 1;
+        padding: 14px;
+        border-radius: 12px;
+        border: 1px solid var(--ring);
+        background: transparent;
+        color: var(--ink);
+        font: inherit;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.15s, border-color 0.15s;
+      }
+      .eq-yn-btn:hover { background: rgba(255, 255, 255, 0.05); }
+      .eq-yn-btn.eq-yn-active {
+        background: rgba(34, 197, 94, 0.15);
+        border-color: var(--accent);
+        color: #86efac;
+      }
+
+      /* Next button */
+      .eq-next-btn {
+        display: block;
+        width: 100%;
+        margin-top: 14px;
+        padding: 14px;
+        border-radius: 12px;
+        border: 1px solid var(--accent);
+        background: rgba(34, 197, 94, 0.15);
+        color: #86efac;
+        font: inherit;
+        font-size: 16px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background 0.15s;
+      }
+      .eq-next-btn:hover { background: rgba(34, 197, 94, 0.25); }
+
+      /* Back button */
+      .eq-back-btn {
+        display: block;
+        width: 100%;
+        margin-top: 8px;
+        padding: 8px;
+        background: none;
+        border: none;
+        color: var(--muted);
+        font: inherit;
+        font-size: 14px;
+        cursor: pointer;
+        text-align: left;
+      }
+      .eq-back-btn:hover { color: var(--ink); }
+
+      /* Number inputs */
+      .eq-number-input {
+        width: 100%;
+        padding: 12px;
+        border-radius: 12px;
+        border: 1px solid var(--ring);
+        background: var(--card);
+        color: var(--ink);
+        font: inherit;
+        font-size: 20px;
+        -moz-appearance: textfield;
+      }
+      .eq-number-input::-webkit-inner-spin-button,
+      .eq-number-input::-webkit-outer-spin-button { opacity: 1; }
+
+      /* Income prefix */
+      .eq-income-wrap {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 4px;
+      }
+      .eq-currency-sign {
+        font-size: 20px;
+        color: var(--muted);
+        flex-shrink: 0;
+      }
+
+      /* Field errors */
+      .eq-field-error {
+        color: #f87171;
+        font-size: 13px;
+        margin-top: 6px;
+      }
+
+      /* Result */
+      .eq-result-intro {
+        font-size: 18px;
+        font-weight: 700;
+        color: #86efac;
+        margin: 0 0 14px;
+        line-height: 1.4;
+      }
+      .eq-match-list {
+        padding-left: 20px;
+        margin: 0 0 16px;
+      }
+      .eq-match-list li {
+        margin-bottom: 12px;
+        line-height: 1.55;
+      }
+      .eq-caveat {
+        color: var(--muted);
+        font-size: 14px;
+        margin: 0;
+      }
+      .eq-caveat a { color: #86efac; }
+
+      /* Not-KY stop screen */
+      .eq-stop-title {
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--ink);
+        margin: 0 0 10px;
+      }
+
+      /* Disclaimer box */
+      .eq-disclaimer {
+        margin-top: 18px;
+        padding: 12px 14px;
+        border-radius: 12px;
+        border: 1px solid var(--ring);
+        background: rgba(0, 0, 0, 0.15);
+        font-size: 13px;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+      .eq-disclaimer a { color: var(--muted); }
+      .eq-disclaimer a:hover { color: var(--ink); }
+    </style>
+  </head>
+  <body>
+    <nav class="site-nav" aria-label="Site navigation">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="who-qualifies.html">Who Qualifies?</a></li>
+        <li><a href="apply.html">How to Apply</a></li>
+        <li><a href="who-drives.html">Who Drives?</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </nav>
+    <main class="wrap">
+      <div class="logo">
+        <a href="index.html" aria-label="Kentucky Medicaid Notebook &mdash; home">
+          <img src="dr-kymn.webp" alt="" width="120" height="180" />
+        </a>
+      </div>
+
+      <header>
+        <span class="chip">Tool</span>
+        <h1>Eligibility Pre-Screener</h1>
+        <p class="lead">
+          Answer 6 quick questions to see which Kentucky Medicaid program you may qualify for.
+        </p>
+      </header>
+
+      <div class="card" id="eq-form">
+
+        <!-- Progress bar -->
+        <div id="eq-progress-wrap" class="eq-progress-wrap">
+          <div
+            class="eq-progress-track"
+            role="progressbar"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="0"
+            aria-label="Screener progress"
+          >
+            <div class="eq-progress-bar" id="eq-progress"></div>
+          </div>
+          <div class="eq-progress-label" id="eq-progress-label">Question 1 of 6</div>
+        </div>
+
+        <!-- Step 1: KY resident -->
+        <div id="step-resident" class="eq-step" hidden>
+          <p class="eq-question">Are you a Kentucky resident?</p>
+          <p class="eq-question-note">This tool covers Kentucky Medicaid programs only.</p>
+          <div class="eq-yn-group" role="group" aria-label="Kentucky resident?">
+            <button class="eq-yn-btn" data-answer="resident" data-value="yes" type="button">Yes</button>
+            <button class="eq-yn-btn" data-answer="resident" data-value="no" type="button">No</button>
+          </div>
+        </div>
+
+        <!-- Stop: not a KY resident -->
+        <div id="step-not-ky" class="eq-step" hidden>
+          <p class="eq-stop-title">This tool is for Kentucky residents only.</p>
+          <p>
+            Kentucky Medicaid programs require Kentucky residency. If you recently moved to Kentucky,
+            you may still be eligible &mdash; call <strong>855-459-6328</strong> or visit
+            <a href="apply.html">apply.html</a> to speak with someone who can help.
+          </p>
+          <button class="eq-back-btn" data-back="0" type="button">&larr; Go back</button>
+        </div>
+
+        <!-- Step 2: Age -->
+        <div id="step-age" class="eq-step" hidden>
+          <label class="eq-question" for="eq-age">How old are you?</label>
+          <p class="eq-question-note">Enter your age in years.</p>
+          <input
+            id="eq-age"
+            type="number"
+            min="0"
+            max="120"
+            class="eq-number-input"
+            placeholder="e.g. 34"
+            inputmode="numeric"
+            autocomplete="off"
+          />
+          <div id="eq-age-error" class="eq-field-error" hidden></div>
+          <button id="eq-age-next" class="eq-next-btn" type="button">Next &rarr;</button>
+          <button class="eq-back-btn" data-back="0" type="button">&larr; Go back</button>
+        </div>
+
+        <!-- Step 3: Pregnant -->
+        <div id="step-pregnant" class="eq-step" hidden>
+          <p class="eq-question">Are you currently pregnant?</p>
+          <div class="eq-yn-group" role="group" aria-label="Currently pregnant?">
+            <button class="eq-yn-btn" data-answer="pregnant" data-value="yes" type="button">Yes</button>
+            <button class="eq-yn-btn" data-answer="pregnant" data-value="no" type="button">No</button>
+          </div>
+          <button class="eq-back-btn" data-back="1" type="button">&larr; Go back</button>
+        </div>
+
+        <!-- Step 4: Disability -->
+        <div id="step-disability" class="eq-step" hidden>
+          <p class="eq-question">Do you receive SSI or SSDI, or have a long-term disability?</p>
+          <p class="eq-question-note">
+            SSI is Supplemental Security Income. SSDI is Social Security Disability Insurance.
+            A long-term disability is a physical or mental condition expected to last 12 months or more.
+          </p>
+          <div class="eq-yn-group" role="group" aria-label="SSI, SSDI, or long-term disability?">
+            <button class="eq-yn-btn" data-answer="disabled" data-value="yes" type="button">Yes</button>
+            <button class="eq-yn-btn" data-answer="disabled" data-value="no" type="button">No</button>
+          </div>
+          <button class="eq-back-btn" data-back="2" type="button">&larr; Go back</button>
+        </div>
+
+        <!-- Step 5: Household size -->
+        <div id="step-household" class="eq-step" hidden>
+          <label class="eq-question" for="eq-household">How many people are in your household?</label>
+          <p class="eq-question-note">
+            Count yourself plus anyone you live with and support, including a spouse and children.
+            If you are pregnant, count your unborn child as a household member.
+          </p>
+          <select id="eq-household" class="select" style="margin-top: 4px;">
+            <option value="1">1 &mdash; just me</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8 or more</option>
+          </select>
+          <button id="eq-household-next" class="eq-next-btn" type="button">Next &rarr;</button>
+          <button class="eq-back-btn" data-back="3" type="button">&larr; Go back</button>
+        </div>
+
+        <!-- Step 6: Income -->
+        <div id="step-income" class="eq-step" hidden>
+          <label class="eq-question" for="eq-income">What is your approximate gross monthly income?</label>
+          <p class="eq-question-note">
+            Total household income before taxes, per month &mdash; include wages, self-employment, and
+            benefits. Enter 0 if you have no income.
+          </p>
+          <div class="eq-income-wrap">
+            <span class="eq-currency-sign" aria-hidden="true">$</span>
+            <input
+              id="eq-income"
+              type="number"
+              min="0"
+              class="eq-number-input"
+              placeholder="e.g. 1800"
+              inputmode="decimal"
+              autocomplete="off"
+            />
+          </div>
+          <div id="eq-income-error" class="eq-field-error" hidden></div>
+          <button id="eq-income-next" class="eq-next-btn" type="button">See my results &rarr;</button>
+          <button class="eq-back-btn" data-back="4" type="button">&larr; Go back</button>
+        </div>
+
+        <!-- Result panel -->
+        <div id="eq-result" hidden aria-live="polite">
+          <div id="eq-result-content"></div>
+          <div class="divider"></div>
+          <button id="eq-restart" class="eq-back-btn" type="button">&larr; Start over</button>
+        </div>
+
+      </div><!-- /.card -->
+
+      <div class="eq-disclaimer">
+        <strong>Screener only &mdash; not a legal determination.</strong>
+        This tool gives a rough estimate based on a few basic questions. Medicaid rules are
+        complex and change regularly. Always verify at
+        <a href="https://kynect.ky.gov/" target="_blank" rel="noopener noreferrer">kynect.ky.gov</a>.
+      </div>
+
+      <p class="tag"><strong>Last updated:</strong> Mar 2026</p>
+    </main>
+
+    <nav class="next-step" aria-label="Related pages">
+      <p>See also: <a href="who-qualifies.html">Who Qualifies?</a> &nbsp;&middot;&nbsp; <a href="apply.html">How to Apply</a></p>
+    </nav>
+    <footer>
+      <p>
+        <strong>Dr. KYMN</strong> is a friendly guide, not a medical doctor. Not
+        affiliated with any agency. Made in Lexington, KY, by <br />
+        <a href="https://sleepingbear.us/" target="_blank" rel="noopener noreferrer">
+          Sleeping Bear Labs
+        </a>
+        &nbsp;&middot;&nbsp; <a href="about.html">About</a>
+      </p>
+    </footer>
+    <script src="eligibility.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
