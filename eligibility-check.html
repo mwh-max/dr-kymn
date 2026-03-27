@@ -195,6 +195,7 @@
     </style>
   </head>
   <body>
+    <a href="#main" class="skip-link">Skip to main content</a>
     <nav class="site-nav" aria-label="Site navigation">
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -204,7 +205,7 @@
         <li><a href="faq.html">FAQ</a></li>
       </ul>
     </nav>
-    <main class="wrap">
+    <main class="wrap" id="main">
       <div class="logo">
         <a href="index.html" aria-label="Kentucky Medicaid Notebook &mdash; home">
           <img src="dr-kymn.webp" alt="" width="120" height="180" />
@@ -254,7 +255,7 @@
             you may still be eligible &mdash; call <strong>855-459-6328</strong> or visit
             <a href="apply.html">apply.html</a> to speak with someone who can help.
           </p>
-          <button class="eq-back-btn" data-back="0" type="button">&larr; Go back</button>
+          <button class="eq-back-btn" data-back="0" type="button"><span aria-hidden="true">&larr;</span> Go back</button>
         </div>
 
         <!-- Step 2: Age -->
@@ -272,8 +273,8 @@
             autocomplete="off"
           />
           <div id="eq-age-error" class="eq-field-error" hidden></div>
-          <button id="eq-age-next" class="eq-next-btn" type="button">Next &rarr;</button>
-          <button class="eq-back-btn" data-back="0" type="button">&larr; Go back</button>
+          <button id="eq-age-next" class="eq-next-btn" type="button">Next <span aria-hidden="true">&rarr;</span></button>
+          <button class="eq-back-btn" data-back="0" type="button"><span aria-hidden="true">&larr;</span> Go back</button>
         </div>
 
         <!-- Step 3: Pregnant -->
@@ -283,7 +284,7 @@
             <button class="eq-yn-btn" data-answer="pregnant" data-value="yes" type="button">Yes</button>
             <button class="eq-yn-btn" data-answer="pregnant" data-value="no" type="button">No</button>
           </div>
-          <button class="eq-back-btn" data-back="1" type="button">&larr; Go back</button>
+          <button class="eq-back-btn" data-back="1" type="button"><span aria-hidden="true">&larr;</span> Go back</button>
         </div>
 
         <!-- Step 4: Disability -->
@@ -297,7 +298,7 @@
             <button class="eq-yn-btn" data-answer="disabled" data-value="yes" type="button">Yes</button>
             <button class="eq-yn-btn" data-answer="disabled" data-value="no" type="button">No</button>
           </div>
-          <button class="eq-back-btn" data-back="2" type="button">&larr; Go back</button>
+          <button class="eq-back-btn" data-back="2" type="button"><span aria-hidden="true">&larr;</span> Go back</button>
         </div>
 
         <!-- Step 5: Household size -->
@@ -317,8 +318,8 @@
             <option value="7">7</option>
             <option value="8">8 or more</option>
           </select>
-          <button id="eq-household-next" class="eq-next-btn" type="button">Next &rarr;</button>
-          <button class="eq-back-btn" data-back="3" type="button">&larr; Go back</button>
+          <button id="eq-household-next" class="eq-next-btn" type="button">Next <span aria-hidden="true">&rarr;</span></button>
+          <button class="eq-back-btn" data-back="3" type="button"><span aria-hidden="true">&larr;</span> Go back</button>
         </div>
 
         <!-- Step 6: Income -->
@@ -341,15 +342,15 @@
             />
           </div>
           <div id="eq-income-error" class="eq-field-error" hidden></div>
-          <button id="eq-income-next" class="eq-next-btn" type="button">See my results &rarr;</button>
-          <button class="eq-back-btn" data-back="4" type="button">&larr; Go back</button>
+          <button id="eq-income-next" class="eq-next-btn" type="button">See my results <span aria-hidden="true">&rarr;</span></button>
+          <button class="eq-back-btn" data-back="4" type="button"><span aria-hidden="true">&larr;</span> Go back</button>
         </div>
 
         <!-- Result panel -->
         <div id="eq-result" hidden aria-live="polite">
           <div id="eq-result-content"></div>
           <div class="divider"></div>
-          <button id="eq-restart" class="eq-back-btn" type="button">&larr; Start over</button>
+          <button id="eq-restart" class="eq-back-btn" type="button"><span aria-hidden="true">&larr;</span> Start over</button>
         </div>
 
       </div><!-- /.card -->

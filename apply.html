@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <a href="#main" class="skip-link">Skip to main content</a>
     <nav class="site-nav" aria-label="Site navigation">
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -32,7 +33,7 @@
       <span style="color:var(--ring);"> / </span>
       <a href="es/como-aplicar.html" style="color:#86efac;text-decoration:none;">Español</a>
     </div>
-    <main class="wrap">
+    <main class="wrap" id="main">
       <div class="logo">
         <a href="index.html" aria-label="Kentucky Medicaid Notebook — home">
           <!-- TODO: generate a 120px-wide version of dr-kymn.webp to reduce page weight -->
@@ -75,7 +76,7 @@
           <p>
             Visit your local <strong>DCBS office</strong>. Staff can help you
             fill out the forms and answer questions.
-            <a href="dcbs-offices.html">Find your county office &rarr;</a>
+            <a href="dcbs-offices.html">Find your county office <span aria-hidden="true">&rarr;</span></a>
           </p>
         </article>
 
@@ -112,7 +113,7 @@
       <p class="tag"><strong>Last updated:</strong> Mar 2026</p>
     </main>
 
-    <nav class="next-step" aria-label="Related pages"><p>Submitted your application? &rarr; <a href="after-you-apply.html">After You Apply</a></p></nav>
+    <nav class="next-step" aria-label="Related pages"><p>Submitted your application? <span aria-hidden="true">&rarr;</span> <a href="after-you-apply.html">After You Apply</a></p></nav>
     <footer>
       <p>
         <strong>Dr. KYMN</strong> is a friendly guide, not a medical doctor. Not

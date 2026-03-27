@@ -43,6 +43,7 @@
     </style>
   </head>
   <body>
+    <a href="#main" class="skip-link">Skip to main content</a>
     <nav class="site-nav" aria-label="Site navigation">
       <ul>
         <li><a href="index.html">Home</a></li>
@@ -52,7 +53,7 @@
         <li><a href="faq.html">FAQ</a></li>
       </ul>
     </nav>
-    <main class="wrap">
+    <main class="wrap" id="main">
       <div class="logo">
         <!-- TODO: generate a 120px-wide version of dr-kymn.webp to reduce page weight -->
         <img src="dr-kymn.webp" alt="Dr. KYMN mascot" width="120" height="180" />
@@ -61,7 +62,7 @@
       <div class="not-found">
         <h1>Page not found</h1>
         <p>That page doesn&rsquo;t exist &mdash; but Dr. KYMN can still help.</p>
-        <a href="index.html">&larr; Back to the Notebook</a>
+        <a href="index.html"><span aria-hidden="true">&larr;</span> Back to the Notebook</a>
       </div>
     </main>
 
