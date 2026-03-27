@@ -113,7 +113,7 @@
 
       <div class="card" style="margin-top:16px;">
         <h2>Quick income check</h2>
-        <p class="tool-note">Rough estimate only &mdash; official eligibility is determined by kynect. Based on 2025 federal poverty guidelines.</p>
+        <p class="tool-note">Rough estimate only &mdash; official eligibility is determined by kynect. Based on 2026 federal poverty guidelines.</p>
 
         <div class="est-row">
           <label class="field-label" for="hh-size">Household size:</label>
@@ -145,7 +145,7 @@
 
       <div class="card" style="margin-top: 16px;">
         <h2>Income limits by household size</h2>
-        <p class="tool-note">Monthly gross income limits. Based on 2025 federal poverty guidelines. All figures are approximate — verify at kynect.ky.gov before applying.</p>
+        <p class="tool-note">Monthly gross income limits. Based on 2026 federal poverty guidelines. All figures are approximate — verify at kynect.ky.gov before applying.</p>
         <div style="overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 0 -14px; padding: 0 14px 2px;">
           <table style="width: 100%; border-collapse: collapse; font-size: 13px; min-width: 540px;">
             <thead>
@@ -175,14 +175,14 @@
               <tr>
                 <td style="padding: 10px 10px 10px 0; border-bottom: 1px solid var(--ring); white-space: nowrap;">
                   <strong>Pregnancy Medicaid</strong>
-                  <span style="display: block; color: var(--muted); font-size: 11px;">195% FPL</span>
+                  <span style="display: block; color: var(--muted); font-size: 11px;">200% FPL</span>
                 </td>
-                <td style="text-align: right; padding: 10px 6px; border-bottom: 1px solid var(--ring); white-space: nowrap;">$2,543<span style="display: block; color: var(--muted); font-size: 11px;">$30,518/yr</span></td>
-                <td style="text-align: right; padding: 10px 6px; border-bottom: 1px solid var(--ring); white-space: nowrap;">$3,437<span style="display: block; color: var(--muted); font-size: 11px;">$41,243/yr</span></td>
-                <td style="text-align: right; padding: 10px 6px; border-bottom: 1px solid var(--ring); white-space: nowrap;">$4,331<span style="display: block; color: var(--muted); font-size: 11px;">$51,968/yr</span></td>
-                <td style="text-align: right; padding: 10px 6px; border-bottom: 1px solid var(--ring); white-space: nowrap;">$5,224<span style="display: block; color: var(--muted); font-size: 11px;">$62,693/yr</span></td>
-                <td style="text-align: right; padding: 10px 6px; border-bottom: 1px solid var(--ring); white-space: nowrap;">$6,118<span style="display: block; color: var(--muted); font-size: 11px;">$73,418/yr</span></td>
-                <td style="text-align: right; padding: 10px 6px; border-bottom: 1px solid var(--ring); white-space: nowrap;">$7,012<span style="display: block; color: var(--muted); font-size: 11px;">$84,143/yr</span></td>
+                <td style="text-align: right; padding: 10px 6px; border-bottom: 1px solid var(--ring); white-space: nowrap;">$2,608<span style="display: block; color: var(--muted); font-size: 11px;">$31,300/yr</span></td>
+                <td style="text-align: right; padding: 10px 6px; border-bottom: 1px solid var(--ring); white-space: nowrap;">$3,525<span style="display: block; color: var(--muted); font-size: 11px;">$42,300/yr</span></td>
+                <td style="text-align: right; padding: 10px 6px; border-bottom: 1px solid var(--ring); white-space: nowrap;">$4,442<span style="display: block; color: var(--muted); font-size: 11px;">$53,300/yr</span></td>
+                <td style="text-align: right; padding: 10px 6px; border-bottom: 1px solid var(--ring); white-space: nowrap;">$5,358<span style="display: block; color: var(--muted); font-size: 11px;">$64,300/yr</span></td>
+                <td style="text-align: right; padding: 10px 6px; border-bottom: 1px solid var(--ring); white-space: nowrap;">$6,275<span style="display: block; color: var(--muted); font-size: 11px;">$75,300/yr</span></td>
+                <td style="text-align: right; padding: 10px 6px; border-bottom: 1px solid var(--ring); white-space: nowrap;">$7,192<span style="display: block; color: var(--muted); font-size: 11px;">$86,300/yr</span></td>
               </tr>
               <tr>
                 <td style="padding: 10px 10px 10px 0; border-bottom: 1px solid var(--ring); white-space: nowrap;">
@@ -252,7 +252,7 @@
     </footer>
   <script>
     (function () {
-      // 2025 federal poverty guidelines (48 contiguous states)
+      // 2026 federal poverty guidelines (48 contiguous states) — verified Mar 2026
       var FPL = [15650, 21150, 26650, 32150, 37650, 43150, 48650, 54150];
       function getFPL(size) {
         return size <= 8 ? FPL[size - 1] : FPL[7] + (size - 8) * 5500;
@@ -294,10 +294,10 @@
 
         // Pregnancy
         if (pregnant) {
-          if (pct <= 195) {
-            items.push("<strong>Pregnancy:</strong> May qualify for Medicaid (higher income limit of 195% FPL applies).");
+          if (pct <= 200) {
+            items.push("<strong>Pregnancy:</strong> May qualify for Medicaid (higher income limit of 200% FPL applies).");
           } else {
-            items.push("<strong>Pregnancy:</strong> Income may be above the pregnancy Medicaid limit (195% FPL). Check kynect for options.");
+            items.push("<strong>Pregnancy:</strong> Income may be above the pregnancy Medicaid limit (200% FPL). Check kynect for options.");
           }
         }
 
