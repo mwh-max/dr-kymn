@@ -1,10 +1,10 @@
 (function () {
   'use strict';
 
-  // 2025 Federal Poverty Level — monthly amounts (contiguous US)
-  // Source: aspe.hhs.gov (published January 2025)
-  var FPL_BASE = 1304; // 1-person household
-  var FPL_EACH = 458;  // each additional person
+  // 2026 Federal Poverty Level — monthly amounts (contiguous US)
+  // Source: https://aspe.hhs.gov/topics/poverty-economic-mobility/poverty-guidelines (updated 2026-03-30)
+  var FPL_BASE = 1330;   // 1-person household ($15,960/yr ÷ 12)
+  var FPL_EACH = 473.33; // each additional person ($5,680/yr ÷ 12)
 
   function monthlyFPL(size) {
     return FPL_BASE + FPL_EACH * (Math.max(1, size) - 1);
