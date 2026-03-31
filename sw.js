@@ -1,4 +1,4 @@
-var CACHE = 'kymn-v5';
+var CACHE = 'kymn-v6';
 var CORE = [
   '/',
   '/index.html',
@@ -21,6 +21,7 @@ var CORE = [
   '/glossary.html',
   '/kchip.html',
   '/keep-coverage.html',
+  '/lost-coverage.html',
   '/phone-numbers.html',
   '/renewal.html',
   '/what-if-approved.html',
