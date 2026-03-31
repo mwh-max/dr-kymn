@@ -130,8 +130,10 @@
         countEl.textContent = "1 result";
         var card = document.createElement("article");
         card.className = "card";
-        card.innerHTML =
-          "<h2>" + county + " County</h2>" +
+        var h2 = document.createElement("h2");
+        h2.textContent = county + " County";
+        card.appendChild(h2);
+        card.innerHTML +=
           "<p class='meta'>Department for Community Based Services (DCBS)</p>" +
           "<div class='btnrow'>" +
             "<a class='btn' href='tel:18553068959'>Call 855-306-8959</a>" +
