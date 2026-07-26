@@ -1,4 +1,4 @@
-var CACHE = 'kymn-v9';
+var CACHE = 'kymn-v10';
 var CORE = [
   '/',
   '/index.html',
@@ -16,6 +16,7 @@ var CORE = [
   '/checklist.html',
   '/dcbs-offices.html',
   '/do-i-qualify.html',
+  '/how-do-i-apply.html',
   '/eligibility-check.html',
   '/emergency-care.html',
   '/faq.html',

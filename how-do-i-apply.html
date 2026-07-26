@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Home | Kentucky Medicaid Notebook</title>
-    <style>
+    <title>How Do I Apply? | Kentucky Medicaid Notebook</title>
+<style>
       @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap');
 
       :root {
@@ -178,6 +178,52 @@
         .wordmark { font-size: 1.4rem; text-align: center; }
         .footer-copy { text-align: center; }
       }
+
+      /* ===== Individual topic page: content between the two rules ===== */
+      .page-content {
+        grid-column: 1;
+        grid-row: 2;
+        padding-top: 16px;
+        max-width: 640px;
+      }
+      .page-content h1 {
+        font-family: var(--body);
+        font-weight: 700;
+        font-size: 1.6rem;
+        color: var(--ink);
+        margin: 0 0 1rem;
+        line-height: 1.25;
+      }
+      .page-content p {
+        font-size: 1.05rem;
+        line-height: 1.65;
+        color: var(--ink-soft);
+        margin: 0 0 1rem;
+      }
+      .back-link {
+        display: inline-block;
+        margin-top: .5rem;
+        padding: .5rem 0;
+        color: #1f7a4d;
+        font-weight: 600;
+        text-decoration: underline;
+      }
+      .source-tag {
+        font-size: .85rem;
+        color: var(--muted);
+        margin: 0 0 1.5rem;
+      }
+      .source-tag a {
+        color: var(--muted);
+        text-decoration: underline;
+      }
+
+      /* Mobile: center the page title to match the centered header above it;
+         body copy and the back link stay left-aligned for readability. */
+      @media (max-width: 640px) {
+        .page-content h1 { text-align: center; }
+        .source-tag { text-align: center; }
+      }
     </style>
   </head>
   <body>
@@ -196,49 +242,24 @@
         <div class="header-rule"></div>
       </div>
 
-      <div class="cards-col">
-        <div class="card">
-          <p class="card-title">What&rsquo;s Medicaid?</p>
-          <p class="card-desc">How the program started, who runs it, and who it&rsquo;s for.</p>
-          <a class="card-link" href="what-is-medicaid.html" aria-label="Learn more about what Medicaid is">
-            <span class="arrow-glyph" aria-hidden="true">&rarr;</span>
-          </a>
-        </div>
-        <div class="card">
-          <p class="card-title">Do I Qualify?</p>
-          <p class="card-desc">See what the current eligibility requirements are.</p>
-          <a class="card-link" href="do-i-qualify.html" aria-label="Learn more about whether you qualify">
-            <span class="arrow-glyph" aria-hidden="true">&rarr;</span>
-          </a>
-        </div>
-        <div class="card">
-          <p class="card-title">How Do I Apply?</p>
-          <p class="card-desc">Online, by phone, by mail, or in person &mdash; whichever works for you.</p>
-          <a class="card-link" href="how-do-i-apply.html" aria-label="Learn more about how to apply">
-            <span class="arrow-glyph" aria-hidden="true">&rarr;</span>
-          </a>
-        </div>
-        <div class="card">
-          <p class="card-title">What Happens Next?</p>
-          <p class="card-desc">What to expect while your application is being reviewed.</p>
-          <a class="card-link" href="#" aria-label="Learn more about what happens after you apply">
-            <span class="arrow-glyph" aria-hidden="true">&rarr;</span>
-          </a>
-        </div>
-        <div class="card">
-          <p class="card-title">How Do I Use My Coverage?</p>
-          <p class="card-desc">Find providers, get rides to appointments, and see what&rsquo;s covered.</p>
-          <a class="card-link" href="#" aria-label="Learn more about using your coverage">
-            <span class="arrow-glyph" aria-hidden="true">&rarr;</span>
-          </a>
-        </div>
-        <div class="card">
-          <p class="card-title">Where Can I Get More Help?</p>
-          <p class="card-desc">FAQs, definitions, and phone numbers worth saving.</p>
-          <a class="card-link" href="#" aria-label="Learn more about additional help and resources">
-            <span class="arrow-glyph" aria-hidden="true">&rarr;</span>
-          </a>
-        </div>
+      <div class="page-content">
+        <h1>How Do I Apply?</h1>
+
+        <p>You can apply for Kentucky Medicaid in a few different ways. Pick whichever works best for you: online, by phone, in person, or by mail.</p>
+
+        <p>The fastest way is online at <a href="https://kynect.ky.gov/">kynect</a>, Kentucky&rsquo;s official benefits website. You can create an account, fill out the application, and upload your documents from your phone or computer.</p>
+
+        <p>You can also apply by phone. Call the Department for Community Based Services, or DCBS, at 855-306-8959. If you are deaf or hard of hearing, call 800-648-6056.</p>
+
+        <p>Prefer to apply in person or by mail? Visit your local DCBS office for help filling out the form. Or print an application from kynect and mail it to your local DCBS office.</p>
+
+        <p>You do not have to do this alone. Free helpers called kynectors can walk you through the application at no cost.</p>
+
+        <p>Before you start, gather a few things: proof of income, a photo ID, Social Security numbers for your household, and basic household information. Having these ready can speed up the process.</p>
+
+        <p class="source-tag">Source: <a href="https://www.chfs.ky.gov/agencies/dms/member/Pages/Apply.aspx" target="_blank" rel="noopener">Kentucky Cabinet for Health and Family Services, How to Apply for Medicaid</a></p>
+
+        <a class="back-link" href="index.html">&larr; Back to all topics</a>
       </div>
 
       <div class="footer-rule-row"></div>
