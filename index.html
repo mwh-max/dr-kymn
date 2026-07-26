@@ -30,10 +30,156 @@
   }
   </script>
     <style>
-      .logo img { max-width: 140px; }
-      .card h2 { color: var(--ink); }
-      header h1 { font-size: 28px; margin: 8px 0 6px; text-align: center; }
-      header p.lead { margin: 0 0 20px; text-align: center; }
+      /* --- Homepage masthead: civic / broadsheet typographic treatment --- */
+      .masthead {
+        text-align: center;
+        padding: 6px 0 16px;
+      }
+      .masthead-kicker {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin: 0 0 14px;
+      }
+      .masthead-name {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+      }
+      .masthead-mark {
+        max-width: 64px;
+        height: auto;
+        flex-shrink: 0;
+        filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35));
+      }
+      .masthead-title {
+        text-align: left;
+      }
+      .masthead-title h1 {
+        font-family: Georgia, "Iowan Old Style", "Palatino Linotype", serif;
+        font-size: 38px;
+        line-height: 1;
+        letter-spacing: -0.01em;
+        margin: 0;
+        color: var(--ink);
+      }
+      .masthead-subtitle {
+        display: block;
+        font-family: Georgia, "Iowan Old Style", serif;
+        font-size: 13px;
+        font-weight: 400;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin: 6px 0 0;
+      }
+      .masthead-rule {
+        max-width: 480px;
+        margin: 18px auto 14px;
+        border-top: 3px solid var(--ink);
+        border-bottom: 1px solid var(--ring);
+        padding-top: 3px;
+      }
+      .masthead-tagline {
+        font-size: 15px;
+        color: var(--muted);
+        margin: 0 0 4px;
+      }
+      .masthead-dek {
+        color: var(--muted);
+        font-size: 15px;
+        margin: 10px 0 0;
+        text-align: center;
+      }
+
+      /* Civic "part" section headers, in place of plain section labels */
+      .part-label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 30px 0 12px;
+      }
+      .part-label .num {
+        font-family: Georgia, serif;
+        font-size: 14px;
+        font-weight: 700;
+        color: #86efac;
+        flex-shrink: 0;
+      }
+      .part-label .name {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+        white-space: nowrap;
+      }
+      .part-label .rule {
+        flex: 1;
+        height: 1px;
+        background: var(--ring);
+      }
+
+      /* "Start Here" callout + roadmap */
+      .start-card {
+        text-align: center;
+        padding: 18px 20px;
+        margin: 0 0 16px;
+        border-color: rgba(34, 197, 94, 0.4);
+        background: rgba(34, 197, 94, 0.07);
+      }
+      .start-card h2 {
+        margin: 4px 0 6px;
+        font-size: 17px;
+      }
+      .start-card p {
+        margin: 0 0 14px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      .roadmap {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid var(--ring);
+        border-radius: 12px;
+        overflow: hidden;
+        margin: 0 0 4px;
+      }
+      .roadmap-step {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 14px 16px;
+        text-decoration: none;
+        color: var(--ink);
+        font-weight: 600;
+        font-size: 15px;
+        border-bottom: 1px solid var(--ring);
+      }
+      .roadmap-step:last-child {
+        border-bottom: none;
+      }
+      .roadmap-step:hover {
+        background: rgba(255, 255, 255, 0.04);
+      }
+      .roadmap-num {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        border: 1px solid var(--ring);
+        font-family: Georgia, serif;
+        font-size: 13px;
+        font-weight: 700;
+        color: #86efac;
+        flex-shrink: 0;
+      }
+
       .card { padding: 16px; text-align: center; }
       .card a {
         display: inline-block;
@@ -47,16 +193,13 @@
         font-size: 14px;
       }
       .tag { text-align: center; margin: 20px 0 0; }
-      .section-label {
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: var(--muted);
-        margin: 24px 0 10px;
-      }
+
       @media (min-width: 560px) {
         .grid { grid-template-columns: 1fr 1fr; }
+        .masthead-title { text-align: left; }
+        .roadmap { flex-direction: row; }
+        .roadmap-step { flex: 1; border-bottom: none; border-right: 1px solid var(--ring); }
+        .roadmap-step:last-child { border-right: none; }
       }
     </style>
   </head>
@@ -77,28 +220,32 @@
       <a href="es/index.html" style="color:#86efac;text-decoration:none;">Español</a>
     </div>
     <main class="wrap" id="main">
-      <div class="logo">
-        <img src="dr-kymn-sm.webp" alt="Dr. KYMN mascot" width="120" height="180" />
-      </div>
-
-      <header>
-        <h1>The Kentucky Medicaid Notebook</h1>
-        <p class="lead">Plain-language answers. Short pages. No jargon.</p>
-        <p style="color:var(--muted);font-size:15px;text-align:center;margin:0 0 20px;">Applying for Medicaid can feel overwhelming &mdash; especially when you&rsquo;re already dealing with a lot. These pages break the process into small steps.</p>
+      <header class="masthead">
+        <p class="masthead-kicker">A Plain-Language Civic Guide</p>
+        <div class="masthead-name">
+          <img class="masthead-mark" src="dr-kymn-sm.webp" alt="Dr. KYMN mascot" width="64" height="96" />
+          <div class="masthead-title">
+            <h1>Dr. KYMN<span class="masthead-subtitle">The Kentucky Medicaid Notebook</span></h1>
+          </div>
+        </div>
+        <div class="masthead-rule" aria-hidden="true"></div>
+        <p class="masthead-tagline">Plain-language answers. Short pages. No jargon.</p>
+        <p class="masthead-dek">Applying for Medicaid can feel overwhelming &mdash; especially when you&rsquo;re already dealing with a lot. These pages break the process into small steps.</p>
       </header>
 
-      <div class="card" style="margin:0 0 24px;padding:18px 20px;text-align:center;border-color:rgba(34,197,94,0.4);background:rgba(34,197,94,0.07);">
-        <p style="margin:0 0 10px;font-size:13px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);">Not sure where to start?</p>
-        <p style="margin:0;font-size:16px;line-height:1.6;">
-          <a href="who-qualifies.html" style="color:#86efac;font-weight:700;text-decoration:none;">Who Qualifies?</a>
-          <span style="color:var(--muted);margin:0 8px;" aria-hidden="true">&rarr;</span>
-          <a href="apply.html" style="color:#86efac;font-weight:700;text-decoration:none;">How to Apply</a>
-          <span style="color:var(--muted);margin:0 8px;" aria-hidden="true">&rarr;</span>
-          <a href="after-you-apply.html" style="color:#86efac;font-weight:700;text-decoration:none;">After You Apply</a>
-        </p>
-      </div>
+      <div class="part-label"><span class="num">I.</span><span class="name">Start Here</span><span class="rule" aria-hidden="true"></span></div>
+      <article class="card start-card">
+        <h2>New to Medicaid?</h2>
+        <p>Start with the basics &mdash; what it is, what it covers, and how Kentucky runs it.</p>
+        <a href="what-is-medicaid.html" aria-label="Open What's Medicaid?">What&rsquo;s Medicaid? <span aria-hidden="true">&rarr;</span></a>
+      </article>
+      <nav class="roadmap" aria-label="Suggested path to coverage">
+        <a class="roadmap-step" href="who-qualifies.html"><span class="roadmap-num" aria-hidden="true">1</span>Who Qualifies?</a>
+        <a class="roadmap-step" href="apply.html"><span class="roadmap-num" aria-hidden="true">2</span>How to Apply</a>
+        <a class="roadmap-step" href="after-you-apply.html"><span class="roadmap-num" aria-hidden="true">3</span>After You Apply</a>
+      </nav>
 
-      <p class="section-label">Getting Coverage</p>
+      <div class="part-label"><span class="num">II.</span><span class="name">Getting Coverage</span><span class="rule" aria-hidden="true"></span></div>
       <section class="grid" aria-label="Getting Coverage">
         <article class="card">
           <h2>Eligibility Pre-Screener</h2>
@@ -142,7 +289,7 @@
         </article>
       </section>
 
-      <p class="section-label">Using Your Coverage</p>
+      <div class="part-label"><span class="num">III.</span><span class="name">Using Your Coverage</span><span class="rule" aria-hidden="true"></span></div>
       <section class="grid" aria-label="Using Your Coverage">
         <article class="card">
           <h2>Who Accepts?</h2>
@@ -174,7 +321,7 @@
         </article>
       </section>
 
-      <p class="section-label">More</p>
+      <div class="part-label"><span class="num">IV.</span><span class="name">More</span><span class="rule" aria-hidden="true"></span></div>
       <section class="grid" aria-label="More">
         <article class="card">
           <h2>Glossary</h2>
