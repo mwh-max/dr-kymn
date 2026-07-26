@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Home | Kentucky Medicaid Notebook</title>
-    <style>
+    <title>What Happens Next? | Kentucky Medicaid Notebook</title>
+<style>
       @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap');
 
       :root {
@@ -178,6 +178,52 @@
         .wordmark { font-size: 1.4rem; text-align: center; }
         .footer-copy { text-align: center; }
       }
+
+      /* ===== Individual topic page: content between the two rules ===== */
+      .page-content {
+        grid-column: 1;
+        grid-row: 2;
+        padding-top: 16px;
+        max-width: 640px;
+      }
+      .page-content h1 {
+        font-family: var(--body);
+        font-weight: 700;
+        font-size: 1.6rem;
+        color: var(--ink);
+        margin: 0 0 1rem;
+        line-height: 1.25;
+      }
+      .page-content p {
+        font-size: 1.05rem;
+        line-height: 1.65;
+        color: var(--ink-soft);
+        margin: 0 0 1rem;
+      }
+      .back-link {
+        display: inline-block;
+        margin-top: .5rem;
+        padding: .5rem 0;
+        color: #1f7a4d;
+        font-weight: 600;
+        text-decoration: underline;
+      }
+      .source-tag {
+        font-size: .85rem;
+        color: var(--muted);
+        margin: 0 0 1.5rem;
+      }
+      .source-tag a {
+        color: var(--muted);
+        text-decoration: underline;
+      }
+
+      /* Mobile: center the page title to match the centered header above it;
+         body copy and the back link stay left-aligned for readability. */
+      @media (max-width: 640px) {
+        .page-content h1 { text-align: center; }
+        .source-tag { text-align: center; }
+      }
     </style>
   </head>
   <body>
@@ -196,49 +242,22 @@
         <div class="header-rule"></div>
       </div>
 
-      <div class="cards-col">
-        <div class="card">
-          <p class="card-title">What&rsquo;s Medicaid?</p>
-          <p class="card-desc">How the program started, who runs it, and who it&rsquo;s for.</p>
-          <a class="card-link" href="what-is-medicaid.html" aria-label="Learn more about what Medicaid is">
-            <span class="arrow-glyph" aria-hidden="true">&rarr;</span>
-          </a>
-        </div>
-        <div class="card">
-          <p class="card-title">Do I Qualify?</p>
-          <p class="card-desc">See what the current eligibility requirements are.</p>
-          <a class="card-link" href="do-i-qualify.html" aria-label="Learn more about whether you qualify">
-            <span class="arrow-glyph" aria-hidden="true">&rarr;</span>
-          </a>
-        </div>
-        <div class="card">
-          <p class="card-title">How Do I Apply?</p>
-          <p class="card-desc">Online, by phone, by mail, or in person &mdash; whichever works for you.</p>
-          <a class="card-link" href="how-do-i-apply.html" aria-label="Learn more about how to apply">
-            <span class="arrow-glyph" aria-hidden="true">&rarr;</span>
-          </a>
-        </div>
-        <div class="card">
-          <p class="card-title">What Happens Next?</p>
-          <p class="card-desc">What to expect while your application is being reviewed.</p>
-          <a class="card-link" href="what-happens-next.html" aria-label="Learn more about what happens after you apply">
-            <span class="arrow-glyph" aria-hidden="true">&rarr;</span>
-          </a>
-        </div>
-        <div class="card">
-          <p class="card-title">How Do I Use My Coverage?</p>
-          <p class="card-desc">Find providers, get rides to appointments, and see what&rsquo;s covered.</p>
-          <a class="card-link" href="#" aria-label="Learn more about using your coverage">
-            <span class="arrow-glyph" aria-hidden="true">&rarr;</span>
-          </a>
-        </div>
-        <div class="card">
-          <p class="card-title">Where Can I Get More Help?</p>
-          <p class="card-desc">FAQs, definitions, and phone numbers worth saving.</p>
-          <a class="card-link" href="#" aria-label="Learn more about additional help and resources">
-            <span class="arrow-glyph" aria-hidden="true">&rarr;</span>
-          </a>
-        </div>
+      <div class="page-content">
+        <h1>What Happens Next?</h1>
+
+        <p>You submitted your application. Now the state reviews it to see if you qualify. Here&rsquo;s what to expect while you wait.</p>
+
+        <p>Most decisions come within 45 days. If your case needs a disability review, it can take up to 90 days.</p>
+
+        <p>Watch your mail and your <a href="https://kynect.ky.gov/">kynect</a> account for messages. The state may ask you for more documents, like proof of income or ID. Send what they ask for by the deadline in the letter. If you miss it, your application could be delayed or denied.</p>
+
+        <p>You can check your application status any time by logging into kynect. Write down your case number. You&rsquo;ll need it if you call DCBS with questions.</p>
+
+        <p>When a decision is made, you&rsquo;ll get a notice by mail or in kynect. If you&rsquo;re approved, your Medicaid card may arrive separately. If you&rsquo;re denied, the notice will explain why, and you usually have the right to appeal.</p>
+
+        <p class="source-tag">Source: <a href="https://www.chfs.ky.gov/agencies/dms/dpo/epb/Pages/enroll.aspx" target="_blank" rel="noopener">Kentucky Cabinet for Health and Family Services, Medicaid Enrollment</a></p>
+
+        <a class="back-link" href="index.html">&larr; Back to all topics</a>
       </div>
 
       <div class="footer-rule-row"></div>
