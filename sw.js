@@ -1,4 +1,4 @@
-var CACHE = 'kymn-v12';
+var CACHE = 'kymn-v13';
 var CORE = [
   '/',
   '/index.html',
@@ -19,6 +19,7 @@ var CORE = [
   '/how-do-i-apply.html',
   '/how-do-i-use-my-coverage.html',
   '/what-happens-next.html',
+  '/where-can-i-get-more-help.html',
   '/eligibility-check.html',
   '/emergency-care.html',
   '/faq.html',

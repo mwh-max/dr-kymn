@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Home | Kentucky Medicaid Notebook</title>
-    <style>
+    <title>Where Can I Get More Help? | Kentucky Medicaid Notebook</title>
+<style>
       @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap');
 
       :root {
@@ -178,6 +178,179 @@
         .wordmark { font-size: 1.4rem; text-align: center; }
         .footer-copy { text-align: center; }
       }
+
+      /* ===== Individual topic page: content between the two rules ===== */
+      .page-content {
+        grid-column: 1;
+        grid-row: 2;
+        padding-top: 16px;
+        max-width: 640px;
+      }
+      .page-content h1 {
+        font-family: var(--body);
+        font-weight: 700;
+        font-size: 1.6rem;
+        color: var(--ink);
+        margin: 0 0 1rem;
+        line-height: 1.25;
+      }
+      .page-content p {
+        font-size: 1.05rem;
+        line-height: 1.65;
+        color: var(--ink-soft);
+        margin: 0 0 1rem;
+      }
+      .back-link {
+        display: inline-block;
+        margin-top: .5rem;
+        padding: .5rem 0;
+        color: #1f7a4d;
+        font-weight: 600;
+        text-decoration: underline;
+      }
+      .source-tag {
+        font-size: .85rem;
+        color: var(--muted);
+        margin: 0 0 1.5rem;
+      }
+      .source-tag a {
+        color: var(--muted);
+        text-decoration: underline;
+      }
+
+      /* Mobile: center the page title to match the centered header above it;
+         body copy and the back link stay left-aligned for readability. */
+      @media (max-width: 640px) {
+        .page-content h1 { text-align: center; }
+        .source-tag { text-align: center; }
+      }
+
+      .page-content h2 {
+        font-family: var(--body);
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: var(--ink);
+        margin: 2rem 0 .75rem;
+      }
+      .ride-tool {
+        margin: 1rem 0 1.5rem;
+      }
+      .county-select {
+        width: 100%;
+        max-width: 320px;
+        padding: .65rem .75rem;
+        border-radius: 10px;
+        border: 1px solid var(--ink);
+        background: var(--paper);
+        color: var(--ink);
+        font-family: var(--body);
+        font-size: 1rem;
+      }
+      .broker-result {
+        margin-top: 1rem;
+        border: 1px solid var(--ink);
+        border-radius: 12px;
+        padding: 1rem 1.2rem;
+        background: var(--paper);
+      }
+      .broker-result h3 {
+        margin: 0 0 .3rem;
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--ink);
+      }
+      .broker-meta {
+        margin: 0 0 .75rem;
+        font-size: .9rem;
+        color: var(--muted);
+      }
+      .broker-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: .5rem;
+      }
+      .broker-btn {
+        display: inline-block;
+        text-decoration: none;
+        padding: .5rem .8rem;
+        border-radius: 8px;
+        border: 1px solid var(--ink);
+        background: rgba(31,122,77,.12);
+        color: #1f7a4d;
+        font-weight: 600;
+        font-size: .9rem;
+      }
+      .ride-fallback {
+        font-size: .9rem;
+        color: var(--ink-soft);
+        margin-top: 1.5rem;
+      }
+
+      .faq-item {
+        border: 1px solid var(--ink);
+        border-radius: 12px;
+        padding: .85rem 1rem;
+        margin-bottom: .75rem;
+        background: var(--paper);
+      }
+      .faq-item summary {
+        cursor: pointer;
+        font-weight: 700;
+        color: var(--ink);
+        list-style: none;
+        position: relative;
+        padding-right: 1.5rem;
+      }
+      .faq-item summary::-webkit-details-marker { display: none; }
+      .faq-item summary::after {
+        content: "+";
+        position: absolute;
+        right: 0;
+        color: #1f7a4d;
+        font-weight: 700;
+      }
+      .faq-item[open] summary::after { content: "\2212"; }
+      .faq-item p {
+        margin: .75rem 0 0;
+        color: var(--ink-soft);
+        line-height: 1.6;
+      }
+      .contact-list {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 .5rem;
+      }
+      .contact-list li {
+        padding: .7rem 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .contact-list .contact-label {
+        font-weight: 700;
+        color: var(--ink);
+        display: block;
+        margin-bottom: .15rem;
+      }
+      .contact-list a.contact-value {
+        color: #1f7a4d;
+        font-weight: 600;
+        text-decoration: underline;
+      }
+      .contact-list .contact-note {
+        display: block;
+        font-size: .9rem;
+        color: var(--ink-soft);
+        margin-top: .15rem;
+      }
+      .glossary dt {
+        font-weight: 700;
+        color: var(--ink);
+        margin-top: .9rem;
+      }
+      .glossary dd {
+        margin: .2rem 0 0;
+        color: var(--ink-soft);
+        line-height: 1.6;
+      }
     </style>
   </head>
   <body>
@@ -196,49 +369,91 @@
         <div class="header-rule"></div>
       </div>
 
-      <div class="cards-col">
-        <div class="card">
-          <p class="card-title">What&rsquo;s Medicaid?</p>
-          <p class="card-desc">How the program started, who runs it, and who it&rsquo;s for.</p>
-          <a class="card-link" href="what-is-medicaid.html" aria-label="Learn more about what Medicaid is">
-            <span class="arrow-glyph" aria-hidden="true">&rarr;</span>
-          </a>
-        </div>
-        <div class="card">
-          <p class="card-title">Do I Qualify?</p>
-          <p class="card-desc">See what the current eligibility requirements are.</p>
-          <a class="card-link" href="do-i-qualify.html" aria-label="Learn more about whether you qualify">
-            <span class="arrow-glyph" aria-hidden="true">&rarr;</span>
-          </a>
-        </div>
-        <div class="card">
-          <p class="card-title">How Do I Apply?</p>
-          <p class="card-desc">Online, by phone, by mail, or in person &mdash; whichever works for you.</p>
-          <a class="card-link" href="how-do-i-apply.html" aria-label="Learn more about how to apply">
-            <span class="arrow-glyph" aria-hidden="true">&rarr;</span>
-          </a>
-        </div>
-        <div class="card">
-          <p class="card-title">What Happens Next?</p>
-          <p class="card-desc">What to expect while your application is being reviewed.</p>
-          <a class="card-link" href="what-happens-next.html" aria-label="Learn more about what happens after you apply">
-            <span class="arrow-glyph" aria-hidden="true">&rarr;</span>
-          </a>
-        </div>
-        <div class="card">
-          <p class="card-title">How Do I Use My Coverage?</p>
-          <p class="card-desc">Find providers, get rides to appointments, and see what&rsquo;s covered.</p>
-          <a class="card-link" href="how-do-i-use-my-coverage.html" aria-label="Learn more about using your coverage">
-            <span class="arrow-glyph" aria-hidden="true">&rarr;</span>
-          </a>
-        </div>
-        <div class="card">
-          <p class="card-title">Where Can I Get More Help?</p>
-          <p class="card-desc">FAQs, definitions, and phone numbers worth saving.</p>
-          <a class="card-link" href="where-can-i-get-more-help.html" aria-label="Learn more about additional help and resources">
-            <span class="arrow-glyph" aria-hidden="true">&rarr;</span>
-          </a>
-        </div>
+      <div class="page-content">
+        <h1>Where Can I Get More Help?</h1>
+
+        <p>Save this page. It has phone numbers worth keeping, answers to a few common questions, and plain-language definitions for terms you&rsquo;ll see across this site.</p>
+
+        <h2>Phone numbers worth saving</h2>
+        <ul class="contact-list">
+          <li>
+            <span class="contact-label">Medical emergency</span>
+            <a class="contact-value" href="tel:911">911</a>
+            <span class="contact-note">For any life-threatening emergency. Do not use NEMT for emergencies.</span>
+          </li>
+          <li>
+            <span class="contact-label">DCBS &mdash; applications &amp; case changes</span>
+            <a class="contact-value" href="tel:18553068959">855-306-8959</a>
+            <span class="contact-note">Apply, check your case, report changes, or ask about renewals.</span>
+          </li>
+          <li>
+            <span class="contact-label">Your MCO &mdash; benefits &amp; providers</span>
+            <span class="contact-note">Member services number is printed on the back of your Medicaid card. Call for prior authorization, provider directory, and benefit questions.</span>
+          </li>
+          <li>
+            <span class="contact-label">kynect &mdash; online portal</span>
+            <a class="contact-value" href="https://kynect.ky.gov/">kynect.ky.gov</a>
+            <span class="contact-note">Apply, check your case status, upload documents, and manage your account.</span>
+          </li>
+          <li>
+            <span class="contact-label">Free local help (kynectors)</span>
+            <a class="contact-value" href="https://kynect.ky.gov/healthcoverage/s/kynectors?language=en_US">Find a kynector</a>
+            <span class="contact-note">Certified helpers who can walk you through applying or renewing at no charge.</span>
+          </li>
+          <li>
+            <span class="contact-label">Rides to appointments (NEMT)</span>
+            <a class="contact-value" href="how-do-i-use-my-coverage.html">Find your county&rsquo;s broker</a>
+            <span class="contact-note">Your ride broker depends on which county you live in.</span>
+          </li>
+        </ul>
+
+        <h2>Frequently asked questions</h2>
+
+        <details class="faq-item">
+          <summary>Do I have to renew my coverage every year?</summary>
+          <p>Yes. Kentucky reviews your case once a year in a process called redetermination. Watch your mail and kynect for a renewal notice, and respond by the deadline so your coverage doesn&rsquo;t stop. You can find renewal details at <a href="https://khbe.ky.gov/Enrollment/Pages/MedicaidRenewals.aspx">khbe.ky.gov</a>.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>What if my application or coverage is denied?</summary>
+          <p>You usually have the right to appeal. Your deadline to appeal is printed on your denial notice &mdash; it can vary depending on the type of decision, so check your letter rather than guess, and don&rsquo;t wait. To start, follow the instructions in the notice, or call DCBS or your MCO&rsquo;s member services number for help.</p>
+        </details>
+
+        <details class="faq-item">
+          <summary>How do I update my address, income, or household?</summary>
+          <p>Report changes as soon as they happen. You can update your information in kynect or by calling DCBS at 855-306-8959. Keeping this current helps prevent a gap in your coverage.</p>
+        </details>
+
+        <h2>Glossary</h2>
+        <dl class="glossary">
+          <dt>MCO</dt>
+          <dd>Managed Care Organization. The private health plan Kentucky pays to manage your Medicaid benefits and provider network.</dd>
+
+          <dt>DCBS</dt>
+          <dd>Department for Community Based Services. The state office that processes applications and case changes.</dd>
+
+          <dt>kynect</dt>
+          <dd>Kentucky&rsquo;s official website for applying and managing your benefits.</dd>
+
+          <dt>KCHIP</dt>
+          <dd>Kentucky Children&rsquo;s Health Insurance Program. Covers kids whose families earn a bit too much for regular Medicaid.</dd>
+
+          <dt>NEMT</dt>
+          <dd>Non-Emergency Medical Transportation. Free rides to medical appointments for people who don&rsquo;t have another way to get there.</dd>
+
+          <dt>kynector</dt>
+          <dd>A free, trained helper who can walk you through applying for or renewing Medicaid.</dd>
+
+          <dt>Redetermination</dt>
+          <dd>The yearly review Kentucky does to confirm you still qualify for Medicaid. Also called renewal.</dd>
+
+          <dt>FPL</dt>
+          <dd>Federal Poverty Level. A dollar amount set each year by the federal government, used to help decide if your income qualifies for Medicaid.</dd>
+        </dl>
+
+        <p class="source-tag">Sources: <a href="https://www.chfs.ky.gov/agencies/dms/dpo/epb/Pages/enroll.aspx" target="_blank" rel="noopener">Kentucky Cabinet for Health and Family Services</a> and <a href="https://khbe.ky.gov/Enrollment/Pages/MedicaidRenewals.aspx" target="_blank" rel="noopener">Kentucky Health Benefit Exchange, Medicaid Renewals</a></p>
+
+        <a class="back-link" href="index.html">&larr; Back to all topics</a>
       </div>
 
       <div class="footer-rule-row"></div>
