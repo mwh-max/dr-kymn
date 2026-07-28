@@ -1,4 +1,4 @@
-var CACHE = 'kymn-v13';
+var CACHE = 'kymn-v14';
 var CORE = [
   '/',
   '/index.html',
