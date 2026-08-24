@@ -7,7 +7,7 @@
   var FPL_EACH = 473.33; // each additional person ($5,680/yr ÷ 12)
 
   function monthlyFPL(size) {
-    return FPL_BASE + FPL_EACH * (Math.max(1, size) - 1);
+    return FPL_BASE + FPL_EACH * Math.max(0, size - 1);
   }
 
   var answers = {
